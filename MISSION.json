@@ -50,7 +50,16 @@
     "recipe": "static-web-v1",
     "errors": []
   },
-  "publication": {"status": "not-started"},
+  "publication": {
+    "status": "draft-created",
+    "repository": "https://github.com/codex-lm/veilleurs-verre",
+    "developmentCommit": "5e790aa",
+    "draftId": "bd_s_58258000-588a-4d54-9713-355649c795af",
+    "gameId": "bg_s_adf4cd80-c1e0-4084-992f-9ee0319dccd5",
+    "variantId": "bv_s_2cd434e1-5f23-4fc2-966e-d9a13b33196a",
+    "parentReleaseId": null,
+    "idempotencyKey": "kimi-games-veilleurs-verre-v1"
+  },
   "publicBrowser": {"status": "not-run"},
   "evidence": [
     "evidence/local-browser-check.json",
