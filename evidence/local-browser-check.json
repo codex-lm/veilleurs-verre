@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:4175/",
+  "status": "passed",
+  "boardCells": 35,
+  "initialHand": 5,
+  "cancelBeforeConfirmation": "passed",
+  "deterministicShatter": "3 \u2192 1 energy; crystal removed",
+  "exactReload": {
+    "status": "passed",
+    "sha256": "eb365fa141a5280127cec5a0cf49148b09c338215513cb4b83a3543f2a9b4b77"
+  },
+  "enemyTurn": "resolved; turn 2 reached",
+  "languages": [
+    "EN",
+    "FR",
+    "ES"
+  ],
+  "touch": {
+    "intentInfo": "passed",
+    "movePreviewAndCancel": "passed",
+    "horizontalOverflow": false
+  },
+  "pageErrors": []
+}

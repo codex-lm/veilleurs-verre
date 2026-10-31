@@ -1,0 +1,158 @@
+{
+ "checkLocal": {
+  "recipe": "static-web-v1",
+  "status": "local static checks passed; remote validation still required",
+  "result": "PASSED",
+  "archive": {
+   "sha256": "fa37f9e01c32461c51cb4999f870b0a0c7537e22131a9f08803944548daac6cc",
+   "bytes": 1134873,
+   "entries": 27
+  },
+  "errors": [],
+  "warnings": [],
+  "metadata": {},
+  "limitations": [
+   "preflight statique local : ne reconstruit pas index.html et ne prouve pas que le code compile est a jour avec les sources",
+   "scripts test/build declares dans package.json : NON EXECUTES (donnee declaree, a revoir avant tout npm test / npm run build)",
+   "notices de licence canoniques exactes, tests complets, execution isolee et moderation : verifies cote serveur uniquement",
+   "ces controles ne sont ni un sandbox JavaScript ni une verification de securite ; la CSP navigateur et l'execution AWS isolee restent requises"
+  ]
+ },
+ "manifest": [
+  {
+   "path": ".gitignore",
+   "bytes": 88,
+   "sha256": "d313910b3962e168e6169f49e946c50e5611ecf55bceb28e3e69e61b27e1ace0"
+  },
+  {
+   "path": "CREDITS.md",
+   "bytes": 1319,
+   "sha256": "0826024bb92493c9a8b9abd8a3921a8094e24177ba55b122a4d3e333a1af3ab6"
+  },
+  {
+   "path": "LICENSE",
+   "bytes": 1067,
+   "sha256": "f905ca1ce7358a1e8fa08ca79b5ad19d922874a27a155a58640995adc553e076"
+  },
+  {
+   "path": "LOB7-ATTRIBUTION.json",
+   "bytes": 422,
+   "sha256": "7590cdea7f5b1fdad899c4c665c79850e33efa795e736e2e1f1c870fd81a2f18"
+  },
+  {
+   "path": "LOB7-GAME.json",
+   "bytes": 1274,
+   "sha256": "1b00cdd2da863c6b39c41410ef33f1e0e9c6a1659f1ce223d3f2455143e616be"
+  },
+  {
+   "path": "MISSION.json",
+   "bytes": 1647,
+   "sha256": "c181a35a03c8cc6e78e5fa05ffffac836402e006f4785c28eed071feb4b18128"
+  },
+  {
+   "path": "README.md",
+   "bytes": 5337,
+   "sha256": "b05356df10b892a592e74983fca970d2bcc81f4e6bf7907a958e1e1b82c4736f"
+  },
+  {
+   "path": "build.py",
+   "bytes": 738,
+   "sha256": "299c082f542f9b2e1cfc8437bae2f3b53463485b2cff7d09b244afc17412978f"
+  },
+  {
+   "path": "index.html",
+   "bytes": 155208,
+   "sha256": "4c3bea8ad20374da71b7dadce56df79db2a9bdf05774c7177c99611a5e7cf1a9"
+  },
+  {
+   "path": "art/cover.png",
+   "bytes": 173461,
+   "sha256": "649dfbc94e7c75efd34ec069eea9938a68f290b0efe00061b341d3dad12ecef2"
+  },
+  {
+   "path": "art/favicon.svg",
+   "bytes": 348,
+   "sha256": "349e425cc924785f0f43281350aec3326ea07ad20b54d1eb3ef8e339500bbceb"
+  },
+  {
+   "path": "art/render_cover.py",
+   "bytes": 6363,
+   "sha256": "f381963232450e04216d27ddf7bf6f4e6274b5ceb77840684c70977ee1fd291b"
+  },
+  {
+   "path": "evidence/local-browser-check.json",
+   "bytes": 587,
+   "sha256": "4db50a8f0b5c14766d14def8aeae3c79b73e7cde4756f6f50886cef65c16130f"
+  },
+  {
+   "path": "evidence/local-desktop-combat.png",
+   "bytes": 332386,
+   "sha256": "83b97ab6be8f9b22026188dac9c2260ddd5437b4b1c5b1bb327e2cfb78279e7f"
+  },
+  {
+   "path": "evidence/local-mobile-combat.png",
+   "bytes": 503961,
+   "sha256": "08b9fbcee2b10e15898100fbe057c8302cc2b08944da34deb4d6a9650547c5d9"
+  },
+  {
+   "path": "evidence/local-playthrough-summary.json",
+   "bytes": 1847,
+   "sha256": "7d2c53c3467cf23ea647793f70f54163576f507349d97a9bf390c68a42fd8489"
+  },
+  {
+   "path": "evidence/playthrough-first-light.json",
+   "bytes": 112213,
+   "sha256": "8527d048cb20d94a11e16433ded0f30dad1cc5bbd4fd8c396ac5ac29bff96442"
+  },
+  {
+   "path": "evidence/playthrough-glass-01.json",
+   "bytes": 988025,
+   "sha256": "c37dd784110ba3fdb4f3f289090a3ad229abc6d73a9b41b7e3a9c79f386a7f87"
+  },
+  {
+   "path": "evidence/preflight.json",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "scripts/browser_check.py",
+   "bytes": 5427,
+   "sha256": "eb999f4109e396aaa1198ad6ba83093c508c979e0c613af84c0522cb61238a31"
+  },
+  {
+   "path": "scripts/playtest.js",
+   "bytes": 2010,
+   "sha256": "04bae1dc10a284ded0e907a67d00a9ed398f42806444f1f60980da599a86082f"
+  },
+  {
+   "path": "src/engine.js",
+   "bytes": 41838,
+   "sha256": "7a7ff32bd283aebf61e8b988b623f98d6b64aa508bc861b635651f71f59f622b"
+  },
+  {
+   "path": "src/game.js",
+   "bytes": 77937,
+   "sha256": "077a53296ddc7bd78accff9eda1e521a4149285aaaabd22c3038c16b1ca7e2f2"
+  },
+  {
+   "path": "src/index.template.html",
+   "bytes": 699,
+   "sha256": "06fbf961abbe66364f9cb7420c8b4e7a23b58fec993bac79ef3b3e3e541579d7"
+  },
+  {
+   "path": "src/styles.css",
+   "bytes": 34774,
+   "sha256": "35f945bb5315bc01a6b859aff73fbd26ede6f848d86cda64345c3ca386f92923"
+  },
+  {
+   "path": "tests/engine.test.js",
+   "bytes": 11531,
+   "sha256": "7289694a61f6a3a40314ee3f600253ae0bf7da909a20e320770193d30c6ad35b"
+  },
+  {
+   "path": "tests/expedition.test.js",
+   "bytes": 1472,
+   "sha256": "b2c867d6d68c45d4b2cf19e39be9ce81cde034d78f77e5e4862d44ce5581a2f1"
+  }
+ ]
+}

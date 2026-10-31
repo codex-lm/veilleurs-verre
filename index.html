@@ -1,0 +1,1915 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102e33">
+  <meta name="description" content="Guide three glass wardens through tactical card battles and relight a ruined city's lighthouse.">
+  <title>The Glass Wardens</title>
+  <style>:root {
+  --ink: #102e33;
+  --ink-soft: #285058;
+  --deep: #092228;
+  --paper: #f2eee4;
+  --paper-2: #e5dfcf;
+  --turquoise: #43cbb9;
+  --turquoise-light: #b6fff0;
+  --amber: #e8a84c;
+  --amber-light: #ffe1a0;
+  --plum: #8f4e78;
+  --plum-deep: #4d2948;
+  --white: #f6fffb;
+  --danger: #c75d56;
+  --shadow: 0 16px 40px rgba(4, 25, 29, .18);
+  --display: Georgia, 'Times New Roman', serif;
+  --body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--deep); }
+body { margin: 0; min-width: 320px; min-height: 100vh; color: var(--ink); font-family: var(--body); background: radial-gradient(circle at 85% 5%, rgba(67,203,185,.14), transparent 32rem), linear-gradient(145deg, #0d3438, var(--deep) 70%); }
+button, input { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, [role=button]:focus-visible { outline: 3px solid var(--amber-light); outline-offset: 3px; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.hidden { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.loading { min-height: 100vh; display: grid; place-content: center; text-align: center; color: var(--white); }
+.loading-gem { display: block; width: 42px; height: 58px; margin: auto; background: linear-gradient(135deg, var(--white), var(--turquoise)); clip-path: polygon(50% 0,100% 38%,72% 100%,28% 100%,0 38%); animation: breathe 1.4s infinite; }
+.app-shell { width: min(1480px, 100%); min-height: 100vh; margin: 0 auto; background: var(--paper); box-shadow: 0 0 80px rgba(0,0,0,.28); }
+.topbar { min-height: 68px; padding: 10px 20px; display: flex; align-items: center; gap: 18px; color: var(--white); background: rgba(9,34,40,.97); border-bottom: 1px solid rgba(182,255,240,.18); }
+.brand-button { display: flex; align-items: center; gap: 10px; padding: 0; color: inherit; background: none; border: 0; text-align: left; }
+.brand-mark { width: 34px; height: 43px; filter: drop-shadow(0 0 8px rgba(67,203,185,.28)); }
+.brand-name { font: 600 20px/1 var(--display); letter-spacing: .01em; }
+.brand-sub { display: block; margin-top: 5px; color: #9fc7c3; font: 500 9px/1 var(--body); letter-spacing: .18em; text-transform: uppercase; }
+.topbar-spacer { flex: 1; }
+.seed-chip { color: #a9cbc6; font-size: 11px; letter-spacing: .06em; }
+.icon-button, .language-button { min-width: 40px; min-height: 40px; padding: 8px 10px; border: 1px solid rgba(182,255,240,.22); border-radius: 10px; color: #d7eeea; background: rgba(255,255,255,.04); }
+.icon-button:hover, .language-button:hover, .language-button.active { background: rgba(67,203,185,.16); border-color: var(--turquoise); }
+.language-group { display: flex; gap: 4px; }
+.language-button { min-width: 36px; min-height: 36px; padding: 6px; font-size: 10px; font-weight: 800; }
+.screen { min-height: calc(100vh - 68px); }
+.home { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(242,238,228,0) 55%, rgba(67,203,185,.09)); }
+.home::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .38; background-image: radial-gradient(rgba(16,46,51,.15) .6px, transparent .6px); background-size: 7px 7px; }
+.home-hero { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 30px; min-height: calc(100vh - 150px); padding: clamp(34px, 6vw, 86px); }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; color: var(--plum); font-size: 11px; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+.eyebrow::before { content: ''; width: 30px; height: 1px; background: currentColor; }
+.home h1 { max-width: 660px; margin: 0; color: var(--ink); font: 500 clamp(48px, 6.4vw, 88px)/.96 var(--display); letter-spacing: -.045em; }
+.home h1 em { display: block; color: var(--plum); font-weight: 400; }
+.home-lead { max-width: 560px; margin: 26px 0 30px; color: var(--ink-soft); font: 400 clamp(16px, 1.5vw, 20px)/1.65 var(--body); }
+.home-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.primary-button, .secondary-button, .text-button, .danger-button { min-height: 46px; padding: 12px 20px; border-radius: 12px; font-weight: 750; border: 1px solid transparent; transition: transform .16s, box-shadow .16s, background .16s; }
+.primary-button { color: var(--white); background: var(--ink); box-shadow: 0 8px 20px rgba(16,46,51,.2); }
+.primary-button:hover { transform: translateY(-2px); background: #17464b; box-shadow: 0 12px 24px rgba(16,46,51,.24); }
+.secondary-button { color: var(--ink); background: rgba(255,255,255,.45); border-color: rgba(16,46,51,.24); }
+.secondary-button:hover { background: var(--white); border-color: var(--turquoise); }
+.text-button { color: var(--ink-soft); background: transparent; border-color: transparent; }
+.text-button:hover { background: rgba(16,46,51,.07); }
+.danger-button { color: var(--white); background: var(--plum-deep); }
+.home-note { display: flex; align-items: center; gap: 8px; margin-top: 18px; color: var(--ink-soft); font-size: 12px; }
+.home-note::before { content: ''; width: 7px; height: 7px; transform: rotate(45deg); background: var(--turquoise); }
+.home-art { position: relative; min-height: 500px; display: grid; place-items: center; }
+.lighthouse-halo { position: absolute; width: 390px; height: 390px; border-radius: 50%; border: 1px solid rgba(16,46,51,.13); }
+.lighthouse-halo::before, .lighthouse-halo::after { content: ''; position: absolute; border-radius: 50%; inset: 42px; border: 1px solid rgba(16,46,51,.1); }
+.lighthouse-halo::after { inset: 94px; background: radial-gradient(circle, rgba(67,203,185,.22), transparent 68%); border: 0; }
+.home-figures { position: relative; width: min(460px, 100%); filter: drop-shadow(0 30px 25px rgba(16,46,51,.2)); }
+.home-figures svg { display: block; width: 100%; }
+.feature-strip { position: relative; display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(16,46,51,.12); background: rgba(255,255,255,.32); }
+.feature { padding: 22px clamp(20px,4vw,60px); display: flex; gap: 14px; align-items: center; color: var(--ink-soft); font-size: 12px; line-height: 1.45; }
+.feature + .feature { border-left: 1px solid rgba(16,46,51,.12); }
+.feature-icon { flex: 0 0 auto; display: grid; place-items: center; width: 34px; height: 34px; color: var(--plum); border: 1px solid currentColor; transform: rotate(45deg); }
+.feature-icon span { transform: rotate(-45deg); font-weight: 800; }
+.game-layout { display: grid; grid-template-columns: minmax(0,1fr) 290px; min-height: calc(100vh - 68px); }
+.battle-main { min-width: 0; padding: 18px clamp(12px,2vw,28px) 22px; background: linear-gradient(180deg, #e9e5d9, #dcd8cb); }
+.battle-sidebar { padding: 20px 18px; color: #e7f4f0; background: linear-gradient(180deg, #173c40, #102e33); border-left: 1px solid rgba(255,255,255,.08); }
+.battle-heading { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+.battle-heading h1, .map-title h1, .choice-heading h1 { margin: 0; font: 500 28px/1.1 var(--display); }
+.battle-heading p, .map-title p, .choice-heading p { margin: 6px 0 0; color: var(--ink-soft); font-size: 12px; }
+.turn-chip { margin-left: auto; padding: 8px 12px; border: 1px solid rgba(16,46,51,.18); border-radius: 10px; color: var(--ink-soft); background: rgba(255,255,255,.4); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; }
+.boss-phase { flex-basis: 100%; padding: 10px 12px; color: var(--plum-deep); background: #efd6e5; border-left: 3px solid var(--plum); font-size: 12px; line-height: 1.45; }
+.battle-status { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+.energy-meter { display: flex; align-items: center; gap: 6px; }
+.energy-label { margin-right: 4px; color: var(--ink-soft); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.energy-orb { width: 23px; height: 27px; display: grid; place-items: center; color: var(--ink); font-size: 10px; font-weight: 900; background: linear-gradient(135deg, var(--white), var(--turquoise)); clip-path: polygon(50% 0,100% 35%,76% 100%,24% 100%,0 35%); filter: drop-shadow(0 2px 3px rgba(16,46,51,.2)); }
+.energy-orb.empty { background: #b4b8ad; opacity: .42; }
+.pile-count { color: var(--ink-soft); font-size: 11px; }
+.pile-count strong { color: var(--ink); }
+.board-frame { position: relative; width: min(100%, 840px); margin: 0 auto; padding: 14px; border: 1px solid #b4b0a5; border-radius: 18px; background: linear-gradient(135deg, #c5c1b5, #f0ece2 45%, #b9b5aa); box-shadow: 0 14px 30px rgba(16,46,51,.18), inset 0 1px rgba(255,255,255,.8); }
+.board { position: relative; display: grid; grid-template-columns: repeat(7,1fr); gap: 5px; width: 100%; aspect-ratio: 7/5; padding: 6px; border-radius: 11px; background: #838b82; box-shadow: inset 0 2px 8px rgba(16,46,51,.3); }
+.cell { position: relative; min-width: 0; min-height: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.42); border-radius: 7px; background: linear-gradient(145deg, #e4e2d7, #c9cec1); box-shadow: inset 0 -4px 8px rgba(16,46,51,.09); cursor: pointer; user-select: none; }
+.cell:nth-child(3n) { background: linear-gradient(145deg, #dedfd3, #c4cbbb); }
+.cell::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .24; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.8) 36%, transparent 39%); }
+.cell-coordinate { position: absolute; left: 4px; bottom: 2px; z-index: 1; color: rgba(16,46,51,.36); font-size: clamp(6px,1vw,9px); font-weight: 800; }
+.cell.threatened { background-color: #ead2b5; background-image: repeating-linear-gradient(135deg, rgba(143,78,120,.09) 0 4px, transparent 4px 9px), linear-gradient(145deg, #eee0c9, #d6c3ae); }
+.threat-marker { position: absolute; z-index: 4; right: 3px; bottom: 3px; min-width: 20px; padding: 2px 4px; border-radius: 5px; color: var(--white); background: var(--plum-deep); font-size: clamp(7px,1vw,10px); font-weight: 900; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+.cell.legal { border: 2px solid var(--turquoise); box-shadow: inset 0 0 0 2px rgba(246,255,251,.7), 0 0 12px rgba(67,203,185,.36); }
+.cell.legal::before { content: ''; position: absolute; z-index: 5; left: 50%; top: 50%; width: 12px; height: 12px; transform: translate(-50%,-50%) rotate(45deg); border: 2px solid var(--ink); background: var(--turquoise-light); opacity: .85; }
+.cell.legal:has(.unit)::before, .cell.legal:has(.crystal)::before { width: auto; height: auto; content: '◆'; display: grid; place-items: center; padding: 3px; color: var(--ink); background: var(--turquoise-light); font-size: 10px; }
+.cell.chosen { border: 3px solid var(--amber); box-shadow: 0 0 16px rgba(232,168,76,.6); }
+.cell.obstacle { cursor: default; background: linear-gradient(145deg, #8d9187, #646e68); }
+.obstacle-shape { position: absolute; inset: 13% 10% 18%; border: 1px solid rgba(255,255,255,.25); border-radius: 5px 8px 4px 7px; background: linear-gradient(135deg, #a9aca0, #6d7770); box-shadow: 5px 7px 0 #515d58, inset 2px 2px rgba(255,255,255,.22); }
+.obstacle-shape::after { content: ''; position: absolute; inset: 20% 25%; border-left: 2px solid rgba(16,46,51,.25); transform: rotate(28deg); }
+.hazard-shape { position: absolute; inset: 18%; opacity: .65; background: var(--plum); clip-path: polygon(0 100%,12% 43%,26% 76%,41% 10%,52% 72%,70% 29%,77% 75%,100% 49%,88% 100%); }
+.crystal { position: absolute; z-index: 3; inset: 9% 20% 8%; display: grid; place-items: center; filter: drop-shadow(0 0 8px rgba(67,203,185,.6)); }
+.crystal svg { width: 100%; height: 100%; animation: crystalGlow 2.4s ease-in-out infinite; }
+.unit { position: absolute; z-index: 6; inset: 2% 8% 5%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; pointer-events: none; }
+.unit-svg { flex: 1; width: 100%; min-height: 0; display: grid; place-items: center; filter: drop-shadow(0 5px 3px rgba(16,46,51,.28)); }
+.unit-svg svg { width: 100%; height: 100%; overflow: visible; }
+.unit.hero .unit-svg { animation: heroIdle 3s ease-in-out infinite; }
+.unit.enemy .unit-svg { animation: enemyIdle 2.7s ease-in-out infinite; }
+.unit-hp { position: relative; width: 86%; height: 5px; margin-bottom: 2px; overflow: hidden; border-radius: 4px; background: rgba(9,34,40,.65); border: 1px solid rgba(246,255,251,.55); }
+.unit-hp span { display: block; height: 100%; background: var(--turquoise-light); }
+.unit.enemy .unit-hp span { background: var(--amber-light); }
+.unit-guard { position: absolute; inset: 4%; border: 3px solid var(--turquoise-light); border-radius: 50%; box-shadow: inset 0 0 12px rgba(67,203,185,.5), 0 0 10px rgba(67,203,185,.5); animation: guardPulse 1.3s infinite; }
+.intent-badge { position: absolute; z-index: 8; top: 2px; left: 2px; min-width: 25px; padding: 3px 5px; border-radius: 6px; color: var(--white); background: var(--plum-deep); border: 1px solid rgba(255,255,255,.5); font-size: clamp(7px,1.1vw,11px); font-weight: 900; line-height: 1; box-shadow: 0 2px 4px rgba(16,46,51,.25); }
+.intent-badge.move { color: var(--ink); background: var(--amber-light); }
+.intent-badge.heal { color: var(--ink); background: var(--turquoise-light); }
+.intent-info { position: absolute; z-index: 9; top: 2px; right: 2px; width: 22px; height: 22px; padding: 0; border: 1px solid rgba(16,46,51,.35); border-radius: 50%; color: var(--ink); background: rgba(246,255,251,.85); font: 800 11px/1 var(--body); }
+.board-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin: 10px 0 0; color: var(--ink-soft); font-size: 10px; }
+.legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.legend-symbol { width: 14px; height: 14px; display: inline-grid; place-items: center; border: 1px solid currentColor; font-size: 9px; font-weight: 900; }
+.legend-symbol.threat { background: #dfc6aa; color: var(--plum-deep); }
+.legend-symbol.move { border-style: dashed; color: #168a7d; }
+.legend-symbol.crystal-legend { transform: rotate(45deg); color: #168a7d; background: var(--turquoise-light); }
+.team-mini { display: flex; gap: 6px; margin-left: auto; }
+.team-mini-dot { width: 12px; height: 16px; clip-path: polygon(50% 0,100% 35%,76% 100%,24% 100%,0 35%); background: var(--turquoise); }
+.team-mini-dot.downed { background: #8a8f88; }
+.sidebar-section + .sidebar-section { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(182,255,240,.13); }
+.sidebar-title { display: flex; align-items: center; justify-content: space-between; margin: 0 0 12px; color: #9fc7c3; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.hero-row { width: 100%; display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; padding: 9px 7px; color: inherit; text-align: left; background: transparent; border: 1px solid transparent; border-radius: 10px; }
+.hero-row:hover, .hero-row.selected { background: rgba(67,203,185,.1); border-color: rgba(67,203,185,.4); }
+.hero-row.downed { opacity: .5; }
+.hero-portrait { width: 32px; height: 40px; }
+.hero-portrait svg { width: 100%; height: 100%; }
+.hero-row-name { display: block; font: 500 15px/1.2 var(--display); }
+.hero-row-meta { display: block; margin-top: 4px; color: #a9cbc6; font-size: 10px; }
+.hero-state { color: var(--turquoise-light); font-size: 9px; font-weight: 800; text-align: right; }
+.hp-track { display: block; height: 4px; margin-top: 6px; overflow: hidden; border-radius: 3px; background: rgba(255,255,255,.12); }
+.hp-track span { display: block; height: 100%; background: var(--turquoise); }
+.intent-row { width: 100%; display: grid; grid-template-columns: 30px 1fr; gap: 9px; padding: 9px 4px; color: inherit; text-align: left; border: 0; border-bottom: 1px solid rgba(182,255,240,.08); background: transparent; }
+.intent-row:hover { background: rgba(255,255,255,.05); }
+.intent-row-icon { display: grid; place-items: center; width: 28px; height: 28px; color: var(--amber-light); border: 1px solid rgba(255,225,160,.4); border-radius: 7px; font-weight: 900; }
+.intent-row-name { display: block; font-size: 12px; font-weight: 750; }
+.intent-row-text { display: block; margin-top: 3px; color: #a9cbc6; font-size: 10px; line-height: 1.45; }
+.log-list { margin: 0; padding: 0; list-style: none; color: #a9cbc6; font-size: 10px; line-height: 1.5; }
+.log-list li + li { margin-top: 6px; }
+.hand-zone { margin-top: 16px; }
+.hand-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.hand-heading h2 { margin: 0; font: 500 18px/1 var(--display); }
+.hand-heading span { color: var(--ink-soft); font-size: 10px; }
+.end-turn { margin-left: auto; min-width: 160px; padding: 11px 18px; color: var(--white); background: var(--plum-deep); border: 2px solid var(--plum); border-radius: 12px; box-shadow: 0 5px 0 #321c31; font-weight: 800; }
+.end-turn:hover { transform: translateY(-1px); background: #61345a; }
+.end-turn:active { transform: translateY(3px); box-shadow: 0 2px 0 #321c31; }
+.end-turn small { display: block; margin-top: 3px; color: #d8b7ce; font-size: 9px; font-weight: 500; }
+.hand { display: grid; grid-template-columns: repeat(5,minmax(120px,1fr)); gap: 9px; }
+.card { position: relative; min-width: 0; min-height: 205px; padding: 10px 10px 9px; overflow: hidden; color: var(--ink); text-align: left; border: 1px solid #b7b3a7; border-radius: 12px; background: linear-gradient(160deg, #fffdf5, #e8e3d5); box-shadow: 0 4px 0 #b0aca0, 0 8px 16px rgba(16,46,51,.12); transition: transform .15s, box-shadow .15s; }
+.card:hover:not(:disabled) { transform: translateY(-5px); box-shadow: 0 6px 0 #aaa69a, 0 14px 20px rgba(16,46,51,.18); }
+.card.selected { transform: translateY(-6px); border: 2px solid var(--turquoise); box-shadow: 0 5px 0 #378f83, 0 0 20px rgba(67,203,185,.38); }
+.card:disabled { opacity: .5; filter: saturate(.5); }
+.card-hero { display: flex; align-items: center; gap: 5px; padding-right: 26px; color: var(--ink-soft); font-size: 8px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+.card-hero::before { content: ''; width: 7px; height: 7px; transform: rotate(45deg); background: var(--turquoise); }
+.card.hero-scout .card-hero::before { background: var(--amber); }
+.card.hero-artificer .card-hero::before { background: var(--plum); }
+.card-cost { position: absolute; top: 7px; right: 8px; width: 25px; height: 29px; display: grid; place-items: center; color: var(--ink); background: linear-gradient(135deg,var(--white),var(--turquoise)); clip-path: polygon(50% 0,100% 35%,76% 100%,24% 100%,0 35%); font-size: 13px; font-weight: 900; }
+.card-art { height: 58px; margin: 7px 0 5px; display: grid; place-items: center; color: var(--plum); border-top: 1px solid rgba(16,46,51,.1); border-bottom: 1px solid rgba(16,46,51,.1); background: radial-gradient(ellipse, rgba(67,203,185,.13), transparent 65%); }
+.card-art svg { width: 58px; height: 58px; }
+.card-name { display: block; font: 600 15px/1.1 var(--display); }
+.card-target { display: block; margin-top: 4px; color: var(--plum); font-size: 8px; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
+.card-description { display: block; margin-top: 7px; color: var(--ink-soft); font-size: 10px; line-height: 1.35; }
+.card-level { position: absolute; right: 8px; bottom: 6px; display: flex; gap: 3px; }
+.card-level i { width: 6px; height: 6px; transform: rotate(45deg); background: var(--amber); }
+.preview-panel { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; margin-top: 12px; padding: 13px 14px; color: var(--white); border-radius: 12px; background: var(--ink); box-shadow: var(--shadow); }
+.preview-title { margin: 0 0 5px; color: var(--turquoise-light); font: 500 16px/1.2 var(--display); }
+.preview-text { color: #d4e8e4; font-size: 11px; line-height: 1.55; }
+.preview-actions { display: flex; gap: 7px; }
+.preview-actions .primary-button { color: var(--ink); background: var(--amber-light); }
+.preview-actions .secondary-button { color: var(--white); border-color: rgba(255,255,255,.3); background: transparent; }
+.empty-hand { grid-column: 1/-1; padding: 28px; color: var(--ink-soft); text-align: center; border: 1px dashed rgba(16,46,51,.25); border-radius: 12px; font-size: 12px; }
+.map-screen, .choice-screen, .ending-screen { padding: clamp(24px,4vw,54px); background: radial-gradient(circle at 90% 10%, rgba(67,203,185,.14), transparent 26rem), var(--paper); }
+.map-title, .choice-heading { text-align: center; }
+.map-title h1, .choice-heading h1 { font-size: clamp(30px,4vw,46px); }
+.map-summary { display: flex; justify-content: center; gap: 10px; margin: 20px auto 26px; }
+.summary-hero { min-width: 140px; display: flex; align-items: center; gap: 9px; padding: 9px 12px; border: 1px solid rgba(16,46,51,.15); border-radius: 10px; background: rgba(255,255,255,.38); }
+.summary-hero .hero-portrait { width: 26px; height: 34px; }
+.summary-hero-name { font-size: 11px; font-weight: 800; }
+.summary-hero-hp { margin-top: 3px; color: var(--ink-soft); font-size: 10px; }
+.expedition { display: grid; grid-template-columns: minmax(0,1fr) 260px; gap: 26px; max-width: 1120px; margin: auto; }
+.route-map { position: relative; display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; align-items: center; min-height: 330px; padding: 24px 16px; border: 1px solid rgba(16,46,51,.15); border-radius: 18px; background: linear-gradient(145deg, rgba(255,255,255,.5), rgba(211,221,205,.5)); box-shadow: var(--shadow); }
+.route-map::before { content: ''; position: absolute; left: 8%; right: 8%; top: 50%; height: 2px; background: repeating-linear-gradient(90deg,rgba(16,46,51,.25) 0 7px,transparent 7px 13px); }
+.route-stage { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 10px; }
+.route-stage-label { color: var(--ink-soft); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-align: center; text-transform: uppercase; }
+.route-node { min-height: 92px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; color: var(--ink); border: 1px solid rgba(16,46,51,.18); border-radius: 12px; background: #f5f2e8; box-shadow: 0 4px 8px rgba(16,46,51,.08); text-align: center; }
+button.route-node:hover { transform: translateY(-3px); border-color: var(--turquoise); box-shadow: 0 8px 16px rgba(16,46,51,.15); }
+.route-node.completed { opacity: .65; background: #d4dfd2; }
+.route-node.locked { opacity: .34; }
+.route-node.final { color: var(--white); background: var(--plum-deep); border-color: var(--plum); }
+.route-node-icon { width: 34px; height: 34px; display: grid; place-items: center; color: var(--plum); }
+.route-node.final .route-node-icon { color: var(--amber-light); }
+.route-node-icon svg { width: 100%; height: 100%; }
+.route-node-name { font: 600 12px/1.15 var(--display); }
+.route-node-type { color: var(--ink-soft); font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.route-node.final .route-node-type { color: #d8b7ce; }
+.deck-panel { padding: 20px; border: 1px solid rgba(16,46,51,.15); border-radius: 16px; background: rgba(255,255,255,.45); }
+.deck-panel h2 { margin: 0 0 5px; font: 500 22px/1.2 var(--display); }
+.deck-panel > p { margin: 0 0 16px; color: var(--ink-soft); font-size: 11px; line-height: 1.5; }
+.deck-list { display: grid; gap: 7px; }
+.deck-item { display: flex; align-items: center; gap: 8px; padding-bottom: 7px; border-bottom: 1px solid rgba(16,46,51,.08); font-size: 11px; }
+.deck-item-symbol { color: var(--plum); font-weight: 900; }
+.deck-item-count { margin-left: auto; color: var(--ink-soft); }
+.deck-item-level { color: var(--amber); font-weight: 900; }
+.choice-screen { min-height: calc(100vh - 68px); }
+.choice-subtitle { max-width: 620px; margin: 10px auto 28px; color: var(--ink-soft); text-align: center; font-size: 13px; line-height: 1.6; }
+.choice-grid { display: grid; grid-template-columns: repeat(3,minmax(0,260px)); justify-content: center; gap: 20px; }
+.choice-card { position: relative; min-height: 320px; padding: 22px; display: flex; flex-direction: column; align-items: center; color: var(--ink); text-align: center; border: 1px solid rgba(16,46,51,.18); border-radius: 18px; background: linear-gradient(155deg,#fffdf5,#e4e1d4); box-shadow: 0 8px 0 #c5c1b5, 0 20px 35px rgba(16,46,51,.12); }
+.choice-card:hover { transform: translateY(-5px); border-color: var(--turquoise); box-shadow: 0 10px 0 #b9c9bd, 0 25px 40px rgba(16,46,51,.16); }
+.choice-kind { color: var(--plum); font-size: 9px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.choice-art { width: 110px; height: 110px; margin: 20px 0; display: grid; place-items: center; color: var(--plum); border: 1px solid rgba(16,46,51,.12); border-radius: 50%; background: radial-gradient(circle,rgba(67,203,185,.18),transparent 70%); }
+.choice-art svg { width: 74px; height: 74px; }
+.choice-card h2 { margin: 0; font: 500 25px/1.15 var(--display); }
+.choice-card p { color: var(--ink-soft); font-size: 12px; line-height: 1.6; }
+.choice-cta { margin-top: auto; padding-top: 16px; color: var(--ink); font-size: 11px; font-weight: 850; text-transform: uppercase; letter-spacing: .1em; }
+.ending-screen { min-height: calc(100vh - 68px); display: grid; place-content: center; text-align: center; }
+.ending-art { width: 230px; height: 190px; margin: 0 auto 12px; color: var(--plum); }
+.ending-art svg { width: 100%; height: 100%; }
+.ending-screen h1 { margin: 0; font: 500 clamp(40px,6vw,70px)/1 var(--display); }
+.ending-lead { max-width: 580px; margin: 18px auto; color: var(--ink-soft); line-height: 1.65; }
+.ending-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0 28px; }
+.ending-stat { min-width: 100px; padding: 12px; border: 1px solid rgba(16,46,51,.15); border-radius: 10px; background: rgba(255,255,255,.42); }
+.ending-stat strong { display: block; font: 500 26px/1 var(--display); }
+.ending-stat span { display: block; margin-top: 6px; color: var(--ink-soft); font-size: 9px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.ending-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.modal-backdrop { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(5,24,28,.78); backdrop-filter: blur(5px); }
+.modal { width: min(680px,100%); max-height: min(780px,90vh); overflow-y: auto; padding: 26px; border: 1px solid rgba(182,255,240,.25); border-radius: 18px; background: var(--paper); box-shadow: 0 30px 80px rgba(0,0,0,.4); }
+.modal-header { display: flex; align-items: flex-start; gap: 20px; }
+.modal-header h2 { margin: 0; font: 500 30px/1.1 var(--display); }
+.modal-header .icon-button { margin-left: auto; color: var(--ink); border-color: rgba(16,46,51,.2); }
+.modal-body { margin-top: 20px; color: var(--ink-soft); font-size: 13px; line-height: 1.65; }
+.modal-body h3 { margin: 22px 0 6px; color: var(--ink); font: 600 18px/1.2 var(--display); }
+.modal-body p { margin: 7px 0; }
+.modal-body ul { padding-left: 20px; }
+.rule-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 14px; }
+.rule-item { padding: 12px; border: 1px solid rgba(16,46,51,.13); border-radius: 10px; background: rgba(255,255,255,.4); }
+.rule-item strong { display: block; color: var(--ink); }
+.intent-detail { padding: 14px; color: var(--white); border-radius: 10px; background: var(--ink); }
+#toast { position: fixed; z-index: 120; left: 50%; bottom: 24px; max-width: calc(100% - 32px); padding: 11px 16px; transform: translate(-50%,20px); color: var(--white); border-radius: 10px; background: var(--plum-deep); box-shadow: var(--shadow); font-size: 12px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+#toast.visible { opacity: 1; transform: translate(-50%,0); }
+.fx-hit { animation: hit .32s ease-out; }
+.autoplay-banner { position: fixed; z-index: 50; left: 12px; bottom: 12px; padding: 8px 12px; color: var(--white); border: 1px solid rgba(182,255,240,.3); border-radius: 9px; background: rgba(9,34,40,.9); font-size: 10px; }
+@keyframes breathe { 50% { transform: translateY(-5px); filter: drop-shadow(0 0 12px var(--turquoise)); } }
+@keyframes crystalGlow { 50% { transform: translateY(-3px); filter: brightness(1.25); } }
+@keyframes heroIdle { 50% { transform: translateY(-2px); } }
+@keyframes enemyIdle { 50% { transform: translateY(1px); } }
+@keyframes guardPulse { 50% { opacity: .55; transform: scale(.94); } }
+@keyframes hit { 25% { transform: translateX(-5px); filter: brightness(1.7); } 60% { transform: translateX(4px); } }
+.unit.downed { opacity: .3; filter: grayscale(1); }
+@media (min-width: 901px) and (max-height: 800px) {
+  .battle-main { padding-top: 10px; }
+  .battle-heading { margin-bottom: 8px; }
+  .battle-heading h1 { font-size: 24px; }
+  .battle-status { margin-bottom: 8px; }
+  .board-frame { width: min(100%, max(380px, calc((100vh - 410px) * 1.4)), 840px); padding: 8px; }
+  .board-legend { margin-top: 4px; }
+  .hand-zone { margin-top: 8px; }
+  .hand-heading { margin-bottom: 6px; }
+  .card { min-height: 180px; }
+  .card-art { height: 42px; }
+  .card-art svg { width: 42px; height: 42px; }
+}
+@media (max-width: 1180px) {
+  .game-layout { grid-template-columns: minmax(0,1fr) 250px; }
+  .hand { overflow-x: auto; grid-template-columns: repeat(5,minmax(135px,1fr)); padding: 5px 2px 12px; }
+  .card { min-height: 200px; }
+  .route-map { padding: 18px 8px; gap: 5px; }
+  .route-node { min-height: 82px; }
+}
+@media (max-width: 900px) {
+  .home-hero { grid-template-columns: 1fr; min-height: auto; padding: 46px 34px; }
+  .home-copy { position: relative; z-index: 2; }
+  .home-art { position: absolute; right: -80px; top: 40px; width: 480px; opacity: .16; }
+  .home h1 { max-width: 540px; }
+  .feature-strip { grid-template-columns: 1fr; }
+  .feature + .feature { border-left: 0; border-top: 1px solid rgba(16,46,51,.1); }
+  .game-layout { display: block; }
+  .battle-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-left: 0; }
+  .sidebar-section + .sidebar-section { margin: 0; padding: 0 0 0 20px; border-top: 0; border-left: 1px solid rgba(182,255,240,.13); }
+  .sidebar-section.log-section { display: none; }
+  .expedition { grid-template-columns: 1fr; }
+  .deck-panel { display: none; }
+  .route-map { min-height: 280px; }
+}
+@media (max-width: 640px) {
+  .topbar { min-height: 58px; padding: 8px 10px; gap: 7px; }
+  .brand-mark { width: 26px; height: 34px; }
+  .brand-name { font-size: 15px; }
+  .brand-sub, .seed-chip { display: none; }
+  .icon-button { min-width: 36px; min-height: 36px; padding: 6px; }
+  .language-button { min-width: 30px; min-height: 34px; font-size: 9px; }
+  .screen { min-height: calc(100vh - 58px); }
+  .home-hero { padding: 38px 22px; }
+  .home h1 { font-size: clamp(43px,14vw,64px); }
+  .home-lead { font-size: 15px; }
+  .home-actions { flex-direction: column; align-items: stretch; }
+  .home-actions button { width: 100%; }
+  .battle-main { padding: 12px 7px 18px; }
+  .battle-heading { gap: 8px; margin: 0 5px 10px; flex-wrap: wrap; }
+  .battle-heading h1 { font-size: 22px; }
+  .battle-heading p { font-size: 10px; }
+  .turn-chip { padding: 6px 8px; font-size: 9px; }
+  .battle-status { gap: 8px; margin: 0 5px 9px; }
+  .energy-label { display: none; }
+  .energy-orb { width: 18px; height: 22px; }
+  .pile-count { font-size: 9px; }
+  .board-frame { padding: 6px; border-radius: 11px; }
+  .board { gap: 2px; padding: 3px; }
+  .cell { border-radius: 4px; }
+  .cell-coordinate { display: none; }
+  .intent-badge { top: 1px; left: 1px; min-width: 19px; padding: 2px 3px; font-size: 7px; }
+  .intent-info { top: 1px; right: 1px; width: 17px; height: 17px; font-size: 9px; }
+  .threat-marker { right: 1px; bottom: 1px; min-width: 16px; padding: 1px 2px; font-size: 7px; }
+  .unit { inset: 1% 5% 3%; }
+  .unit-hp { height: 4px; }
+  .board-legend { gap: 8px; font-size: 8px; }
+  .battle-sidebar { padding: 14px 10px; gap: 8px; }
+  .sidebar-section + .sidebar-section { padding-left: 8px; }
+  .hero-row { grid-template-columns: 24px 1fr; gap: 5px; padding: 6px 2px; }
+  .hero-portrait { width: 24px; height: 31px; }
+  .hero-row-name { font-size: 12px; }
+  .hero-state { display: none; }
+  .intent-row { grid-template-columns: 22px 1fr; gap: 5px; padding: 6px 1px; }
+  .intent-row-icon { width: 21px; height: 21px; font-size: 10px; }
+  .intent-row-name { font-size: 10px; }
+  .intent-row-text { font-size: 8px; }
+  .hand-zone { margin-top: 12px; }
+  .hand-heading { margin: 0 4px 8px; flex-wrap: wrap; }
+  .hand-heading h2 { font-size: 16px; }
+  .end-turn { min-width: 130px; padding: 9px 12px; font-size: 12px; }
+  .hand { grid-template-columns: repeat(5,128px); gap: 8px; }
+  .card { min-height: 192px; padding: 8px; }
+  .card-art { height: 48px; }
+  .card-art svg { width: 48px; height: 48px; }
+  .card-name { font-size: 14px; }
+  .card-description { font-size: 9px; }
+  .preview-panel { position: sticky; z-index: 30; bottom: 6px; grid-template-columns: 1fr; gap: 8px; margin: 8px 3px; padding: 11px; }
+  .preview-title { font-size: 14px; }
+  .preview-text { font-size: 10px; }
+  .preview-actions { justify-content: flex-end; }
+  .preview-actions button { min-height: 40px; padding: 8px 14px; }
+  .map-screen, .choice-screen, .ending-screen { padding: 24px 12px; }
+  .map-summary { gap: 5px; margin: 15px auto; }
+  .summary-hero { min-width: 0; flex: 1; padding: 7px; gap: 4px; }
+  .summary-hero .hero-portrait { width: 21px; }
+  .summary-hero-name { font-size: 9px; }
+  .summary-hero-hp { font-size: 8px; }
+  .route-map { min-height: 240px; padding: 16px 4px; gap: 3px; }
+  .route-stage { gap: 6px; }
+  .route-stage-label { font-size: 7px; }
+  .route-node { min-height: 70px; padding: 6px 2px; border-radius: 8px; }
+  .route-node-icon { width: 25px; height: 25px; }
+  .route-node-name { font-size: 9px; }
+  .route-node-type { font-size: 6px; }
+  .choice-grid { grid-template-columns: 1fr; gap: 14px; }
+  .choice-card { min-height: 230px; padding: 17px; }
+  .choice-art { width: 76px; height: 76px; margin: 12px; }
+  .choice-art svg { width: 54px; height: 54px; }
+  .choice-card h2 { font-size: 22px; }
+  .choice-card p { margin: 8px 0; }
+  .modal { padding: 20px 16px; }
+  .rule-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+  <div id="app"><div class="loading"><span class="loading-gem"></span><p>Kindling the glass…</p></div></div>
+  <div id="modal-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.VeilleursEngine = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  const WIDTH = 7;
+  const HEIGHT = 5;
+  const SAVE_VERSION = 1;
+  const INITIAL_COLLECTION = [
+    'bash', 'bash', 'safeguard', 'safeguard', 'edge', 'edge',
+    'bolt', 'bolt', 'shatter', 'swap', 'resonance', 'vault'
+  ];
+  const CARD_ORDER = ['bash', 'safeguard', 'fortify', 'edge', 'vault', 'bolt', 'swap', 'shatter', 'resonance', 'mend'];
+  const CARDS = {
+    bash: { hero: 'guardian', cost: 1, range: 1, target: 'enemy', effect: 'bash', value: 2 },
+    safeguard: { hero: 'guardian', cost: 1, range: 3, target: 'hero', effect: 'guard', value: 3 },
+    fortify: { hero: 'guardian', cost: 2, range: 0, target: 'self', effect: 'fortify', value: 2 },
+    edge: { hero: 'scout', cost: 1, range: 1, target: 'enemy', effect: 'edge', value: 3 },
+    vault: { hero: 'scout', cost: 1, range: 3, target: 'cell', effect: 'vault', value: 0 },
+    bolt: { hero: 'artificer', cost: 1, range: 4, target: 'enemy', effect: 'bolt', value: 2 },
+    swap: { hero: 'artificer', cost: 1, range: 4, target: 'twoHeroes', effect: 'swap', value: 0 },
+    shatter: { hero: 'artificer', cost: 2, range: 4, target: 'crystal', effect: 'shatter', value: 3 },
+    resonance: { hero: 'artificer', cost: 1, range: 4, target: 'crystal', effect: 'resonance', value: 3 },
+    mend: { hero: 'artificer', cost: 1, range: 3, target: 'hero', effect: 'mend', value: 3 }
+  };
+  const ENEMIES = {
+    hound: { hp: 6, damage: 2, behavior: 'pursue' },
+    sentry: { hp: 5, damage: 2, behavior: 'snipe' },
+    ram: { hp: 8, damage: 3, behavior: 'charge' },
+    weaver: { hp: 6, damage: 2, behavior: 'weave' },
+    boss: { hp: 24, damage: 2, behavior: 'boss' }
+  };
+  const HEROES = [
+    { id: 'guardian', maxHp: 14, x: 1, y: 2 },
+    { id: 'scout', maxHp: 10, x: 0, y: 1 },
+    { id: 'artificer', maxHp: 11, x: 0, y: 3 }
+  ];
+  const LAYOUTS = [
+    {
+      obstacles: [[3, 1], [3, 3]], crystals: [[3, 2]],
+      hazards: [[4, 0], [4, 4], [5, 2]]
+    },
+    {
+      obstacles: [[2, 0], [2, 3], [4, 1], [4, 4]], crystals: [[3, 2], [5, 3]],
+      hazards: [[3, 0], [3, 4], [5, 1]]
+    },
+    {
+      obstacles: [[2, 1], [2, 2], [4, 2], [4, 3]], crystals: [[3, 0], [3, 4]],
+      hazards: [[3, 2], [5, 1], [5, 3]]
+    }
+  ];
+  const SPAWNS = [[6, 2], [6, 0], [6, 4], [5, 1], [5, 3], [4, 0], [4, 4]];
+  const ENCOUNTERS = [
+    ['hound', 'hound', 'sentry'],
+    ['ram', 'hound', 'sentry'],
+    ['weaver', 'hound', 'sentry', 'ram'],
+    ['ram', 'weaver', 'hound', 'sentry'],
+    ['ram', 'ram', 'weaver', 'sentry', 'hound']
+  ];
+  const DIRECTIONS = [[0, -1], [1, 0], [0, 1], [-1, 0]];
+
+  function clone(value) { return JSON.parse(JSON.stringify(value)); }
+  function inside(x, y) { return x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT; }
+  function distance(a, b) { return Math.abs(a.x - b.x) + Math.abs(a.y - b.y); }
+  function cellKey(x, y) { return `${x},${y}`; }
+  function sameCell(a, b) { return a && b && a.x === b.x && a.y === b.y; }
+  function hashSeed(input) {
+    const text = String(input == null ? 'glass' : input);
+    let hash = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+      hash ^= text.charCodeAt(i);
+      hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0) || 0x6d2b79f5;
+  }
+  function random(state) {
+    let x = state.rngState >>> 0;
+    x ^= x << 13;
+    x ^= x >>> 17;
+    x ^= x << 5;
+    state.rngState = x >>> 0;
+    return state.rngState / 4294967296;
+  }
+  function shuffle(state, array) {
+    for (let i = array.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(random(state) * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+  function aliveHeroes(state) { return state.heroes.filter(hero => hero.hp > 0); }
+  function aliveEnemies(state) { return state.combat ? state.combat.enemies.filter(enemy => enemy.hp > 0) : []; }
+  function heroById(state, id) { return state.heroes.find(hero => hero.id === id); }
+  function enemyById(state, id) { return state.combat.enemies.find(enemy => enemy.id === id); }
+  function crystalById(state, id) { return state.combat.crystals.find(crystal => crystal.id === id); }
+  function unitAt(state, x, y, ignoreId) {
+    const hero = state.heroes.find(item => item.hp > 0 && item.id !== ignoreId && item.x === x && item.y === y);
+    if (hero) return hero;
+    return aliveEnemies(state).find(item => item.id !== ignoreId && item.x === x && item.y === y) || null;
+  }
+  function obstacleAt(state, x, y) { return state.combat.obstacles.some(cell => cell.x === x && cell.y === y); }
+  function crystalAt(state, x, y) { return state.combat.crystals.find(crystal => crystal.x === x && crystal.y === y) || null; }
+  function hazardAt(state, x, y) { return state.combat.hazards.some(cell => cell.x === x && cell.y === y); }
+  function blocked(state, x, y, ignoreId) {
+    return !inside(x, y) || obstacleAt(state, x, y) || Boolean(crystalAt(state, x, y)) || Boolean(unitAt(state, x, y, ignoreId));
+  }
+  function plusCells(x, y) {
+    return [{ x, y }, ...DIRECTIONS.map(([dx, dy]) => ({ x: x + dx, y: y + dy }))].filter(cell => inside(cell.x, cell.y));
+  }
+  function lineOfSight(state, from, to) {
+    let x0 = from.x;
+    let y0 = from.y;
+    const x1 = to.x;
+    const y1 = to.y;
+    const dx = Math.abs(x1 - x0);
+    const sx = x0 < x1 ? 1 : -1;
+    const dy = -Math.abs(y1 - y0);
+    const sy = y0 < y1 ? 1 : -1;
+    let error = dx + dy;
+    while (!(x0 === x1 && y0 === y1)) {
+      const e2 = 2 * error;
+      if (e2 >= dy) { error += dy; x0 += sx; }
+      if (e2 <= dx) { error += dx; y0 += sy; }
+      if (x0 === x1 && y0 === y1) break;
+      if (obstacleAt(state, x0, y0) || crystalAt(state, x0, y0)) return false;
+    }
+    return true;
+  }
+  function reachable(state, unit, maxDistance) {
+    const startKey = cellKey(unit.x, unit.y);
+    const seen = new Map([[startKey, { x: unit.x, y: unit.y, path: [] }]]);
+    const queue = [seen.get(startKey)];
+    for (let index = 0; index < queue.length; index += 1) {
+      const current = queue[index];
+      if (current.path.length >= maxDistance) continue;
+      for (const [dx, dy] of DIRECTIONS) {
+        const x = current.x + dx;
+        const y = current.y + dy;
+        const key = cellKey(x, y);
+        if (seen.has(key) || blocked(state, x, y, unit.id)) continue;
+        const next = { x, y, path: [...current.path, { x, y }] };
+        seen.set(key, next);
+        queue.push(next);
+      }
+    }
+    seen.delete(startKey);
+    return [...seen.values()];
+  }
+  function approachPath(state, unit, target, maxDistance) {
+    if (distance(unit, target) <= 1) return [];
+    const queue = [{ x: unit.x, y: unit.y, path: [] }];
+    const seen = new Set([cellKey(unit.x, unit.y)]);
+    for (let index = 0; index < queue.length; index += 1) {
+      const current = queue[index];
+      for (const [dx, dy] of DIRECTIONS) {
+        const x = current.x + dx;
+        const y = current.y + dy;
+        const key = cellKey(x, y);
+        if (seen.has(key) || blocked(state, x, y, unit.id)) continue;
+        const path = [...current.path, { x, y }];
+        if (distance({ x, y }, target) === 1) return path.slice(0, maxDistance);
+        seen.add(key);
+        queue.push({ x, y, path });
+      }
+    }
+    return [];
+  }
+  function createExpedition(seed) {
+    const state = {
+      version: SAVE_VERSION,
+      seed: String(seed == null ? 'glass-01' : seed),
+      rngState: 0,
+      screen: 'map',
+      stage: 0,
+      route: [],
+      currentNode: null,
+      heroes: HEROES.map(hero => ({ ...hero, hp: hero.maxHp, guard: 0, moved: false })),
+      collection: [...INITIAL_COLLECTION],
+      upgrades: {},
+      nextCardUid: 1,
+      map: [],
+      combat: null,
+      reward: null,
+      rest: null,
+      event: null,
+      ending: null,
+      score: 0,
+      stats: { turns: 0, cardsPlayed: 0, kills: 0, crystals: 0, damageTaken: 0, combats: 0 }
+    };
+    state.rngState = hashSeed(state.seed);
+    const typeRows = [
+      ['combat'],
+      ['combat', 'rest'],
+      ['event', 'combat'],
+      ['rest', 'combat'],
+      ['combat', 'event']
+    ];
+    for (let stage = 0; stage < 5; stage += 1) {
+      const types = [...typeRows[stage]];
+      if (types.length > 1 && random(state) > 0.5) types.reverse();
+      state.map.push(types.map((type, lane) => ({
+        id: `${stage}-${lane}`,
+        stage,
+        lane,
+        type,
+        layout: Math.floor(random(state) * LAYOUTS.length),
+        difficulty: stage
+      })));
+    }
+    return state;
+  }
+  function availableNodes(state) {
+    if (state.screen !== 'map') return [];
+    if (state.stage >= 5) return [{ id: 'final', stage: 5, lane: 0, type: 'final', layout: 2, difficulty: 5 }];
+    return state.map[state.stage];
+  }
+  function makeDeck(state) {
+    const cards = state.collection.map(id => ({ uid: `c${state.nextCardUid++}`, id }));
+    return shuffle(state, cards);
+  }
+  function drawToFive(state) {
+    const combat = state.combat;
+    while (combat.hand.length < 5) {
+      if (!combat.deck.length) {
+        if (!combat.discard.length) break;
+        combat.deck = combat.discard.splice(0);
+        shuffle(state, combat.deck);
+        combat.log.push({ type: 'reshuffle' });
+      }
+      combat.hand.push(combat.deck.pop());
+    }
+  }
+  function createIntents(state) {
+    const combat = state.combat;
+    const intents = [];
+    for (const enemy of aliveEnemies(state)) {
+      const def = ENEMIES[enemy.type];
+      const heroes = aliveHeroes(state).slice().sort((a, b) => distance(enemy, a) - distance(enemy, b) || a.id.localeCompare(b.id));
+      if (!heroes.length) continue;
+      const target = heroes[0];
+      let intent = null;
+      if (def.behavior === 'pursue') {
+        if (distance(enemy, target) === 1) {
+          intent = { type: 'attack', area: [{ x: target.x, y: target.y }], damage: def.damage };
+        } else {
+          const path = approachPath(state, enemy, target, 2);
+          intent = { type: 'move', path, destination: path.length ? path[path.length - 1] : { x: enemy.x, y: enemy.y } };
+        }
+      } else if (def.behavior === 'snipe') {
+        if (distance(enemy, target) <= 5 && lineOfSight(state, enemy, target)) {
+          intent = { type: 'attack', area: [{ x: target.x, y: target.y }], damage: def.damage };
+        } else {
+          const path = approachPath(state, enemy, target, 1);
+          intent = { type: 'move', path, destination: path.length ? path[path.length - 1] : { x: enemy.x, y: enemy.y } };
+        }
+      } else if (def.behavior === 'charge') {
+        const aligned = (enemy.x === target.x || enemy.y === target.y) && distance(enemy, target) <= 4 && lineOfSight(state, enemy, target);
+        if (aligned) {
+          const path = [];
+          let x = enemy.x;
+          let y = enemy.y;
+          while (x !== target.x || y !== target.y) {
+            if (x !== target.x) x += Math.sign(target.x - x);
+            else y += Math.sign(target.y - y);
+            path.push({ x, y });
+          }
+          intent = { type: 'charge', path, area: path, target: { x: target.x, y: target.y }, damage: def.damage };
+        } else {
+          const path = approachPath(state, enemy, target, 1);
+          intent = { type: 'move', path, destination: path.length ? path[path.length - 1] : { x: enemy.x, y: enemy.y } };
+        }
+      } else if (def.behavior === 'weave') {
+        const wounded = aliveEnemies(state).filter(item => item.hp < item.maxHp).sort((a, b) => (a.hp / a.maxHp) - (b.hp / b.maxHp) || a.id.localeCompare(b.id));
+        if (combat.turn % 2 === 0 && wounded.length) {
+          intent = { type: 'heal', targetEnemyId: wounded[0].id, amount: 3 };
+        } else {
+          const center = aliveHeroes(state).slice().sort((a, b) => {
+            const aCount = aliveHeroes(state).filter(hero => distance(a, hero) <= 1).length;
+            const bCount = aliveHeroes(state).filter(hero => distance(b, hero) <= 1).length;
+            return bCount - aCount || distance(enemy, a) - distance(enemy, b) || a.id.localeCompare(b.id);
+          })[0];
+          intent = { type: 'attack', area: plusCells(center.x, center.y), damage: def.damage, center: { x: center.x, y: center.y } };
+        }
+      } else if (def.behavior === 'boss') {
+        const rowTarget = aliveHeroes(state).slice().sort((a, b) => {
+          const aCount = aliveHeroes(state).filter(hero => hero.y === a.y).length;
+          const bCount = aliveHeroes(state).filter(hero => hero.y === b.y).length;
+          return bCount - aCount || a.id.localeCompare(b.id);
+        })[0];
+        if (combat.bossPhase === 2) {
+          const area = [];
+          for (let x = 0; x < WIDTH; x += 1) area.push({ x, y: rowTarget.y });
+          for (let y = 0; y < HEIGHT; y += 1) if (y !== rowTarget.y) area.push({ x: rowTarget.x, y });
+          intent = { type: 'bossCross', area, damage: 3, center: { x: rowTarget.x, y: rowTarget.y } };
+        } else if (combat.turn % 2 === 1) {
+          intent = { type: 'bossRow', area: Array.from({ length: WIDTH }, (_, x) => ({ x, y: rowTarget.y })), damage: 2, center: { x: rowTarget.x, y: rowTarget.y } };
+        } else {
+          intent = { type: 'attack', area: plusCells(rowTarget.x, rowTarget.y), damage: 2, center: { x: rowTarget.x, y: rowTarget.y } };
+        }
+      }
+      if (intent) intents.push({ id: `${enemy.id}-t${combat.turn}`, enemyId: enemy.id, ...intent });
+    }
+    combat.intents = intents;
+  }
+  function setupCombat(state, node) {
+    const combat = {
+      nodeId: node.id,
+      final: node.type === 'final',
+      layout: node.layout,
+      turn: 1,
+      energy: 3,
+      deck: [],
+      hand: [],
+      discard: [],
+      enemies: [],
+      obstacles: [],
+      crystals: [],
+      hazards: [],
+      intents: [],
+      bossPhase: 1,
+      log: []
+    };
+    state.combat = combat;
+    const layout = LAYOUTS[node.layout];
+    combat.obstacles = layout.obstacles.map(([x, y]) => ({ x, y }));
+    combat.crystals = layout.crystals.map(([x, y], index) => ({ id: `crystal-${index}`, x, y }));
+    combat.hazards = layout.hazards.map(([x, y]) => ({ x, y }));
+    state.heroes.forEach((hero, index) => {
+      hero.x = HEROES[index].x;
+      hero.y = HEROES[index].y;
+      hero.guard = 0;
+      hero.moved = false;
+    });
+    const types = node.type === 'final' ? ['boss', 'hound'] : ENCOUNTERS[node.difficulty];
+    let spawnIndex = 0;
+    types.forEach((type, index) => {
+      while (spawnIndex < SPAWNS.length) {
+        const [x, y] = SPAWNS[spawnIndex++];
+        if (!blocked(state, x, y)) {
+          const def = ENEMIES[type];
+          combat.enemies.push({ id: `e${index + 1}`, type, x, y, hp: def.hp, maxHp: def.hp });
+          break;
+        }
+      }
+    });
+    combat.deck = makeDeck(state);
+    drawToFive(state);
+    createIntents(state);
+    state.screen = 'combat';
+    state.stats.combats += 1;
+    combat.log.push({ type: node.type === 'final' ? 'bossStart' : 'combatStart' });
+  }
+  function startNode(state, nodeId) {
+    const node = availableNodes(state).find(item => item.id === nodeId);
+    if (!node) return { ok: false, error: 'invalidNode' };
+    state.currentNode = { ...node };
+    state.reward = null;
+    state.rest = null;
+    state.event = null;
+    state.ending = null;
+    if (node.type === 'combat' || node.type === 'final') setupCombat(state, node);
+    else if (node.type === 'rest') {
+      const candidates = upgradeCandidates(state);
+      state.rest = { heal: 6, upgradeCardId: candidates.length ? candidates[Math.floor(random(state) * candidates.length)] : 'bash' };
+      state.screen = 'rest';
+    } else {
+      const newCardId = CARD_ORDER[Math.floor(random(state) * CARD_ORDER.length)];
+      state.event = { newCardId, cost: 1, heal: 4 };
+      state.screen = 'event';
+    }
+    return { ok: true };
+  }
+  function incomingAt(state, x, y) {
+    if (!state.combat) return 0;
+    return state.combat.intents.reduce((total, intent) => {
+      const enemy = enemyById(state, intent.enemyId);
+      if (!enemy || enemy.hp <= 0 || !intent.damage) return total;
+      return total + ((intent.area || []).some(cell => cell.x === x && cell.y === y) ? intent.damage : 0);
+    }, 0);
+  }
+  function damageHero(state, hero, amount, source) {
+    if (!hero || hero.hp <= 0 || amount <= 0) return { hpLost: 0, absorbed: 0 };
+    const absorbed = Math.min(hero.guard, amount);
+    hero.guard -= absorbed;
+    const hpLost = Math.min(hero.hp, amount - absorbed);
+    hero.hp -= hpLost;
+    state.stats.damageTaken += hpLost;
+    if (source) state.combat.log.push({ type: 'heroHit', heroId: hero.id, amount: hpLost, absorbed, source });
+    return { hpLost, absorbed };
+  }
+  function damageEnemy(state, enemy, amount, source) {
+    if (!enemy || enemy.hp <= 0 || amount <= 0) return { hpLost: 0 };
+    const hpLost = Math.min(enemy.hp, amount);
+    enemy.hp -= hpLost;
+    state.combat.log.push({ type: 'enemyHit', enemyId: enemy.id, amount: hpLost, source });
+    if (enemy.hp === 0) {
+      state.stats.kills += 1;
+      state.score += 20;
+      state.combat.log.push({ type: 'enemyDown', enemyId: enemy.id });
+    }
+    return { hpLost };
+  }
+  function enterCell(state, unit, isHero) {
+    if (!hazardAt(state, unit.x, unit.y) || unit.hp <= 0) return;
+    if (isHero) damageHero(state, unit, 2, 'thorns');
+    else damageEnemy(state, unit, 2, 'thorns');
+    state.combat.log.push({ type: 'thorns', unitId: unit.id });
+  }
+  function checkOutcome(state) {
+    if (!state.combat || state.screen !== 'combat') return true;
+    if (!aliveHeroes(state).length) {
+      state.screen = 'ending';
+      state.ending = { victory: false, reason: 'shattered' };
+      return true;
+    }
+    if (!aliveEnemies(state).length) {
+      const final = state.combat.final;
+      state.stats.turns += state.combat.turn;
+      state.score += final ? 500 : 100;
+      if (final) {
+        state.screen = 'ending';
+        state.ending = { victory: true, reason: 'lighthouse' };
+      } else {
+        state.heroes.forEach(hero => { if (hero.hp <= 0) hero.hp = 1; hero.guard = 0; });
+        state.reward = makeRewards(state);
+        state.screen = 'reward';
+      }
+      return true;
+    }
+    return false;
+  }
+  function updateBossPhase(state) {
+    const combat = state.combat;
+    if (!combat || !combat.final || combat.bossPhase === 2) return;
+    const boss = combat.enemies.find(enemy => enemy.type === 'boss');
+    if (boss && boss.hp > 0 && boss.hp <= Math.ceil(boss.maxHp / 2)) {
+      combat.bossPhase = 2;
+      combat.log.push({ type: 'bossPhase', phase: 2 });
+    }
+  }
+  function getMoveTargets(state, heroId) {
+    const hero = heroById(state, heroId);
+    if (state.screen !== 'combat' || !hero || hero.hp <= 0 || hero.moved) return [];
+    return reachable(state, hero, 2).map(cell => ({ kind: 'cell', x: cell.x, y: cell.y }));
+  }
+  function moveHero(state, heroId, target) {
+    if (state.screen !== 'combat') return { ok: false, error: 'notCombat' };
+    const hero = heroById(state, heroId);
+    if (!hero || hero.hp <= 0 || hero.moved) return { ok: false, error: 'moveUsed' };
+    const legal = getMoveTargets(state, heroId).some(cell => sameCell(cell, target));
+    if (!legal) return { ok: false, error: 'invalidMove' };
+    const from = { x: hero.x, y: hero.y };
+    hero.x = target.x;
+    hero.y = target.y;
+    hero.moved = true;
+    enterCell(state, hero, true);
+    state.combat.log.push({ type: 'move', heroId, from, to: { x: hero.x, y: hero.y } });
+    checkOutcome(state);
+    return { ok: true };
+  }
+  function cardLevel(state, cardId) { return state.upgrades[cardId] || 0; }
+  function cardInfo(state, cardId) {
+    const def = CARDS[cardId];
+    const level = cardLevel(state, cardId);
+    return { ...def, id: cardId, level, value: def.value + (['vault', 'swap'].includes(cardId) ? 0 : level), range: def.range + (['vault', 'swap'].includes(cardId) ? level : 0) };
+  }
+  function targetEntity(state, target) {
+    if (!target) return null;
+    if (target.kind === 'hero') return heroById(state, target.id);
+    if (target.kind === 'enemy') return enemyById(state, target.id);
+    if (target.kind === 'crystal') return crystalById(state, target.id);
+    return target.kind === 'cell' ? target : null;
+  }
+  function validTarget(state, card, targets) {
+    const actor = heroById(state, card.hero);
+    const target = targetEntity(state, targets[0]);
+    if (!actor || actor.hp <= 0 || !target) return false;
+    if (card.target === 'self') return target.id === actor.id;
+    if (card.target === 'twoHeroes') {
+      const second = targetEntity(state, targets[1]);
+      if (!second || second.id === target.id || target.hp <= 0 || second.hp <= 0) return false;
+      return distance(actor, target) <= card.range && distance(actor, second) <= card.range;
+    }
+    if (target.hp !== undefined && target.hp <= 0) return false;
+    if (distance(actor, target) > card.range) return false;
+    if (card.effect === 'bolt' && !lineOfSight(state, actor, target)) return false;
+    if (card.target === 'enemy') return target.kind === undefined && Boolean(enemyById(state, target.id));
+    if (card.target === 'hero') return Boolean(heroById(state, target.id));
+    if (card.target === 'crystal') return Boolean(crystalById(state, target.id));
+    if (card.target === 'cell') return !blocked(state, target.x, target.y);
+    return false;
+  }
+  function getCardTargets(state, uid, selected) {
+    if (state.screen !== 'combat') return [];
+    const instance = state.combat.hand.find(card => card.uid === uid);
+    if (!instance) return [];
+    const card = cardInfo(state, instance.id);
+    const actor = heroById(state, card.hero);
+    const first = selected && selected[0];
+    if (!actor || actor.hp <= 0 || state.combat.energy < card.cost) return [];
+    if (card.target === 'twoHeroes' && first) {
+      return aliveHeroes(state).filter(hero => hero.id !== first.id && distance(actor, hero) <= card.range).map(hero => ({ kind: 'hero', id: hero.id }));
+    }
+    if (card.target === 'enemy') return aliveEnemies(state).filter(enemy => distance(actor, enemy) <= card.range && (card.effect !== 'bolt' || lineOfSight(state, actor, enemy))).map(enemy => ({ kind: 'enemy', id: enemy.id }));
+    if (card.target === 'hero' || card.target === 'self') return aliveHeroes(state).filter(hero => (card.target !== 'self' || hero.id === actor.id) && distance(actor, hero) <= card.range).map(hero => ({ kind: 'hero', id: hero.id }));
+    if (card.target === 'crystal') return state.combat.crystals.filter(crystal => distance(actor, crystal) <= card.range).map(crystal => ({ kind: 'crystal', id: crystal.id }));
+    if (card.target === 'cell') {
+      const cells = [];
+      for (let y = 0; y < HEIGHT; y += 1) for (let x = 0; x < WIDTH; x += 1) {
+        if (distance(actor, { x, y }) <= card.range && !blocked(state, x, y)) cells.push({ kind: 'cell', x, y });
+      }
+      return cells;
+    }
+    return [];
+  }
+  function playCard(state, uid, targets) {
+    if (state.screen !== 'combat') return { ok: false, error: 'notCombat' };
+    const combat = state.combat;
+    const handIndex = combat.hand.findIndex(card => card.uid === uid);
+    if (handIndex < 0) return { ok: false, error: 'cardMissing' };
+    const instance = combat.hand[handIndex];
+    const card = cardInfo(state, instance.id);
+    if (combat.energy < card.cost) return { ok: false, error: 'energy' };
+    if (!validTarget(state, card, targets || [])) return { ok: false, error: 'invalidTarget' };
+    const actor = heroById(state, card.hero);
+    const target = targetEntity(state, targets[0]);
+    combat.energy -= card.cost;
+    combat.hand.splice(handIndex, 1);
+    combat.discard.push(instance);
+    state.stats.cardsPlayed += 1;
+    if (card.effect === 'bash') {
+      damageEnemy(state, target, card.value, card.id);
+      if (target.hp > 0) {
+        const dx = Math.sign(target.x - actor.x);
+        const dy = Math.sign(target.y - actor.y);
+        const destination = { x: target.x + dx, y: target.y + dy };
+        if (!blocked(state, destination.x, destination.y, target.id)) {
+          target.x = destination.x;
+          target.y = destination.y;
+          combat.log.push({ type: 'push', enemyId: target.id, to: destination });
+          enterCell(state, target, false);
+        }
+      }
+    } else if (card.effect === 'guard') {
+      target.guard += card.value;
+      combat.log.push({ type: 'guard', heroId: target.id, amount: card.value });
+    } else if (card.effect === 'fortify') {
+      aliveHeroes(state).forEach(hero => { hero.guard += card.value; });
+      combat.log.push({ type: 'fortify', amount: card.value });
+    } else if (card.effect === 'edge') {
+      const isolated = !aliveEnemies(state).some(enemy => enemy.id !== target.id && distance(enemy, target) === 1);
+      damageEnemy(state, target, card.value + (isolated ? 2 : 0), card.id);
+      combat.log.push({ type: 'edge', enemyId: target.id, isolated });
+    } else if (card.effect === 'vault') {
+      actor.x = target.x;
+      actor.y = target.y;
+      enterCell(state, actor, true);
+      combat.log.push({ type: 'vault', heroId: actor.id, to: { x: actor.x, y: actor.y } });
+    } else if (card.effect === 'bolt') {
+      damageEnemy(state, target, card.value, card.id);
+    } else if (card.effect === 'swap') {
+      const second = targetEntity(state, targets[1]);
+      const position = { x: target.x, y: target.y };
+      target.x = second.x; target.y = second.y;
+      second.x = position.x; second.y = position.y;
+      enterCell(state, target, true);
+      enterCell(state, second, true);
+      combat.log.push({ type: 'swap', heroIds: [target.id, second.id] });
+    } else if (card.effect === 'shatter') {
+      const center = { x: target.x, y: target.y };
+      combat.crystals = combat.crystals.filter(crystal => crystal.id !== target.id);
+      aliveEnemies(state).filter(enemy => distance(enemy, center) <= 1).forEach(enemy => damageEnemy(state, enemy, card.value, card.id));
+      aliveHeroes(state).filter(hero => distance(hero, center) <= 1).forEach(hero => damageHero(state, hero, card.value, card.id));
+      state.stats.crystals += 1;
+      combat.log.push({ type: 'shatter', center });
+    } else if (card.effect === 'resonance') {
+      const center = { x: target.x, y: target.y };
+      const radius = card.value;
+      const attracted = aliveEnemies(state).filter(enemy => distance(enemy, center) <= radius && distance(enemy, center) > 1);
+      attracted.forEach(enemy => {
+        const path = approachPath(state, enemy, center, 2);
+        path.forEach(cell => {
+          if (enemy.hp > 0 && !blocked(state, cell.x, cell.y, enemy.id)) {
+            enemy.x = cell.x; enemy.y = cell.y;
+            enterCell(state, enemy, false);
+          }
+        });
+      });
+      combat.log.push({ type: 'resonance', center, enemyIds: attracted.map(enemy => enemy.id) });
+    } else if (card.effect === 'mend') {
+      const healed = Math.min(card.value, target.maxHp - target.hp);
+      target.hp += healed;
+      combat.log.push({ type: 'mend', heroId: target.id, amount: healed });
+    }
+    updateBossPhase(state);
+    checkOutcome(state);
+    return { ok: true, cardId: card.id };
+  }
+  function diffPreview(before, after) {
+    const heroes = after.heroes.map(hero => {
+      const old = before.heroes.find(item => item.id === hero.id);
+      return { id: hero.id, hpBefore: old.hp, hpAfter: hero.hp, guardBefore: old.guard, guardAfter: hero.guard, from: { x: old.x, y: old.y }, to: { x: hero.x, y: hero.y } };
+    });
+    const enemies = after.combat ? after.combat.enemies.map(enemy => {
+      const old = before.combat.enemies.find(item => item.id === enemy.id);
+      return { id: enemy.id, hpBefore: old.hp, hpAfter: enemy.hp, from: { x: old.x, y: old.y }, to: { x: enemy.x, y: enemy.y } };
+    }) : [];
+    return { heroes, enemies, energyAfter: after.combat ? after.combat.energy : 0 };
+  }
+  function previewMove(state, heroId, target) {
+    const before = clone(state);
+    const after = clone(state);
+    const result = moveHero(after, heroId, target);
+    if (!result.ok) return result;
+    return { ...result, kind: 'move', heroId, target, changes: diffPreview(before, after), incomingBefore: incomingAt(before, heroById(before, heroId).x, heroById(before, heroId).y), incomingAfter: incomingAt(before, target.x, target.y) };
+  }
+  function previewCard(state, uid, targets) {
+    const before = clone(state);
+    const after = clone(state);
+    const result = playCard(after, uid, targets);
+    if (!result.ok) return result;
+    return { ...result, kind: 'card', uid, targets, changes: diffPreview(before, after), isolated: result.cardId === 'edge' && !aliveEnemies(before).some(enemy => enemy.id !== targets[0].id && distance(enemy, enemyById(before, targets[0].id)) === 1) };
+  }
+  function executeMoveIntent(state, enemy, intent) {
+    for (const cell of intent.path || []) {
+      if (enemy.hp <= 0 || blocked(state, cell.x, cell.y, enemy.id)) break;
+      enemy.x = cell.x;
+      enemy.y = cell.y;
+      enterCell(state, enemy, false);
+    }
+  }
+  function executeIntents(state) {
+    const combat = state.combat;
+    for (const intent of combat.intents) {
+      const enemy = enemyById(state, intent.enemyId);
+      if (!enemy || enemy.hp <= 0) continue;
+      if (intent.type === 'move' || intent.type === 'charge') executeMoveIntent(state, enemy, intent);
+      if (enemy.hp <= 0) continue;
+      if (intent.damage) {
+        for (const hero of aliveHeroes(state)) {
+          if (intent.area.some(cell => cell.x === hero.x && cell.y === hero.y)) damageHero(state, hero, intent.damage, intent.type);
+        }
+        combat.log.push({ type: 'enemyAction', enemyId: enemy.id, intentType: intent.type });
+      } else if (intent.type === 'heal') {
+        const target = enemyById(state, intent.targetEnemyId);
+        if (target && target.hp > 0) {
+          const amount = Math.min(intent.amount, target.maxHp - target.hp);
+          target.hp += amount;
+          combat.log.push({ type: 'enemyHeal', enemyId: target.id, amount });
+        }
+      }
+    }
+  }
+  function endTurn(state) {
+    if (state.screen !== 'combat') return { ok: false, error: 'notCombat' };
+    const combat = state.combat;
+    combat.discard.push(...combat.hand.splice(0));
+    executeIntents(state);
+    if (checkOutcome(state)) return { ok: true };
+    combat.turn += 1;
+    combat.energy = 3;
+    state.heroes.forEach(hero => { hero.moved = false; hero.guard = 0; });
+    drawToFive(state);
+    createIntents(state);
+    combat.log.push({ type: 'turn', turn: combat.turn });
+    return { ok: true };
+  }
+  function upgradeCandidates(state) {
+    return [...new Set(state.collection)].filter(id => cardLevel(state, id) < 2).sort();
+  }
+  function makeRewards(state) {
+    const newCardId = CARD_ORDER[Math.floor(random(state) * CARD_ORDER.length)];
+    const candidates = upgradeCandidates(state);
+    const upgradeCardId = candidates.length ? candidates[Math.floor(random(state) * candidates.length)] : 'bash';
+    return {
+      options: [
+        { id: `new:${newCardId}`, kind: 'new', cardId: newCardId },
+        { id: `upgrade:${upgradeCardId}`, kind: 'upgrade', cardId: upgradeCardId },
+        { id: 'heal', kind: 'heal', amount: 4 }
+      ]
+    };
+  }
+  function completeNode(state) {
+    state.route.push({ id: state.currentNode.id, type: state.currentNode.type });
+    state.stage += 1;
+    state.currentNode = null;
+    state.combat = null;
+    state.reward = null;
+    state.rest = null;
+    state.event = null;
+    state.screen = 'map';
+    state.heroes.forEach(hero => { hero.guard = 0; hero.moved = false; });
+  }
+  function chooseReward(state, optionId) {
+    if (state.screen !== 'reward' || !state.reward) return { ok: false, error: 'notReward' };
+    const option = state.reward.options.find(item => item.id === optionId);
+    if (!option) return { ok: false, error: 'invalidReward' };
+    if (option.kind === 'new') state.collection.push(option.cardId);
+    else if (option.kind === 'upgrade') {
+      if (cardLevel(state, option.cardId) >= 2) return { ok: false, error: 'maxUpgrade' };
+      state.upgrades[option.cardId] = cardLevel(state, option.cardId) + 1;
+    } else state.heroes.forEach(hero => { hero.hp = Math.min(hero.maxHp, hero.hp + option.amount); });
+    completeNode(state);
+    return { ok: true };
+  }
+  function chooseRest(state, choice) {
+    if (state.screen !== 'rest' || !state.rest) return { ok: false, error: 'notRest' };
+    if (choice === 'heal') state.heroes.forEach(hero => { hero.hp = Math.min(hero.maxHp, hero.hp + state.rest.heal); });
+    else if (choice === 'upgrade') {
+      const id = state.rest.upgradeCardId;
+      if (cardLevel(state, id) >= 2) return { ok: false, error: 'maxUpgrade' };
+      state.upgrades[id] = cardLevel(state, id) + 1;
+    } else return { ok: false, error: 'invalidRest' };
+    completeNode(state);
+    return { ok: true };
+  }
+  function chooseEvent(state, choice) {
+    if (state.screen !== 'event' || !state.event) return { ok: false, error: 'notEvent' };
+    if (choice === 'salvage') {
+      state.heroes.forEach(hero => { hero.hp = Math.max(1, hero.hp - state.event.cost); });
+      state.collection.push(state.event.newCardId);
+    } else if (choice === 'heal') state.heroes.forEach(hero => { hero.hp = Math.min(hero.maxHp, hero.hp + state.event.heal); });
+    else return { ok: false, error: 'invalidEvent' };
+    completeNode(state);
+    return { ok: true };
+  }
+  function applyAction(state, action) {
+    if (!action) return { ok: false, error: 'noAction' };
+    if (action.type === 'startNode') return startNode(state, action.nodeId);
+    if (action.type === 'card') return playCard(state, action.uid, action.targets);
+    if (action.type === 'move') return moveHero(state, action.heroId, action.target);
+    if (action.type === 'endTurn') return endTurn(state);
+    if (action.type === 'reward') return chooseReward(state, action.optionId);
+    if (action.type === 'rest') return chooseRest(state, action.choice);
+    if (action.type === 'event') return chooseEvent(state, action.choice);
+    return { ok: false, error: 'unknownAction' };
+  }
+  function bestCardAction(state, predicate) {
+    const candidates = [];
+    for (const instance of state.combat.hand) {
+      const card = cardInfo(state, instance.id);
+      if (state.combat.energy < card.cost || (predicate && !predicate(card))) continue;
+      for (const target of getCardTargets(state, instance.uid)) {
+        const targets = card.target === 'twoHeroes' ? [target, ...[]] : [target];
+        if (card.target === 'twoHeroes') continue;
+        const preview = previewCard(state, instance.uid, targets);
+        if (!preview.ok) continue;
+        const enemyLoss = preview.changes.enemies.reduce((sum, enemy) => sum + enemy.hpBefore - enemy.hpAfter, 0);
+        const heroLoss = preview.changes.heroes.reduce((sum, hero) => sum + hero.hpBefore - hero.hpAfter, 0);
+        const kills = preview.changes.enemies.filter(enemy => enemy.hpBefore > 0 && enemy.hpAfter === 0).length;
+        const moved = preview.changes.enemies.some(enemy => !sameCell(enemy.from, enemy.to));
+        candidates.push({ action: { type: 'card', uid: instance.uid, targets }, card, enemyLoss, heroLoss, kills, moved, preview });
+      }
+    }
+    return candidates;
+  }
+  function autoAction(state) {
+    if (state.screen === 'map') {
+      const nodes = availableNodes(state);
+      const missing = state.heroes.reduce((sum, hero) => sum + hero.maxHp - hero.hp, 0);
+      let node = nodes.find(item => item.type === 'final');
+      if (!node && missing >= 12) node = nodes.find(item => item.type === 'rest');
+      if (!node) node = nodes.find(item => item.type === 'combat') || nodes.find(item => item.type === 'event') || nodes[0];
+      return { type: 'startNode', nodeId: node.id };
+    }
+    if (state.screen === 'reward') {
+      const missing = state.heroes.reduce((sum, hero) => sum + hero.maxHp - hero.hp, 0);
+      const option = missing >= 8 ? state.reward.options.find(item => item.kind === 'heal') : state.reward.options.find(item => item.kind === 'upgrade') || state.reward.options[0];
+      return { type: 'reward', optionId: option.id };
+    }
+    if (state.screen === 'rest') {
+      const missing = state.heroes.reduce((sum, hero) => sum + hero.maxHp - hero.hp, 0);
+      return { type: 'rest', choice: missing >= 5 ? 'heal' : 'upgrade' };
+    }
+    if (state.screen === 'event') return { type: 'event', choice: 'salvage' };
+    if (state.screen !== 'combat') return null;
+    const combat = state.combat;
+    const shatters = bestCardAction(state, card => card.id === 'shatter').filter(item => item.heroLoss === 0 && (item.enemyLoss >= 4 || combat.turn > 6)).sort((a, b) => (b.enemyLoss + b.kills * 5) - (a.enemyLoss + a.kills * 5));
+    if (shatters.length) return shatters[0].action;
+    const hasShatter = combat.hand.some(card => card.id === 'shatter');
+    if (hasShatter && combat.energy >= 3) {
+      const resonance = bestCardAction(state, card => card.id === 'resonance').find(item => item.moved);
+      if (resonance) return resonance.action;
+    }
+    const attacks = bestCardAction(state, card => ['bash', 'edge', 'bolt'].includes(card.id)).sort((a, b) => {
+      const aScore = a.enemyLoss + a.kills * 8 + (a.moved ? 1 : 0) - a.heroLoss * 3 - a.card.cost * 0.1;
+      const bScore = b.enemyLoss + b.kills * 8 + (b.moved ? 1 : 0) - b.heroLoss * 3 - b.card.cost * 0.1;
+      return bScore - aScore;
+    });
+    if (attacks.length && attacks[0].enemyLoss > 0) return attacks[0].action;
+    const threatened = aliveHeroes(state).filter(hero => incomingAt(state, hero.x, hero.y) > hero.guard).sort((a, b) => incomingAt(state, b.x, b.y) - incomingAt(state, a.x, a.y));
+    if (threatened.length) {
+      const guards = bestCardAction(state, card => card.id === 'safeguard' && threatened.some(hero => hero.id === card.hero || true));
+      const useful = guards.filter(item => threatened.some(hero => hero.id === item.action.targets[0].id)).sort((a, b) => {
+        const aTarget = targetEntity(state, a.action.targets[0]);
+        const bTarget = targetEntity(state, b.action.targets[0]);
+        return incomingAt(state, bTarget.x, bTarget.y) - incomingAt(state, aTarget.x, aTarget.y);
+      });
+      if (useful.length) return useful[0].action;
+      if (threatened.reduce((sum, hero) => sum + incomingAt(state, hero.x, hero.y), 0) >= 4) {
+        const fortify = bestCardAction(state, card => card.id === 'fortify')[0];
+        if (fortify) return fortify.action;
+      }
+      const scout = heroById(state, 'scout');
+      if (scout.hp > 0 && incomingAt(state, scout.x, scout.y) > 0) {
+        const vaults = bestCardAction(state, card => card.id === 'vault').filter(item => incomingAt(state, item.action.targets[0].x, item.action.targets[0].y) === 0 && item.heroLoss === 0);
+        if (vaults.length) return vaults[0].action;
+      }
+    }
+    const wounded = aliveHeroes(state).filter(hero => hero.maxHp - hero.hp >= 3);
+    if (wounded.length) {
+      const mend = bestCardAction(state, card => card.id === 'mend').find(item => wounded.some(hero => hero.id === item.action.targets[0].id));
+      if (mend) return mend.action;
+    }
+    const moveCandidates = [];
+    for (const hero of aliveHeroes(state)) {
+      if (hero.moved) continue;
+      const moves = getMoveTargets(state, hero.id);
+      if (!moves.length) continue;
+      const enemies = aliveEnemies(state);
+      const currentRisk = incomingAt(state, hero.x, hero.y);
+      const riskWeight = combat.turn > 8 ? 1 : 8;
+      const canShoot = position => {
+        const original = { x: hero.x, y: hero.y };
+        hero.x = position.x; hero.y = position.y;
+        const result = enemies.some(enemy => distance(hero, enemy) <= 4 && lineOfSight(state, hero, enemy));
+        hero.x = original.x; hero.y = original.y;
+        return result;
+      };
+      const scored = moves.map(target => {
+        const risk = incomingAt(state, target.x, target.y);
+        const nearest = Math.min(...enemies.map(enemy => distance(target, enemy)));
+        let score = risk * riskWeight;
+        if (hero.id === 'artificer') score += Math.abs(nearest - 3) * 2 + (canShoot(target) ? 0 : 10);
+        else score += nearest * 3;
+        if (hazardAt(state, target.x, target.y)) score += 50;
+        return { target, score, risk };
+      }).sort((a, b) => a.score - b.score || a.target.y - b.target.y || a.target.x - b.target.x);
+      const currentNearest = Math.min(...enemies.map(enemy => distance(hero, enemy)));
+      const currentScore = currentRisk * riskWeight + (hero.id === 'artificer' ? Math.abs(currentNearest - 3) * 2 + (canShoot(hero) ? 0 : 10) : currentNearest * 3);
+      if (scored[0] && (scored[0].score < currentScore || scored[0].risk < currentRisk)) {
+        moveCandidates.push({ action: { type: 'move', heroId: hero.id, target: scored[0].target }, improvement: currentScore - scored[0].score });
+      }
+    }
+    moveCandidates.sort((a, b) => b.improvement - a.improvement);
+    return moveCandidates.length ? moveCandidates[0].action : { type: 'endTurn' };
+  }
+
+  return {
+    WIDTH, HEIGHT, SAVE_VERSION, CARDS, CARD_ORDER, ENEMIES, HEROES, LAYOUTS, INITIAL_COLLECTION,
+    clone, inside, distance, cellKey, hashSeed, random, shuffle, aliveHeroes, aliveEnemies,
+    heroById, enemyById, crystalById, unitAt, obstacleAt, crystalAt, hazardAt, blocked,
+    lineOfSight, reachable, createExpedition, availableNodes, startNode, setupCombat,
+    drawToFive, createIntents, incomingAt, getMoveTargets, moveHero, cardInfo,
+    getCardTargets, playCard, previewCard, previewMove, endTurn, chooseReward,
+    chooseRest, chooseEvent, makeRewards, checkOutcome, autoAction, applyAction
+  };
+});
+</script>
+  <script>(() => {
+  'use strict';
+
+  const E = window.VeilleursEngine;
+  const SAVE_KEY = 'veilleurs-verre-expedition-v1';
+  const PREF_KEY = 'veilleurs-verre-preferences-v1';
+  const params = new URLSearchParams(window.location.search);
+  const requestedSeed = (params.get('seed') || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
+  const app = document.getElementById('app');
+  const modalRoot = document.getElementById('modal-root');
+  const toastNode = document.getElementById('toast');
+  const TEXT = {
+    en: {
+      title: 'The Glass Wardens', titleEm: 'of the last light', studio: 'Kimi Games · A LOB7 original',
+      newExpedition: 'Begin an expedition', continue: 'Continue expedition', watch: 'Watch a guided expedition', how: 'How to play',
+      homeEyebrow: 'A tactical card expedition', homeLead: 'Three small glass creatures. One darkened lighthouse. Read every enemy intent, shape the battlefield, and carry what remains of your team through five fateful steps.',
+      localSave: 'Expedition saved on this device · English, Français, Español', featureIntent: 'Visible intents', featureIntentText: 'Enemy plans lock before you act.', featureCombo: 'Clever combinations', featureComboText: 'Push, shelter, swap and shatter.', featureWounds: 'Persistent wounds', featureWoundsText: 'Every reward is a meaningful choice.',
+      mapTitle: 'The road to the lighthouse', mapLead: 'Choose one step. Your wounds and your deck travel with you.', stage: 'Step', finalStage: 'The lighthouse', deck: 'Your deck', collectionHelp: 'Upgrades strengthen every copy of a card. New cards join the next battle.', seed: 'Expedition seed', chooseNode: 'Choose a path',
+      guardian: 'Guardian', scout: 'Scout', artificer: 'Artificer', guardianRole: 'Protects and pushes', scoutRole: 'Mobile · isolation bonus', artificerRole: 'Ranged · crystal control',
+      combat: 'Encounter', rest: 'Rest', event: 'Event', final: 'Final battle', travel: 'Enter', completed: 'Completed', locked: 'Ahead',
+      turn: 'Turn', energy: 'Energy', draw: 'Draw', discard: 'Discard', hand: 'Your hand', handHelp: 'Select a card, then a highlighted target', endTurn: 'End turn', endHint: 'Resolve shown intents', intents: 'Enemy intents', team: 'Your wardens', log: 'Field notes', noIntents: 'No enemies remain.',
+      move: 'Move', moveAvailable: 'Free move', moved: 'Moved', downed: 'Shattered', guard: 'Guard', confirm: 'Confirm action', cancel: 'Cancel', previewMove: 'Movement preview', previewCard: 'Action preview', emptyHand: 'No cards in hand. You can still move or end the turn.', noTargets: 'No legal target for this card right now.', selectAction: 'Select a warden to move, or a card to act.',
+      targetEnemy: 'Enemy', targetHero: 'Ally', targetSelf: 'Self · team', targetCell: 'Empty cell', targetCrystal: 'Crystal', targetTwo: 'Two allies', range: 'Range', anyRange: 'Team',
+      rewardTitle: 'A moment in the light', rewardLead: 'Choose one reward. Healing matters only if you survive what comes next.', newCard: 'New card', upgradeCard: 'Upgrade card', healTeam: 'Mend the team', takeReward: 'Choose this reward',
+      restTitle: 'The silent conservatory', restLead: 'A sheltered garden offers time for one careful choice.', restHeal: 'Rest among the ferns', restHealText: 'Restore 6 HP to every warden.', restUpgrade: 'Tune the glass', restUpgradeText: 'Upgrade every copy of {card}, but restore no HP.',
+      eventTitle: 'The echoing archive', eventLead: 'Old light sleeps beneath careful hands. Something answers.', eventSalvage: 'Salvage the resonator', eventSalvageText: 'Each warden loses 1 HP. Add {card} to your deck.', eventHeal: 'Release the captive light', eventHealText: 'Restore 4 HP to every warden.',
+      victoryTitle: 'The light remembers', victoryLead: 'The beacon turns above the ruined gardens. Three small silhouettes gleam in its path — changed by every choice that brought them here.', defeatTitle: 'The glass grows quiet', defeatLead: 'The lighthouse remains dark, but its echo is not gone. Try another route, another seed, or a different way of combining the same cards.',
+      retrySeed: 'Retry this seed', newSeed: 'New expedition', backHome: 'Title screen', score: 'Score', turns: 'Combat turns', cardsPlayed: 'Cards played', crystals: 'Crystals shattered', route: 'Steps completed',
+      helpTitle: 'How to guide the wardens', helpGoal: 'Cross five expedition steps, then relight the lighthouse. You win by defeating the final Warden. You lose if all three heroes shatter.', helpTurn: 'At the start of your turn, enemy intents are already locked. Each living hero may move up to two reachable cells once. Spend three shared energy on cards, then end the turn to resolve the announced enemy actions.', helpCards: 'Unused cards go to the discard. Draw back to five each turn; when the draw pile is empty, the discard is shuffled with the saved, reproducible random sequence. Wounds persist between battles. Fallen heroes return at 1 HP after a won encounter.', helpIntent: 'A cell attack hits that exact cell even if its original target moved. A move or charge follows its shown path and stops if blocked. Healing never switches to another target. Selecting an enemy or its ⓘ button explains its plan.', helpElements: 'Stone blocks movement and line of sight. Volatile crystals block cells until shattered. Glass thorns deal 2 damage on entry to either team. Guard absorbs damage during the coming enemy turn, then expires.', helpControls: 'Click or tap a hero or card to see legal actions. Choose a highlighted target to inspect the deterministic result. Confirm to commit, or cancel freely before confirmation. Escape cancels; Space ends the turn; M toggles sound.', helpBoss: 'The final Warden changes at half health: its announced row attacks become a row-and-column pattern dealing 3 damage. The current intent never changes during the transition.',
+      intentAttack: 'Attack {cell} for {damage}', intentArea: 'Burst around {cell} for {damage}', intentMove: 'Move toward {cell}', intentHold: 'Hold position', intentCharge: 'Charge through {cell} · {damage} damage', intentHeal: 'Restore {amount} HP to {target}', intentRow: 'Beam across row {row} · {damage} damage', intentCross: 'Row and column through {cell} · {damage} damage',
+      behaviorHound: 'Pursuer. Moves up to two cells toward the nearest warden; attacks an adjacent cell for 2.', behaviorSentry: 'Sentry. Fires at a visible cell within range 5 for 2. Its shot never follows a moved target.', behaviorRam: 'Charger. Telegraphs a straight charge up to four cells, dealing 3 along the shown path. Otherwise moves one cell.', behaviorWeaver: 'Weaver. Alternates a five-cell burst for 2 with a 3 HP repair of the most wounded ally.', behaviorBoss: 'Final Warden. Phase I alternates row beams and bursts. At half HP, phase II announces a stronger row-and-column beam.',
+      heroHit: '{hero} takes {amount} damage.', enemyHit: '{enemy} takes {amount} damage.', enemyDown: '{enemy} shatters.', guardLog: '{hero} gains {amount} Guard.', fortifyLog: 'The team gains {amount} Guard.', thornsLog: 'Glass thorns deal 2 on entry.', shatterLog: 'The crystal bursts for 3 in a cross.', resonanceLog: 'The crystal calls nearby enemies closer.', swapLog: 'Two wardens exchange positions.', mendLog: '{hero} recovers {amount} HP.', moveLog: '{hero} repositions.', vaultLog: '{hero} vaults across the ruins.', reshuffle: 'The discard is shuffled into the draw pile.', turnLog: 'Turn {turn} begins. New intents are locked.', bossPhaseLog: 'Phase II — the fractured crown changes pattern.', bossStart: 'The Dark Warden waits beneath the beacon.', combatStart: 'Enemy intents are visible. Your move.', pushLog: '{enemy} is pushed.', enemyHealLog: '{enemy} repairs {amount} HP.', edgeLog: 'Isolation bonus: +2 damage.',
+      hp: 'HP', energyPreview: 'Energy {before} → {after}', noChange: 'The action resolves as shown.', incoming: 'Incoming damage here: {amount}', incomingChange: 'Incoming damage {before} → {after}', crystalRemoved: 'The crystal is destroyed.', isolated: 'Target isolated: +2 damage.', upgraded: 'Upgraded', copies: 'copies', level: 'Level', sound: 'Sound', soundOn: 'Sound on', soundOff: 'Sound off', autoplay: 'Guided expedition · ordinary rules · no cheats', stopAutoplay: 'Stop demo', savedLocally: 'Progress saved locally.', invalidSave: 'The saved expedition could not be read. Start a new one.', close: 'Close', details: 'Details', emptyLog: 'The ceramic is quiet. For now.'
+    },
+    fr: {
+      title: 'Les Veilleurs de Verre', titleEm: 'de la dernière lumière', studio: 'Kimi Games · Une création LOB7',
+      newExpedition: 'Commencer une expédition', continue: 'Continuer l’expédition', watch: 'Voir une expédition guidée', how: 'Comment jouer',
+      homeEyebrow: 'Une expédition tactique en cartes', homeLead: 'Trois petites créatures de verre. Un phare éteint. Lisez chaque intention ennemie, transformez le champ de bataille et guidez votre équipe blessée à travers cinq étapes décisives.',
+      localSave: 'Expédition sauvegardée sur cet appareil · English, Français, Español', featureIntent: 'Intentions visibles', featureIntentText: 'Les plans ennemis sont figés avant vos actions.', featureCombo: 'Combinaisons ingénieuses', featureComboText: 'Repoussez, protégez, échangez, éclatez.', featureWounds: 'Blessures persistantes', featureWoundsText: 'Chaque récompense est un vrai choix.',
+      mapTitle: 'La route vers le phare', mapLead: 'Choisissez une étape. Vos blessures et votre paquet voyagent avec vous.', stage: 'Étape', finalStage: 'Le phare', deck: 'Votre paquet', collectionHelp: 'Les améliorations renforcent chaque exemplaire. Les nouvelles cartes rejoignent le prochain combat.', seed: 'Graine d’expédition', chooseNode: 'Choisissez un chemin',
+      guardian: 'Gardien', scout: 'Éclaireuse', artificer: 'Artificier', guardianRole: 'Protège et repousse', scoutRole: 'Mobile · bonus d’isolement', artificerRole: 'Distance · contrôle des cristaux',
+      combat: 'Rencontre', rest: 'Repos', event: 'Événement', final: 'Combat final', travel: 'Entrer', completed: 'Terminé', locked: 'À venir',
+      turn: 'Tour', energy: 'Énergie', draw: 'Pioche', discard: 'Défausse', hand: 'Votre main', handHelp: 'Choisissez une carte, puis une cible en surbrillance', endTurn: 'Fin du tour', endHint: 'Résoudre les intentions affichées', intents: 'Intentions ennemies', team: 'Vos veilleurs', log: 'Notes du plateau', noIntents: 'Il ne reste aucun ennemi.',
+      move: 'Déplacement', moveAvailable: 'Déplacement libre', moved: 'Déplacé', downed: 'Brisé', guard: 'Garde', confirm: 'Confirmer l’action', cancel: 'Annuler', previewMove: 'Aperçu du déplacement', previewCard: 'Aperçu de l’action', emptyHand: 'Aucune carte en main. Vous pouvez encore vous déplacer ou terminer le tour.', noTargets: 'Aucune cible légale pour cette carte actuellement.', selectAction: 'Choisissez un veilleur à déplacer ou une carte à jouer.',
+      targetEnemy: 'Ennemi', targetHero: 'Allié', targetSelf: 'Soi · équipe', targetCell: 'Case vide', targetCrystal: 'Cristal', targetTwo: 'Deux alliés', range: 'Portée', anyRange: 'Équipe',
+      rewardTitle: 'Un moment dans la lumière', rewardLead: 'Choisissez une récompense. Les soins ne comptent que si vous survivez à la suite.', newCard: 'Nouvelle carte', upgradeCard: 'Améliorer une carte', healTeam: 'Soigner l’équipe', takeReward: 'Choisir cette récompense',
+      restTitle: 'La serre silencieuse', restLead: 'Un jardin abrité offre le temps d’un choix délicat.', restHeal: 'Se reposer parmi les fougères', restHealText: 'Restaure 6 PV à chaque veilleur.', restUpgrade: 'Accorder le verre', restUpgradeText: 'Améliore chaque exemplaire de {card}, sans restaurer de PV.',
+      eventTitle: 'Les archives résonnantes', eventLead: 'Une ancienne lumière sommeille sous des mains prudentes. Quelque chose répond.', eventSalvage: 'Extraire le résonateur', eventSalvageText: 'Chaque veilleur perd 1 PV. Ajoutez {card} à votre paquet.', eventHeal: 'Libérer la lumière captive', eventHealText: 'Restaure 4 PV à chaque veilleur.',
+      victoryTitle: 'La lumière se souvient', victoryLead: 'Le faisceau tourne au-dessus des jardins en ruine. Trois petites silhouettes brillent sur son passage, transformées par chaque choix qui les a conduites ici.', defeatTitle: 'Le verre se tait', defeatLead: 'Le phare reste éteint, mais son écho persiste. Essayez une autre route, une autre graine ou de nouvelles combinaisons avec les mêmes cartes.',
+      retrySeed: 'Rejouer cette graine', newSeed: 'Nouvelle expédition', backHome: 'Écran titre', score: 'Score', turns: 'Tours de combat', cardsPlayed: 'Cartes jouées', crystals: 'Cristaux brisés', route: 'Étapes accomplies',
+      helpTitle: 'Comment guider les veilleurs', helpGoal: 'Traversez cinq étapes, puis rallumez le phare. Vous gagnez en vainquant le Veilleur final et perdez si les trois héros sont brisés.', helpTurn: 'Au début de votre tour, les intentions ennemies sont déjà figées. Chaque héros vivant peut se déplacer une fois de deux cases accessibles au maximum. Dépensez trois énergies partagées, puis terminez le tour pour résoudre les actions annoncées.', helpCards: 'Les cartes inutilisées rejoignent la défausse. Vous reconstituez une main de cinq cartes chaque tour ; quand la pioche est vide, la défausse est mélangée avec la séquence aléatoire reproductible sauvegardée. Les blessures persistent. Après une victoire, les héros brisés reviennent à 1 PV.', helpIntent: 'Une attaque de case frappe cette case exacte, même si sa cible initiale s’est déplacée. Un déplacement ou une charge suit le chemin affiché et s’arrête s’il est bloqué. Un soin ne change jamais de cible. Sélectionnez un ennemi ou son bouton ⓘ pour comprendre son plan.', helpElements: 'La pierre bloque les déplacements et les lignes de vue. Les cristaux volatils bloquent leur case jusqu’à leur destruction. Les ronces de verre infligent 2 dégâts à l’entrée, aux deux camps. La Garde absorbe les dégâts pendant le tour ennemi à venir, puis expire.', helpControls: 'Cliquez ou touchez un héros ou une carte pour voir les actions légales. Choisissez une cible en surbrillance pour inspecter le résultat déterministe. Confirmez pour agir ou annulez librement avant confirmation. Échap annule ; Espace termine le tour ; M coupe ou active le son.', helpBoss: 'Le Veilleur final change à moitié de vie : ses rayons de ligne annoncés deviennent un motif ligne-et-colonne infligeant 3 dégâts. L’intention en cours ne change jamais pendant la transition.',
+      intentAttack: 'Attaque {cell} pour {damage}', intentArea: 'Explosion autour de {cell} pour {damage}', intentMove: 'Déplacement vers {cell}', intentHold: 'Reste sur place', intentCharge: 'Charge jusqu’à {cell} · {damage} dégâts', intentHeal: 'Restaure {amount} PV à {target}', intentRow: 'Rayon sur la rangée {row} · {damage} dégâts', intentCross: 'Ligne et colonne via {cell} · {damage} dégâts',
+      behaviorHound: 'Poursuivant. Avance de deux cases vers le veilleur le plus proche ; attaque une case adjacente pour 2.', behaviorSentry: 'Sentinelle. Tire sur une case visible à portée 5 pour 2. Le tir ne suit jamais une cible déplacée.', behaviorRam: 'Bélier. Annonce une charge droite de quatre cases maximum, infligeant 3 sur le chemin. Sinon, avance d’une case.', behaviorWeaver: 'Tisseuse. Alterne une explosion de cinq cases pour 2 et une réparation de 3 PV de l’allié le plus blessé.', behaviorBoss: 'Veilleur final. La phase I alterne rayons de rangée et explosions. À moitié de vie, la phase II annonce un rayon ligne-et-colonne plus puissant.',
+      heroHit: '{hero} subit {amount} dégâts.', enemyHit: '{enemy} subit {amount} dégâts.', enemyDown: '{enemy} se brise.', guardLog: '{hero} gagne {amount} de Garde.', fortifyLog: 'L’équipe gagne {amount} de Garde.', thornsLog: 'Les ronces de verre infligent 2 à l’entrée.', shatterLog: 'Le cristal explose pour 3 en croix.', resonanceLog: 'Le cristal attire les ennemis proches.', swapLog: 'Deux veilleurs échangent leurs positions.', mendLog: '{hero} récupère {amount} PV.', moveLog: '{hero} se repositionne.', vaultLog: '{hero} franchit les ruines.', reshuffle: 'La défausse est mélangée dans la pioche.', turnLog: 'Le tour {turn} commence. Nouvelles intentions figées.', bossPhaseLog: 'Phase II — la couronne fracturée change de motif.', bossStart: 'Le Veilleur obscur attend sous le phare.', combatStart: 'Les intentions ennemies sont visibles. À vous de jouer.', pushLog: '{enemy} est repoussé.', enemyHealLog: '{enemy} répare {amount} PV.', edgeLog: 'Bonus d’isolement : +2 dégâts.',
+      hp: 'PV', energyPreview: 'Énergie {before} → {after}', noChange: 'L’action se résout comme indiqué.', incoming: 'Dégâts entrants ici : {amount}', incomingChange: 'Dégâts entrants {before} → {after}', crystalRemoved: 'Le cristal est détruit.', isolated: 'Cible isolée : +2 dégâts.', upgraded: 'Améliorée', copies: 'exemplaires', level: 'Niveau', sound: 'Son', soundOn: 'Son activé', soundOff: 'Son coupé', autoplay: 'Expédition guidée · règles ordinaires · sans triche', stopAutoplay: 'Arrêter la démo', savedLocally: 'Progression sauvegardée localement.', invalidSave: 'L’expédition sauvegardée est illisible. Commencez-en une nouvelle.', close: 'Fermer', details: 'Détails', emptyLog: 'La céramique est silencieuse. Pour l’instant.'
+    },
+    es: {
+      title: 'Los Vigías de Cristal', titleEm: 'de la última luz', studio: 'Kimi Games · Una creación de LOB7',
+      newExpedition: 'Iniciar una expedición', continue: 'Continuar la expedición', watch: 'Ver una expedición guiada', how: 'Cómo jugar',
+      homeEyebrow: 'Una expedición táctica de cartas', homeLead: 'Tres pequeñas criaturas de cristal. Un faro apagado. Lee cada intención enemiga, transforma el campo de batalla y guía a tu equipo herido por cinco etapas decisivas.',
+      localSave: 'Expedición guardada en este dispositivo · English, Français, Español', featureIntent: 'Intenciones visibles', featureIntentText: 'Los planes enemigos se fijan antes de actuar.', featureCombo: 'Combinaciones ingeniosas', featureComboText: 'Empuja, protege, intercambia y estalla.', featureWounds: 'Heridas persistentes', featureWoundsText: 'Cada recompensa es una decisión real.',
+      mapTitle: 'El camino hacia el faro', mapLead: 'Elige una etapa. Tus heridas y tu mazo viajan contigo.', stage: 'Etapa', finalStage: 'El faro', deck: 'Tu mazo', collectionHelp: 'Las mejoras fortalecen cada copia. Las cartas nuevas se unen al próximo combate.', seed: 'Semilla de expedición', chooseNode: 'Elige un camino',
+      guardian: 'Guardián', scout: 'Exploradora', artificer: 'Artificiero', guardianRole: 'Protege y empuja', scoutRole: 'Móvil · bonus de aislamiento', artificerRole: 'A distancia · control de cristales',
+      combat: 'Encuentro', rest: 'Descanso', event: 'Evento', final: 'Combate final', travel: 'Entrar', completed: 'Completado', locked: 'Más adelante',
+      turn: 'Turno', energy: 'Energía', draw: 'Robo', discard: 'Descarte', hand: 'Tu mano', handHelp: 'Elige una carta y luego un objetivo iluminado', endTurn: 'Fin del turno', endHint: 'Resolver las intenciones mostradas', intents: 'Intenciones enemigas', team: 'Tus vigías', log: 'Notas del tablero', noIntents: 'No quedan enemigos.',
+      move: 'Movimiento', moveAvailable: 'Movimiento gratis', moved: 'Movido', downed: 'Quebrado', guard: 'Guardia', confirm: 'Confirmar acción', cancel: 'Cancelar', previewMove: 'Vista previa del movimiento', previewCard: 'Vista previa de la acción', emptyHand: 'No hay cartas en la mano. Aún puedes moverte o terminar el turno.', noTargets: 'No hay un objetivo legal para esta carta ahora.', selectAction: 'Elige un vigía para mover o una carta para actuar.',
+      targetEnemy: 'Enemigo', targetHero: 'Aliado', targetSelf: 'Uno mismo · equipo', targetCell: 'Casilla vacía', targetCrystal: 'Cristal', targetTwo: 'Dos aliados', range: 'Alcance', anyRange: 'Equipo',
+      rewardTitle: 'Un momento en la luz', rewardLead: 'Elige una recompensa. La curación solo importa si sobrevives a lo que viene.', newCard: 'Carta nueva', upgradeCard: 'Mejorar una carta', healTeam: 'Curar al equipo', takeReward: 'Elegir esta recompensa',
+      restTitle: 'El invernadero silencioso', restLead: 'Un jardín protegido ofrece tiempo para una decisión cuidadosa.', restHeal: 'Descansar entre helechos', restHealText: 'Restaura 6 PV a cada vigía.', restUpgrade: 'Afinar el cristal', restUpgradeText: 'Mejora cada copia de {card}, pero no restaura PV.',
+      eventTitle: 'El archivo resonante', eventLead: 'Una luz antigua duerme bajo manos cuidadosas. Algo responde.', eventSalvage: 'Recuperar el resonador', eventSalvageText: 'Cada vigía pierde 1 PV. Añade {card} a tu mazo.', eventHeal: 'Liberar la luz cautiva', eventHealText: 'Restaura 4 PV a cada vigía.',
+      victoryTitle: 'La luz recuerda', victoryLead: 'El haz gira sobre los jardines en ruinas. Tres pequeñas siluetas brillan a su paso, cambiadas por cada decisión que las trajo hasta aquí.', defeatTitle: 'El cristal calla', defeatLead: 'El faro sigue apagado, pero su eco no ha desaparecido. Prueba otra ruta, otra semilla o una forma distinta de combinar las mismas cartas.',
+      retrySeed: 'Repetir esta semilla', newSeed: 'Nueva expedición', backHome: 'Pantalla de título', score: 'Puntuación', turns: 'Turnos de combate', cardsPlayed: 'Cartas jugadas', crystals: 'Cristales destruidos', route: 'Etapas completadas',
+      helpTitle: 'Cómo guiar a los vigías', helpGoal: 'Cruza cinco etapas y vuelve a encender el faro. Ganas al derrotar al Vigía final y pierdes si los tres héroes se quiebran.', helpTurn: 'Al comenzar tu turno, las intenciones enemigas ya están fijadas. Cada héroe vivo puede moverse una vez hasta dos casillas accesibles. Gasta tres energías compartidas en cartas y termina el turno para resolver las acciones anunciadas.', helpCards: 'Las cartas sin usar van al descarte. Robas hasta cinco cada turno; cuando el mazo se vacía, el descarte se baraja con la secuencia aleatoria reproducible guardada. Las heridas persisten. Los héroes caídos vuelven con 1 PV tras ganar un encuentro.', helpIntent: 'Un ataque a una casilla golpea esa casilla exacta aunque su objetivo original se mueva. Un movimiento o carga sigue el camino mostrado y se detiene si queda bloqueado. La curación nunca cambia de objetivo. Selecciona un enemigo o su botón ⓘ para conocer su plan.', helpElements: 'La piedra bloquea el movimiento y la línea de visión. Los cristales volátiles bloquean su casilla hasta estallar. Las espinas de cristal hacen 2 de daño al entrar, a ambos equipos. La Guardia absorbe daño durante el próximo turno enemigo y después expira.', helpControls: 'Haz clic o toca un héroe o una carta para ver las acciones legales. Elige un objetivo iluminado para inspeccionar el resultado determinista. Confirma para actuar o cancela antes de confirmar. Escape cancela; Espacio termina el turno; M activa o silencia el sonido.', helpBoss: 'El Vigía final cambia a mitad de vida: sus rayos de fila anunciados se convierten en un patrón de fila y columna que hace 3 de daño. La intención actual nunca cambia durante la transición.',
+      intentAttack: 'Ataca {cell} por {damage}', intentArea: 'Explosión alrededor de {cell} por {damage}', intentMove: 'Se mueve hacia {cell}', intentHold: 'Mantiene la posición', intentCharge: 'Carga hasta {cell} · {damage} de daño', intentHeal: 'Restaura {amount} PV a {target}', intentRow: 'Rayo por la fila {row} · {damage} de daño', intentCross: 'Fila y columna por {cell} · {damage} de daño',
+      behaviorHound: 'Perseguidor. Avanza hasta dos casillas hacia el vigía más cercano; ataca una casilla adyacente por 2.', behaviorSentry: 'Centinela. Dispara a una casilla visible a alcance 5 por 2. El disparo nunca sigue a un objetivo movido.', behaviorRam: 'Ariete. Anuncia una carga recta de hasta cuatro casillas, con 3 de daño en el camino. Si no, avanza una.', behaviorWeaver: 'Tejedora. Alterna una explosión de cinco casillas por 2 con una reparación de 3 PV al aliado más herido.', behaviorBoss: 'Vigía final. La fase I alterna rayos de fila y explosiones. A mitad de vida, la fase II anuncia un rayo de fila y columna más fuerte.',
+      heroHit: '{hero} recibe {amount} de daño.', enemyHit: '{enemy} recibe {amount} de daño.', enemyDown: '{enemy} se quiebra.', guardLog: '{hero} gana {amount} de Guardia.', fortifyLog: 'El equipo gana {amount} de Guardia.', thornsLog: 'Las espinas de cristal hacen 2 al entrar.', shatterLog: 'El cristal estalla por 3 en cruz.', resonanceLog: 'El cristal atrae a los enemigos cercanos.', swapLog: 'Dos vigías intercambian posiciones.', mendLog: '{hero} recupera {amount} PV.', moveLog: '{hero} cambia de posición.', vaultLog: '{hero} salta por las ruinas.', reshuffle: 'El descarte se baraja en el mazo de robo.', turnLog: 'Comienza el turno {turn}. Nuevas intenciones fijadas.', bossPhaseLog: 'Fase II: la corona fracturada cambia de patrón.', bossStart: 'El Vigía Oscuro espera bajo el faro.', combatStart: 'Las intenciones enemigas son visibles. Te toca.', pushLog: '{enemy} es empujado.', enemyHealLog: '{enemy} repara {amount} PV.', edgeLog: 'Bonus de aislamiento: +2 de daño.',
+      hp: 'PV', energyPreview: 'Energía {before} → {after}', noChange: 'La acción se resuelve como se muestra.', incoming: 'Daño entrante aquí: {amount}', incomingChange: 'Daño entrante {before} → {after}', crystalRemoved: 'El cristal queda destruido.', isolated: 'Objetivo aislado: +2 de daño.', upgraded: 'Mejorada', copies: 'copias', level: 'Nivel', sound: 'Sonido', soundOn: 'Sonido activado', soundOff: 'Sonido silenciado', autoplay: 'Expedición guiada · reglas normales · sin trucos', stopAutoplay: 'Detener demo', savedLocally: 'Progreso guardado localmente.', invalidSave: 'No se pudo leer la expedición guardada. Inicia una nueva.', close: 'Cerrar', details: 'Detalles', emptyLog: 'La cerámica está en silencio. Por ahora.'
+    }
+  };
+
+  const CARD_TEXT = {
+    bash: {
+      en: ['Shield Bash', 'Deal {value} damage and push 1 cell. Thorns deal 2 on entry.'], fr: ['Heurt du bouclier', 'Inflige {value} dégâts et repousse d’une case. Les ronces infligent 2 à l’entrée.'], es: ['Golpe de escudo', 'Hace {value} de daño y empuja 1 casilla. Las espinas hacen 2 al entrar.']
+    },
+    safeguard: {
+      en: ['Safeguard', 'Grant {value} Guard to an ally. Absorbs the coming enemy turn.'], fr: ['Sauvegarde', 'Donne {value} de Garde à un allié. Absorbe le prochain tour ennemi.'], es: ['Salvaguarda', 'Da {value} de Guardia a un aliado. Absorbe el próximo turno enemigo.']
+    },
+    fortify: {
+      en: ['Luminous Bulwark', 'Grant {value} Guard to every living warden.'], fr: ['Rempart lumineux', 'Donne {value} de Garde à chaque veilleur vivant.'], es: ['Baluarte luminoso', 'Da {value} de Guardia a cada vigía vivo.']
+    },
+    edge: {
+      en: ['Glass Edge', 'Deal {value} damage, +2 if no other enemy is adjacent to the target.'], fr: ['Fil de verre', 'Inflige {value} dégâts, +2 si aucun autre ennemi n’est adjacent à la cible.'], es: ['Filo de cristal', 'Hace {value} de daño, +2 si ningún otro enemigo es adyacente al objetivo.']
+    },
+    vault: {
+      en: ['Prism Vault', 'Leap to an empty cell. Does not use the free move.'], fr: ['Bond de prisme', 'Saute vers une case vide. N’utilise pas le déplacement libre.'], es: ['Salto de prisma', 'Salta a una casilla vacía. No usa el movimiento gratis.']
+    },
+    bolt: {
+      en: ['Prism Bolt', 'Deal {value} damage. Requires clear line of sight.'], fr: ['Trait de prisme', 'Inflige {value} dégâts. Nécessite une ligne de vue dégagée.'], es: ['Rayo de prisma', 'Hace {value} de daño. Requiere línea de visión despejada.']
+    },
+    swap: {
+      en: ['Transposition', 'Exchange the positions of two living allies.'], fr: ['Transposition', 'Échange les positions de deux alliés vivants.'], es: ['Transposición', 'Intercambia las posiciones de dos aliados vivos.']
+    },
+    shatter: {
+      en: ['Shatter', 'Destroy a crystal. Deal {value} damage to either team in its cell and adjacent cells.'], fr: ['Éclatement', 'Détruit un cristal. Inflige {value} dégâts aux deux camps sur sa case et les cases adjacentes.'], es: ['Estallido', 'Destruye un cristal. Hace {value} de daño a ambos equipos en su casilla y las adyacentes.']
+    },
+    resonance: {
+      en: ['Resonant Call', 'Enemies within {value} cells of a crystal move up to 2 cells toward it. Intents stay locked.'], fr: ['Appel résonnant', 'Les ennemis à {value} cases du cristal avancent de 2 cases maximum vers lui. Les intentions restent figées.'], es: ['Llamada resonante', 'Los enemigos a {value} casillas del cristal avanzan hasta 2 hacia él. Las intenciones no cambian.']
+    },
+    mend: {
+      en: ['Mending Light', 'Restore {value} HP to a living ally, up to its maximum.'], fr: ['Lumière réparatrice', 'Restaure {value} PV à un allié vivant, jusqu’à son maximum.'], es: ['Luz reparadora', 'Restaura {value} PV a un aliado vivo, hasta su máximo.']
+    }
+  };
+  const ENEMY_TEXT = {
+    hound: { en: 'Thorn Hound', fr: 'Limier de ronces', es: 'Sabueso de espinas' },
+    sentry: { en: 'Prism Sentry', fr: 'Sentinelle de prisme', es: 'Centinela de prisma' },
+    ram: { en: 'Basalt Ram', fr: 'Bélier de basalte', es: 'Ariete de basalto' },
+    weaver: { en: 'Thorn Weaver', fr: 'Tisseuse de ronces', es: 'Tejedora de espinas' },
+    boss: { en: 'The Dark Warden', fr: 'Le Veilleur obscur', es: 'El Vigía Oscuro' }
+  };
+  const NODE_TEXT = {
+    combatNames: {
+      en: ['Broken Gate', 'Moss Arcade', 'Prism Crossing', 'Sunken Court', 'Last Ascent'], fr: ['Porte brisée', 'Galerie de mousse', 'Croisée des prismes', 'Cour engloutie', 'Dernière ascension'], es: ['Puerta rota', 'Galería de musgo', 'Cruce de prismas', 'Patio hundido', 'Último ascenso']
+    },
+    rest: { en: 'Silent Conservatory', fr: 'Serre silencieuse', es: 'Invernadero silencioso' },
+    event: { en: 'Echoing Archive', fr: 'Archives résonnantes', es: 'Archivo resonante' },
+    final: { en: 'The Dark Lighthouse', fr: 'Le phare obscur', es: 'El faro oscuro' },
+    layouts: {
+      en: ['Cloister of echoes', 'Sunken garden', 'Stair of shards'], fr: ['Cloître des échos', 'Jardin englouti', 'Escalier d’éclats'], es: ['Claustro de ecos', 'Jardín hundido', 'Escalera de fragmentos']
+    }
+  };
+
+  let preferences = { lang: 'en', sound: true };
+  try { preferences = { ...preferences, ...JSON.parse(localStorage.getItem(PREF_KEY) || '{}') }; } catch (_) {}
+  let lang = ['en', 'fr', 'es'].includes(preferences.lang) ? preferences.lang : 'en';
+  let state = null;
+  let savedState = null;
+  let view = 'home';
+  let selectedHero = null;
+  let selectedCard = null;
+  let selectedTargets = [];
+  let pending = null;
+  let modal = null;
+  let toastTimer = null;
+  let audioContext = null;
+  let autoplay = params.get('autoplay') === '1';
+  let autoTimer = null;
+  let autoBusy = false;
+
+  function t(key, vars = {}) {
+    let value = (TEXT[lang] && TEXT[lang][key]) || TEXT.en[key] || key;
+    Object.entries(vars).forEach(([name, replacement]) => { value = value.replaceAll(`{${name}}`, String(replacement)); });
+    return value;
+  }
+  function esc(value) { return String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]); }
+  function cardText(cardId) { return (CARD_TEXT[cardId] && (CARD_TEXT[cardId][lang] || CARD_TEXT[cardId].en)) || [cardId, '']; }
+  function cardName(cardId) { return cardText(cardId)[0]; }
+  function enemyName(type) { return (ENEMY_TEXT[type] && (ENEMY_TEXT[type][lang] || ENEMY_TEXT[type].en)) || type; }
+  function heroName(id) { return t(id); }
+  function coord(cell) { return `${String.fromCharCode(65 + cell.x)}${cell.y + 1}`; }
+  function savePreferences() {
+    preferences.lang = lang;
+    try { localStorage.setItem(PREF_KEY, JSON.stringify(preferences)); } catch (_) {}
+  }
+  function validSave(candidate) {
+    return candidate && candidate.version === E.SAVE_VERSION && Array.isArray(candidate.heroes) && candidate.heroes.length === 3 && Array.isArray(candidate.map) && typeof candidate.rngState === 'number' && typeof candidate.screen === 'string';
+  }
+  function readSave() {
+    try {
+      const candidate = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null');
+      return validSave(candidate) ? candidate : null;
+    } catch (_) { return null; }
+  }
+  function saveGame() {
+    if (!state || view === 'home') return;
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); savedState = E.clone(state); } catch (_) {}
+  }
+  function toast(message) {
+    toastNode.textContent = message;
+    toastNode.classList.add('visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastNode.classList.remove('visible'), 2300);
+  }
+  function randomSeed() {
+    const values = new Uint32Array(1);
+    if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(values);
+    else values[0] = Date.now() >>> 0;
+    return `light-${values[0].toString(16).padStart(8, '0')}`;
+  }
+  function playSound(kind) {
+    if (!preferences.sound) return;
+    try {
+      audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+      if (audioContext.state === 'suspended') audioContext.resume();
+      const now = audioContext.currentTime;
+      const notes = kind === 'victory' ? [392, 523.25, 659.25] : kind === 'hit' ? [130, 98] : kind === 'guard' ? [440, 660] : [330, 494];
+      notes.forEach((frequency, index) => {
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = kind === 'hit' ? 'triangle' : 'sine';
+        oscillator.frequency.setValueAtTime(frequency, now + index * 0.07);
+        gain.gain.setValueAtTime(0, now + index * 0.07);
+        gain.gain.linearRampToValueAtTime(0.055, now + index * 0.07 + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.07 + 0.22);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start(now + index * 0.07);
+        oscillator.stop(now + index * 0.07 + 0.24);
+      });
+    } catch (_) {}
+  }
+
+  function brandSvg() {
+    return '<svg class="brand-mark" viewBox="0 0 40 52" aria-hidden="true"><path d="M20 2 34 19 27 46 20 51 13 46 6 19Z" fill="#43cbb9" stroke="#effff9" stroke-width="1.5"/><path d="m20 2 1 41-8-24Z" fill="#effff9" opacity=".45"/><path d="m6 19 14 5 14-5" fill="none" stroke="#102e33" stroke-width="1.5"/></svg>';
+  }
+  function cracks() {
+    return '<path d="m40 29-5 12 7 7-8 15 3 13M35 41l-9 4m16 3 9 5" fill="none" stroke="#f6fffb" stroke-width="1.6" opacity=".85"/>';
+  }
+  function heroSvg(id, injured = false) {
+    const crack = injured ? cracks() : '';
+    if (id === 'guardian') return `<svg viewBox="0 0 80 100" aria-hidden="true"><defs><linearGradient id="guardianGlass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#effff9"/><stop offset=".32" stop-color="#63e6d2"/><stop offset="1" stop-color="#168a7d"/></linearGradient></defs><ellipse cx="40" cy="94" rx="25" ry="5" fill="#102e33" opacity=".18"/><path d="M30 29 26 15 37 7 46 13 51 29Z" fill="url(#guardianGlass)" stroke="#effff9" stroke-width="1.4"/><path d="M28 31 19 55 25 86 40 93 55 84 58 51 48 31Z" fill="url(#guardianGlass)" stroke="#effff9" stroke-width="1.5"/><path d="m34 33 4 47-12-25Z" fill="#effff9" opacity=".35"/><path d="M48 39 68 43 65 70 51 82 43 68Z" fill="#8f4e78" stroke="#f4d8eb" stroke-width="2"/><path d="m49 46 12 2-2 17-8 8-4-7Z" fill="#c68caf" opacity=".7"/><path d="M22 50 10 63l5 7 12-12" fill="url(#guardianGlass)" stroke="#effff9" stroke-width="1.4"/>${crack}</svg>`;
+    if (id === 'scout') return `<svg viewBox="0 0 80 100" aria-hidden="true"><defs><linearGradient id="scoutGlass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8df"/><stop offset=".35" stop-color="#ffd27e"/><stop offset="1" stop-color="#c87937"/></linearGradient></defs><ellipse cx="39" cy="94" rx="22" ry="4" fill="#102e33" opacity=".18"/><path d="M30 25 34 8 47 5 52 23 44 32Z" fill="url(#scoutGlass)" stroke="#fff8df" stroke-width="1.4"/><path d="m33 30-9 24 8 35 11 4 12-36-12-27Z" fill="url(#scoutGlass)" stroke="#fff8df" stroke-width="1.4"/><path d="m37 34-5 44 10 8-1-44Z" fill="#fff8df" opacity=".35"/><path d="M26 43 9 74l19-9 14-21" fill="#8f4e78" stroke="#f4d8eb" stroke-width="1.5"/><path d="m52 37 18 38-5 2-21-35" fill="#f6fffb" stroke="#43cbb9" stroke-width="1.3"/><path d="m30 88-6 7m19-5 7 4" stroke="#fff8df" stroke-width="4" stroke-linecap="round"/>${crack}</svg>`;
+    return `<svg viewBox="0 0 80 100" aria-hidden="true"><defs><linearGradient id="artificerGlass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff1fb"/><stop offset=".35" stop-color="#d894c0"/><stop offset="1" stop-color="#744066"/></linearGradient></defs><ellipse cx="39" cy="94" rx="24" ry="4" fill="#102e33" opacity=".18"/><path d="M27 28 33 10 48 12 52 30 42 35Z" fill="url(#artificerGlass)" stroke="#fff1fb" stroke-width="1.4"/><path d="M29 33 19 76 28 91 47 92 57 72 48 34Z" fill="url(#artificerGlass)" stroke="#fff1fb" stroke-width="1.4"/><path d="m34 37-6 38 10 10 1-42Z" fill="#fff1fb" opacity=".32"/><path d="m24 19 17-13 20 16-8 4-26-1Z" fill="#43cbb9" stroke="#effff9" stroke-width="1.4"/><path d="M57 20 62 86" stroke="#e8a84c" stroke-width="4" stroke-linecap="round"/><path d="m57 7 10 12-9 11-10-11Z" fill="#43cbb9" stroke="#effff9" stroke-width="1.6"/><path d="m57 10 1 14-6-6Z" fill="#effff9" opacity=".6"/>${crack}</svg>`;
+  }
+  function enemySvg(type, injured = false) {
+    const crack = injured ? cracks() : '';
+    if (type === 'hound') return `<svg viewBox="0 0 80 100" aria-hidden="true"><ellipse cx="41" cy="90" rx="29" ry="5" fill="#102e33" opacity=".2"/><path d="m17 56 9-24 25-5 18 17-8 30-32 4Z" fill="#8f4e78" stroke="#f0bede" stroke-width="1.7"/><path d="m45 30 4-17 10 12 11 4-3 22-17 3Z" fill="#4d2948" stroke="#e8a84c" stroke-width="1.6"/><path d="m24 69-5 19m19-15-1 17m20-20 7 16" stroke="#4d2948" stroke-width="7" stroke-linecap="round"/><path d="m21 48-13-7 8 20" fill="#8f4e78" stroke="#f0bede" stroke-width="1.5"/><path d="m56 36 5 2" stroke="#f6fffb" stroke-width="3" stroke-linecap="round"/><path d="m27 39 13 6-9 7" fill="#e8a84c" opacity=".65"/>${crack}</svg>`;
+    if (type === 'sentry') return `<svg viewBox="0 0 80 100" aria-hidden="true"><ellipse cx="40" cy="93" rx="22" ry="4" fill="#102e33" opacity=".2"/><path d="M40 5 58 28 52 83 40 94 28 83 22 28Z" fill="#e8a84c" stroke="#fff0c4" stroke-width="1.7"/><path d="m40 5 1 79-12-55Z" fill="#fff0c4" opacity=".38"/><path d="M22 28 40 39 58 28M28 65l12 8 12-8" fill="none" stroke="#4d2948" stroke-width="2"/><path d="M33 37 40 32 47 37 40 45Z" fill="#4d2948"/><path d="M18 47h-9v25h11m42-25h9v25H60" fill="none" stroke="#8f4e78" stroke-width="4"/>${crack}</svg>`;
+    if (type === 'ram') return `<svg viewBox="0 0 80 100" aria-hidden="true"><ellipse cx="40" cy="90" rx="30" ry="5" fill="#102e33" opacity=".22"/><path d="M12 42 28 25 62 32 72 57 57 79 23 75 8 61Z" fill="#596b6a" stroke="#d4e5dc" stroke-width="1.7"/><path d="m48 31 16-20 4 26m-39 3L16 17 10 42" fill="#e8a84c" stroke="#fff0c4" stroke-width="2"/><path d="m50 43 14 2-3 15-15 3-8-10Z" fill="#8f4e78"/><path d="m24 69-5 19m34-15 5 15" stroke="#4d5553" stroke-width="9" stroke-linecap="round"/><path d="m20 43 15-7 4 11-18 8Z" fill="#9bad9f" opacity=".55"/>${crack}</svg>`;
+    if (type === 'weaver') return `<svg viewBox="0 0 80 100" aria-hidden="true"><ellipse cx="40" cy="92" rx="26" ry="4" fill="#102e33" opacity=".2"/><path d="m40 9 9 21 19-8-8 20 12 14-21 6-3 25-17-4-5-22-17-11 15-15-1-21 17 8Z" fill="#8f4e78" stroke="#f0bede" stroke-width="1.6"/><path d="m40 26 13 17-6 24-18 2-8-24Z" fill="#43cbb9" stroke="#effff9" stroke-width="1.6"/><path d="m35 32-5 26 9 5 4-25Z" fill="#effff9" opacity=".36"/><path d="M16 74 7 90m54-16 11 15M28 17 20 5" stroke="#e8a84c" stroke-width="3" stroke-linecap="round"/>${crack}</svg>`;
+    return `<svg viewBox="0 0 80 100" aria-hidden="true"><defs><linearGradient id="bossGlass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5d9ec"/><stop offset=".35" stop-color="#9e5a88"/><stop offset="1" stop-color="#3b233b"/></linearGradient></defs><ellipse cx="40" cy="94" rx="30" ry="5" fill="#102e33" opacity=".25"/><path d="M26 29 20 8 34 18 41 2 49 18 64 7 56 31Z" fill="#e8a84c" stroke="#fff0c4" stroke-width="1.5"/><path d="M27 30 15 65 23 91 42 96 62 85 64 54 52 29Z" fill="url(#bossGlass)" stroke="#f5d9ec" stroke-width="1.8"/><path d="m34 35-6 44 13 10-1-49Z" fill="#f5d9ec" opacity=".27"/><path d="M29 43 40 36 53 44 47 56 34 55Z" fill="#102e33"/><path d="m38 40 4 2-2 7" fill="#f6fffb"/><path d="M18 47 5 71m51-27 18 23" stroke="#8f4e78" stroke-width="7" stroke-linecap="round"/>${crack}</svg>`;
+  }
+  function crystalSvg() {
+    return '<svg viewBox="0 0 60 90" aria-hidden="true"><path d="M30 3 48 31 40 79 30 88 18 77 11 31Z" fill="#43cbb9" stroke="#effff9" stroke-width="2"/><path d="m30 3 2 74-13-45Z" fill="#effff9" opacity=".48"/><path d="m11 31 20 9 17-9M19 67l12 7 10-8" fill="none" stroke="#168a7d" stroke-width="2"/><path d="M18 84h25" stroke="#102e33" stroke-width="4" opacity=".25" stroke-linecap="round"/></svg>';
+  }
+  function iconSvg(name) {
+    const paths = {
+      bash: '<path d="M17 10 46 15 44 40 30 55 15 42Z"/><path d="m43 38 13 8-9 9"/>',
+      safeguard: '<path d="M32 6 52 15 49 41 32 57 15 41 12 15Z"/><path d="m22 31 7 7 14-17"/>',
+      fortify: '<path d="M32 5 53 15 50 42 32 58 14 42 11 15Z"/><path d="M32 16v31M20 27h24"/>',
+      edge: '<path d="m13 51 34-42 5 2-22 45Z"/><path d="m13 51 17-5M38 14l10 10"/>',
+      vault: '<path d="M9 47c12-34 31-34 46 0"/><path d="m44 35 11 12-14 5"/><path d="M13 50v8m38-8v8"/>',
+      bolt: '<path d="M8 32h23M38 32h18"/><path d="m30 7-9 20 12-2-5 32 17-37-12 3Z"/>',
+      swap: '<path d="M11 22h38m-8-9 9 9-9 9M53 43H15m8-9-9 9 9 9"/>',
+      shatter: '<path d="m32 5 16 21-6 27-11 7-12-12-4-23Z"/><path d="m32 5-2 25 11 23M15 27l15 3 18-4M31 30 19 48"/>',
+      resonance: '<path d="m32 15 10 15-7 21-11-8-1-19Z"/><path d="M16 17C4 27 4 40 16 49M48 17c12 10 12 23 0 32M9 8c-17 17-17 36 0 50M55 8c17 17 17 36 0 50"/>',
+      mend: '<path d="M32 54S9 41 9 23c0-16 19-18 23-5 5-13 24-11 24 5 0 18-24 31-24 31Z"/><path d="M32 23v17M24 31h16"/>',
+      combat: '<path d="m13 52 34-40 5 2-22 43ZM11 12l42 40"/>',
+      rest: '<path d="M50 53C15 56 7 32 16 9c25 3 41 18 34 44Z"/><path d="M13 55 43 19M25 40l-8-13m17 2 12-2"/>',
+      event: '<path d="M13 11h38v43H13Z"/><path d="M21 21h22M21 30h22M21 39h13"/><path d="m45 4 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/>',
+      final: '<path d="M24 54h17L37 22H28Z"/><path d="M24 22h17l-3-12H27Z"/><path d="M18 57h29M31 3V0M8 20 0 16m55 4 9-4M7 5l9 6m34 0 8-6"/>',
+      heal: '<path d="M32 55S9 42 9 24c0-16 19-18 23-5 5-13 24-11 24 5 0 17-24 31-24 31Z"/><path d="M32 22v18M23 31h18"/>',
+      upgrade: '<path d="m32 5 15 20-6 29-11 6-12-12-3-22Z"/><path d="m21 38 8 8 15-22"/>'
+    };
+    return `<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${paths[name] || paths.event}</g></svg>`;
+  }
+  function homeArtSvg() {
+    return '<svg viewBox="0 0 460 500" aria-hidden="true"><path d="M325 396h86l-18-220h-49Z" fill="#173c40"/><path d="M337 177h61l-9-57h-43Z" fill="#8f4e78"/><path d="M352 121h32V84h-32Z" fill="#43cbb9"/><path d="m368 92-185 60 182-29 183 27-180-58Z" fill="#e8a84c" opacity=".32"/><path d="M344 69h48l-8-25h-32Z" fill="#102e33"/><path d="M365 44V19" stroke="#102e33" stroke-width="8"/><path d="M84 415c84-49 191-47 296 0" fill="none" stroke="#173c40" stroke-width="10" stroke-linecap="round" opacity=".3"/><g transform="translate(50 235) scale(1.65)"><path d="M30 29 26 15 37 7 46 13 51 29Z" fill="#63e6d2" stroke="#effff9"/><path d="M28 31 19 55 25 86 40 93 55 84 58 51 48 31Z" fill="#43cbb9" stroke="#effff9"/><path d="M48 39 68 43 65 70 51 82 43 68Z" fill="#8f4e78" stroke="#f4d8eb"/></g><g transform="translate(170 270) scale(1.45)"><path d="M30 25 34 8 47 5 52 23 44 32Z" fill="#ffd27e" stroke="#fff8df"/><path d="m33 30-9 24 8 35 11 4 12-36-12-27Z" fill="#e8a84c" stroke="#fff8df"/><path d="M26 43 9 74l19-9 14-21" fill="#8f4e78"/></g><g transform="translate(270 255) scale(1.5)"><path d="M27 28 33 10 48 12 52 30 42 35Z" fill="#d894c0" stroke="#fff1fb"/><path d="M29 33 19 76 28 91 47 92 57 72 48 34Z" fill="#8f4e78" stroke="#fff1fb"/><path d="m24 19 17-13 20 16-8 4-26-1Z" fill="#43cbb9"/><path d="M57 20 62 86" stroke="#e8a84c" stroke-width="4"/><path d="m57 7 10 12-9 11-10-11Z" fill="#43cbb9"/></g><path d="m67 223 8 12-6 14-10-6-1-13Zm177 152 7 11-5 12-9-5-1-12Z" fill="#43cbb9" opacity=".65"/></svg>';
+  }
+
+  function targetLabel(card) {
+    const keys = { enemy: 'targetEnemy', hero: 'targetHero', self: 'targetSelf', cell: 'targetCell', crystal: 'targetCrystal', twoHeroes: 'targetTwo' };
+    return t(keys[card.target]);
+  }
+  function nodeName(node) {
+    if (node.type === 'combat') return NODE_TEXT.combatNames[lang][node.difficulty] || NODE_TEXT.combatNames.en[node.difficulty];
+    return NODE_TEXT[node.type] ? (NODE_TEXT[node.type][lang] || NODE_TEXT[node.type].en) : t(node.type);
+  }
+  function describeIntent(intent) {
+    if (!intent) return t('intentHold');
+    if (intent.type === 'move') return intent.path && intent.path.length ? t('intentMove', { cell: coord(intent.destination) }) : t('intentHold');
+    if (intent.type === 'charge') return t('intentCharge', { cell: coord(intent.target), damage: intent.damage });
+    if (intent.type === 'heal') {
+      const target = E.enemyById(state, intent.targetEnemyId);
+      return t('intentHeal', { amount: intent.amount, target: target ? enemyName(target.type) : '—' });
+    }
+    if (intent.type === 'bossRow') return t('intentRow', { row: intent.center.y + 1, damage: intent.damage });
+    if (intent.type === 'bossCross') return t('intentCross', { cell: coord(intent.center), damage: intent.damage });
+    if (intent.area && intent.area.length > 1) return t('intentArea', { cell: coord(intent.center || intent.area[0]), damage: intent.damage });
+    return t('intentAttack', { cell: coord(intent.area[0]), damage: intent.damage });
+  }
+  function intentBadge(intent) {
+    if (!intent) return '';
+    if (intent.type === 'heal') return `<span class="intent-badge heal">+${intent.amount}</span>`;
+    if (intent.type === 'move') return `<span class="intent-badge move">${intent.path.length ? '→' : '·'}</span>`;
+    const symbol = intent.type === 'charge' ? '»' : intent.type.startsWith('boss') ? '✦' : '!';
+    return `<span class="intent-badge">${symbol} ${intent.damage}</span>`;
+  }
+  function renderTopbar() {
+    return `<header class="topbar"><button class="brand-button" data-action="home" aria-label="${esc(t('backHome'))}">${brandSvg()}<span><span class="brand-name">${esc(t('title'))}</span><span class="brand-sub">${esc(t('studio'))}</span></span></button>${state && view === 'game' ? `<span class="seed-chip">${esc(t('seed'))} · ${esc(state.seed)}</span>` : ''}<span class="topbar-spacer"></span><div class="language-group" aria-label="Language">${['en', 'fr', 'es'].map(code => `<button class="language-button ${lang === code ? 'active' : ''}" data-action="language" data-lang="${code}" aria-pressed="${lang === code}">${code.toUpperCase()}</button>`).join('')}</div><button class="icon-button" data-action="sound" title="${esc(t(preferences.sound ? 'soundOn' : 'soundOff'))}" aria-label="${esc(t('sound'))}">${preferences.sound ? '♪' : '∅'}</button><button class="icon-button" data-action="help" title="${esc(t('how'))}" aria-label="${esc(t('how'))}">?</button></header>`;
+  }
+  function renderHome() {
+    return `<main class="screen home"><section class="home-hero"><div class="home-copy"><p class="eyebrow">${esc(t('homeEyebrow'))}</p><h1>${esc(t('title'))}<em>${esc(t('titleEm'))}</em></h1><p class="home-lead">${esc(t('homeLead'))}</p><div class="home-actions">${savedState ? `<button class="primary-button" data-action="continue">${esc(t('continue'))}</button>` : ''}<button class="${savedState ? 'secondary-button' : 'primary-button'}" data-action="new-game">${esc(t('newExpedition'))}</button><button class="text-button" data-action="watch">${esc(t('watch'))}</button></div><p class="home-note">${esc(t('localSave'))}</p></div><div class="home-art"><div class="lighthouse-halo"></div><div class="home-figures">${homeArtSvg()}</div></div></section><section class="feature-strip"><div class="feature"><span class="feature-icon"><span>!</span></span><div><strong>${esc(t('featureIntent'))}</strong><br>${esc(t('featureIntentText'))}</div></div><div class="feature"><span class="feature-icon"><span>◆</span></span><div><strong>${esc(t('featureCombo'))}</strong><br>${esc(t('featureComboText'))}</div></div><div class="feature"><span class="feature-icon"><span>+</span></span><div><strong>${esc(t('featureWounds'))}</strong><br>${esc(t('featureWoundsText'))}</div></div></section></main>`;
+  }
+  function renderTeamSummary() {
+    return `<div class="map-summary">${state.heroes.map(hero => `<div class="summary-hero"><span class="hero-portrait">${heroSvg(hero.id, hero.hp <= hero.maxHp / 2)}</span><div><div class="summary-hero-name">${esc(heroName(hero.id))}</div><div class="summary-hero-hp">${hero.hp}/${hero.maxHp} ${esc(t('hp'))}</div><div class="hp-track"><span style="width:${Math.max(0, hero.hp / hero.maxHp * 100)}%"></span></div></div></div>`).join('')}</div>`;
+  }
+  function renderDeckPanel() {
+    const counts = {};
+    state.collection.forEach(id => { counts[id] = (counts[id] || 0) + 1; });
+    return `<aside class="deck-panel"><h2>${esc(t('deck'))}</h2><p>${esc(t('collectionHelp'))}</p><div class="deck-list">${E.CARD_ORDER.filter(id => counts[id]).map(id => `<div class="deck-item"><span class="deck-item-symbol">◆</span><span>${esc(cardName(id))}</span>${state.upgrades[id] ? `<span class="deck-item-level">+${state.upgrades[id]}</span>` : ''}<span class="deck-item-count">×${counts[id]}</span></div>`).join('')}</div></aside>`;
+  }
+  function routeNode(node, status) {
+    const disabled = status !== 'available';
+    return `<button class="route-node ${status} ${node.type === 'final' ? 'final' : ''}" data-action="node" data-id="${esc(node.id)}" ${disabled ? 'disabled' : ''}><span class="route-node-icon">${iconSvg(node.type)}</span><span class="route-node-name">${esc(nodeName(node))}</span><span class="route-node-type">${esc(status === 'completed' ? t('completed') : status === 'locked' ? t('locked') : t(node.type))}</span></button>`;
+  }
+  function renderMap() {
+    const stages = state.map.map((nodes, index) => `<div class="route-stage"><span class="route-stage-label">${esc(t('stage'))} ${index + 1}</span>${nodes.map(node => {
+      const completed = state.route.some(step => step.id === node.id);
+      const status = completed ? 'completed' : state.stage === index ? 'available' : 'locked';
+      return routeNode(node, status);
+    }).join('')}</div>`).join('');
+    const finalNode = { id: 'final', type: 'final', difficulty: 5 };
+    const finalStatus = state.stage >= 5 ? 'available' : 'locked';
+    return `<main class="screen map-screen"><div class="map-title"><p class="eyebrow" style="justify-content:center">${esc(t('stage'))} ${Math.min(state.stage + 1, 6)} / 6</p><h1>${esc(t('mapTitle'))}</h1><p>${esc(t('mapLead'))}</p></div>${renderTeamSummary()}<div class="expedition"><section class="route-map" aria-label="${esc(t('chooseNode'))}">${stages}<div class="route-stage"><span class="route-stage-label">${esc(t('finalStage'))}</span>${routeNode(finalNode, finalStatus)}</div></section>${renderDeckPanel()}</div></main>`;
+  }
+  function choiceCard({ kind, icon, name, description, action, id }) {
+    return `<button class="choice-card" data-action="${action}" data-id="${esc(id)}"><span class="choice-kind">${esc(kind)}</span><span class="choice-art">${iconSvg(icon)}</span><h2>${esc(name)}</h2><p>${esc(description)}</p><span class="choice-cta">${esc(t('takeReward'))} →</span></button>`;
+  }
+  function renderReward() {
+    const options = state.reward.options.map(option => {
+      if (option.kind === 'heal') return choiceCard({ kind: t('healTeam'), icon: 'heal', name: `+${option.amount} ${t('hp')}`, description: t('restHealText').replace('6', option.amount), action: 'reward', id: option.id });
+      const info = E.cardInfo(state, option.cardId);
+      const text = cardText(option.cardId);
+      return choiceCard({ kind: t(option.kind === 'new' ? 'newCard' : 'upgradeCard'), icon: option.cardId, name: cardName(option.cardId), description: text[1].replaceAll('{value}', info.value).replaceAll('{range}', info.range), action: 'reward', id: option.id });
+    }).join('');
+    return `<main class="screen choice-screen"><div class="choice-heading"><p class="eyebrow" style="justify-content:center">${esc(t('combat'))} · +100</p><h1>${esc(t('rewardTitle'))}</h1></div><p class="choice-subtitle">${esc(t('rewardLead'))}</p>${renderTeamSummary()}<div class="choice-grid">${options}</div></main>`;
+  }
+  function renderRest() {
+    const id = state.rest.upgradeCardId;
+    return `<main class="screen choice-screen"><div class="choice-heading"><p class="eyebrow" style="justify-content:center">${esc(t('rest'))}</p><h1>${esc(t('restTitle'))}</h1></div><p class="choice-subtitle">${esc(t('restLead'))}</p>${renderTeamSummary()}<div class="choice-grid">${choiceCard({ kind: t('healTeam'), icon: 'rest', name: t('restHeal'), description: t('restHealText'), action: 'rest', id: 'heal' })}${choiceCard({ kind: t('upgradeCard'), icon: id, name: cardName(id), description: t('restUpgradeText', { card: cardName(id) }), action: 'rest', id: 'upgrade' })}</div></main>`;
+  }
+  function renderEvent() {
+    const id = state.event.newCardId;
+    return `<main class="screen choice-screen"><div class="choice-heading"><p class="eyebrow" style="justify-content:center">${esc(t('event'))}</p><h1>${esc(t('eventTitle'))}</h1></div><p class="choice-subtitle">${esc(t('eventLead'))}</p>${renderTeamSummary()}<div class="choice-grid">${choiceCard({ kind: t('newCard'), icon: id, name: cardName(id), description: t('eventSalvageText', { card: cardName(id) }), action: 'event', id: 'salvage' })}${choiceCard({ kind: t('healTeam'), icon: 'heal', name: t('eventHeal'), description: t('eventHealText'), action: 'event', id: 'heal' })}</div></main>`;
+  }
+  function renderEnding() {
+    const victory = state.ending && state.ending.victory;
+    const stats = [[state.score, 'score'], [state.stats.turns, 'turns'], [state.stats.cardsPlayed, 'cardsPlayed'], [state.stats.crystals, 'crystals'], [state.route.length, 'route']];
+    return `<main class="screen ending-screen"><div class="ending-art">${iconSvg(victory ? 'final' : 'shatter')}</div><p class="eyebrow" style="justify-content:center">${esc(t('seed'))} · ${esc(state.seed)}</p><h1>${esc(t(victory ? 'victoryTitle' : 'defeatTitle'))}</h1><p class="ending-lead">${esc(t(victory ? 'victoryLead' : 'defeatLead'))}</p><div class="ending-stats">${stats.map(([value, key]) => `<div class="ending-stat"><strong>${value}</strong><span>${esc(t(key))}</span></div>`).join('')}</div><div class="ending-actions"><button class="primary-button" data-action="retry">${esc(t('retrySeed'))}</button><button class="secondary-button" data-action="new-game">${esc(t('newSeed'))}</button><button class="text-button" data-action="home">${esc(t('backHome'))}</button></div></main>`;
+  }
+  function currentLegalTargets() {
+    if (pending || state.screen !== 'combat') return [];
+    if (selectedCard) return E.getCardTargets(state, selectedCard, selectedTargets);
+    if (selectedHero) return E.getMoveTargets(state, selectedHero);
+    return [];
+  }
+  function targetAtCell(target, x, y) {
+    if (target.kind === 'cell') return target.x === x && target.y === y;
+    const entity = target.kind === 'hero' ? E.heroById(state, target.id) : target.kind === 'enemy' ? E.enemyById(state, target.id) : E.crystalById(state, target.id);
+    return entity && entity.x === x && entity.y === y;
+  }
+  function renderBoard() {
+    const combat = state.combat;
+    const legal = currentLegalTargets();
+    const cells = [];
+    for (let y = 0; y < E.HEIGHT; y += 1) {
+      for (let x = 0; x < E.WIDTH; x += 1) {
+        const hero = state.heroes.find(item => item.x === x && item.y === y);
+        const enemy = E.aliveEnemies(state).find(item => item.x === x && item.y === y);
+        const crystal = E.crystalAt(state, x, y);
+        const obstacle = E.obstacleAt(state, x, y);
+        const hazard = E.hazardAt(state, x, y);
+        const intent = enemy ? combat.intents.find(item => item.enemyId === enemy.id) : null;
+        const incoming = E.incomingAt(state, x, y);
+        const isLegal = legal.some(target => targetAtCell(target, x, y));
+        const chosen = pending && (pending.targets || []).some(target => targetAtCell(target, x, y));
+        const names = [coord({ x, y })];
+        if (hero) names.push(heroName(hero.id), `${hero.hp} ${t('hp')}`);
+        if (enemy) names.push(enemyName(enemy.type), `${enemy.hp} ${t('hp')}`, intent ? describeIntent(intent) : '');
+        if (crystal) names.push(t('targetCrystal'));
+        if (incoming) names.push(t('incoming', { amount: incoming }));
+        cells.push(`<div class="cell ${obstacle ? 'obstacle' : ''} ${incoming ? 'threatened' : ''} ${isLegal ? 'legal' : ''} ${chosen ? 'chosen' : ''}" data-action="cell" data-x="${x}" data-y="${y}" role="button" tabindex="0" aria-label="${esc(names.filter(Boolean).join(' · '))}"><span class="cell-coordinate">${coord({ x, y })}</span>${obstacle ? '<span class="obstacle-shape"></span>' : ''}${hazard ? '<span class="hazard-shape"></span>' : ''}${crystal ? `<span class="crystal">${crystalSvg()}</span>` : ''}${incoming ? `<span class="threat-marker">×${incoming}</span>` : ''}${hero ? `<span class="unit hero ${hero.hp <= 0 ? 'downed' : ''}"><span class="unit-svg">${heroSvg(hero.id, hero.hp <= hero.maxHp / 2)}</span><span class="unit-hp"><span style="width:${Math.max(0, hero.hp / hero.maxHp * 100)}%"></span></span>${hero.guard ? '<span class="unit-guard"></span>' : ''}</span>` : ''}${enemy ? `<span class="unit enemy"><span class="unit-svg">${enemySvg(enemy.type, enemy.hp <= enemy.maxHp / 2)}</span><span class="unit-hp"><span style="width:${enemy.hp / enemy.maxHp * 100}%"></span></span></span>${intentBadge(intent)}<button class="intent-info" data-action="enemy-info" data-id="${enemy.id}" aria-label="${esc(t('details'))}: ${esc(enemyName(enemy.type))}">i</button>` : ''}</div>`);
+      }
+    }
+    return `<div class="board-frame"><div class="board" role="grid" aria-label="7 × 5">${cells.join('')}</div></div><div class="board-legend"><span class="legend-item"><span class="legend-symbol threat">×</span>${esc(t('intents'))}</span><span class="legend-item"><span class="legend-symbol move">◆</span>${esc(t('selectAction'))}</span><span class="legend-item"><span class="legend-symbol crystal-legend"></span>${esc(t('targetCrystal'))}</span></div>`;
+  }
+  function renderSidebar() {
+    const combat = state.combat;
+    return `<aside class="battle-sidebar"><section class="sidebar-section"><h2 class="sidebar-title">${esc(t('team'))}</h2>${state.heroes.map(hero => `<button class="hero-row ${selectedHero === hero.id ? 'selected' : ''} ${hero.hp <= 0 ? 'downed' : ''}" data-action="hero" data-id="${hero.id}"><span class="hero-portrait">${heroSvg(hero.id, hero.hp <= hero.maxHp / 2)}</span><span><span class="hero-row-name">${esc(heroName(hero.id))}</span><span class="hero-row-meta">${hero.hp}/${hero.maxHp} ${esc(t('hp'))}${hero.guard ? ` · ${hero.guard} ${esc(t('guard'))}` : ''}</span><span class="hp-track"><span style="width:${Math.max(0, hero.hp / hero.maxHp * 100)}%"></span></span></span><span class="hero-state">${hero.hp <= 0 ? esc(t('downed')) : hero.moved ? esc(t('moved')) : esc(t('moveAvailable'))}</span></button>`).join('')}</section><section class="sidebar-section"><h2 class="sidebar-title">${esc(t('intents'))}<span>ⓘ</span></h2>${combat.intents.filter(intent => { const enemy = E.enemyById(state, intent.enemyId); return enemy && enemy.hp > 0; }).map(intent => { const enemy = E.enemyById(state, intent.enemyId); return `<button class="intent-row" data-action="enemy-info" data-id="${enemy.id}"><span class="intent-row-icon">${intent.type === 'move' ? '→' : intent.type === 'heal' ? '+' : '!'}</span><span><span class="intent-row-name">${esc(enemyName(enemy.type))}</span><span class="intent-row-text">${esc(describeIntent(intent))}</span></span></button>`; }).join('') || esc(t('noIntents'))}</section><section class="sidebar-section log-section"><h2 class="sidebar-title">${esc(t('log'))}</h2><ul class="log-list">${combat.log.slice(-5).reverse().map(logText).map(text => `<li>${esc(text)}</li>`).join('') || `<li>${esc(t('emptyLog'))}</li>`}</ul></section></aside>`;
+  }
+  function logText(entry) {
+    const hero = entry.heroId ? heroName(entry.heroId) : '';
+    const enemy = entry.enemyId && E.enemyById(state, entry.enemyId) ? enemyName(E.enemyById(state, entry.enemyId).type) : '';
+    if (entry.type === 'heroHit') return t('heroHit', { hero, amount: entry.amount });
+    if (entry.type === 'enemyHit') return t('enemyHit', { enemy, amount: entry.amount });
+    if (entry.type === 'enemyDown') return t('enemyDown', { enemy });
+    if (entry.type === 'guard') return t('guardLog', { hero, amount: entry.amount });
+    if (entry.type === 'fortify') return t('fortifyLog', { amount: entry.amount });
+    if (entry.type === 'thorns') return t('thornsLog');
+    if (entry.type === 'shatter') return t('shatterLog');
+    if (entry.type === 'resonance') return t('resonanceLog');
+    if (entry.type === 'swap') return t('swapLog');
+    if (entry.type === 'mend') return t('mendLog', { hero, amount: entry.amount });
+    if (entry.type === 'move') return t('moveLog', { hero });
+    if (entry.type === 'vault') return t('vaultLog', { hero });
+    if (entry.type === 'reshuffle') return t('reshuffle');
+    if (entry.type === 'turn') return t('turnLog', { turn: entry.turn });
+    if (entry.type === 'bossPhase') return t('bossPhaseLog');
+    if (entry.type === 'bossStart') return t('bossStart');
+    if (entry.type === 'combatStart') return t('combatStart');
+    if (entry.type === 'push') return t('pushLog', { enemy });
+    if (entry.type === 'enemyHeal') return t('enemyHealLog', { enemy, amount: entry.amount });
+    if (entry.type === 'edge' && entry.isolated) return t('edgeLog');
+    return t('emptyLog');
+  }
+  function renderCard(instance) {
+    const card = E.cardInfo(state, instance.id);
+    const actor = E.heroById(state, card.hero);
+    const description = cardText(instance.id)[1].replaceAll('{value}', card.value).replaceAll('{range}', card.range);
+    const disabled = state.combat.energy < card.cost || !actor || actor.hp <= 0;
+    return `<button class="card hero-${card.hero} ${selectedCard === instance.uid ? 'selected' : ''}" data-action="card" data-uid="${instance.uid}" ${disabled ? 'disabled' : ''} aria-pressed="${selectedCard === instance.uid}"><span class="card-cost">${card.cost}</span><span class="card-hero">${esc(heroName(card.hero))}</span><span class="card-art">${iconSvg(instance.id)}</span><span class="card-name">${esc(cardName(instance.id))}</span><span class="card-target">${esc(t('range'))} ${card.range || '—'} · ${esc(targetLabel(card))}</span><span class="card-description">${esc(description)}</span>${card.level ? `<span class="card-level" title="${esc(t('upgraded'))}">${'<i></i>'.repeat(card.level)}</span>` : ''}</button>`;
+  }
+  function describePending() {
+    if (!pending) return '';
+    const lines = [];
+    if (pending.kind === 'move') {
+      lines.push(t('incomingChange', { before: pending.incomingBefore, after: pending.incomingAfter }));
+    } else {
+      const instance = state.combat.hand.find(card => card.uid === pending.uid);
+      if (instance) lines.push(`${cardName(instance.id)} · ${t('energyPreview', { before: state.combat.energy, after: pending.changes.energyAfter })}`);
+      if (pending.isolated) lines.push(t('isolated'));
+      if (instance && instance.id === 'shatter') lines.push(t('crystalRemoved'));
+    }
+    pending.changes.heroes.forEach(change => {
+      const parts = [];
+      if (change.hpBefore !== change.hpAfter) parts.push(`${t('hp')} ${change.hpBefore} → ${change.hpAfter}`);
+      if (change.guardBefore !== change.guardAfter) parts.push(`${t('guard')} ${change.guardBefore} → ${change.guardAfter}`);
+      if (change.from.x !== change.to.x || change.from.y !== change.to.y) parts.push(`${coord(change.from)} → ${coord(change.to)}`);
+      if (parts.length) lines.push(`${heroName(change.id)}: ${parts.join(' · ')}`);
+    });
+    pending.changes.enemies.forEach(change => {
+      const enemy = E.enemyById(state, change.id);
+      const parts = [];
+      if (change.hpBefore !== change.hpAfter) parts.push(`${t('hp')} ${change.hpBefore} → ${change.hpAfter}`);
+      if (change.from.x !== change.to.x || change.from.y !== change.to.y) parts.push(`${coord(change.from)} → ${coord(change.to)}`);
+      if (parts.length) lines.push(`${enemy ? enemyName(enemy.type) : change.id}: ${parts.join(' · ')}`);
+    });
+    return lines.join('  |  ') || t('noChange');
+  }
+  function renderPreview() {
+    if (!pending) return '';
+    return `<div class="preview-panel" role="region" aria-label="${esc(t('previewCard'))}"><div><h3 class="preview-title">${esc(t(pending.kind === 'move' ? 'previewMove' : 'previewCard'))}</h3><div class="preview-text">${esc(describePending())}</div></div><div class="preview-actions"><button class="secondary-button" data-action="cancel">${esc(t('cancel'))}</button><button class="primary-button" data-action="confirm">${esc(t('confirm'))}</button></div></div>`;
+  }
+  function renderCombat() {
+    const combat = state.combat;
+    const layoutName = NODE_TEXT.layouts[lang][combat.layout] || NODE_TEXT.layouts.en[combat.layout];
+    return `<main class="screen game-layout"><section class="battle-main"><div class="battle-heading"><div><h1>${esc(nodeName(state.currentNode))}</h1><p>${esc(layoutName)} · ${combat.final ? esc(t('final')) : esc(t('combat'))}</p></div><span class="turn-chip">${esc(t('turn'))} ${combat.turn}</span>${combat.final ? `<div class="boss-phase">${esc(t(combat.bossPhase === 2 ? 'bossPhaseLog' : 'helpBoss'))}</div>` : ''}</div><div class="battle-status"><div class="energy-meter"><span class="energy-label">${esc(t('energy'))}</span>${[0, 1, 2].map(index => `<span class="energy-orb ${index < combat.energy ? '' : 'empty'}">${index < combat.energy ? '◆' : ''}</span>`).join('')}</div><span class="pile-count">${esc(t('draw'))} <strong>${combat.deck.length}</strong></span><span class="pile-count">${esc(t('discard'))} <strong>${combat.discard.length}</strong></span><span class="team-mini">${state.heroes.map(hero => `<span class="team-mini-dot ${hero.hp <= 0 ? 'downed' : ''}"></span>`).join('')}</span></div>${renderBoard()}<section class="hand-zone"><div class="hand-heading"><h2>${esc(t('hand'))}</h2><span>${esc(t('handHelp'))}</span><button class="end-turn" data-action="end-turn">${esc(t('endTurn'))}<small>${esc(t('endHint'))}</small></button></div><div class="hand">${combat.hand.length ? combat.hand.map(renderCard).join('') : `<div class="empty-hand">${esc(t('emptyHand'))}</div>`}</div>${renderPreview()}</section></section>${renderSidebar()}</main>`;
+  }
+  function renderModal() {
+    if (!modal) { modalRoot.innerHTML = ''; return; }
+    let title = t('helpTitle');
+    let body = '';
+    if (modal.type === 'help') {
+      body = `<p>${esc(t('helpGoal'))}</p><h3>${esc(t('turn'))}</h3><p>${esc(t('helpTurn'))}</p><h3>${esc(t('hand'))}</h3><p>${esc(t('helpCards'))}</p><h3>${esc(t('intents'))}</h3><p>${esc(t('helpIntent'))}</p><div class="rule-grid"><div class="rule-item"><strong>${esc(t('helpElements').split('.')[0])}</strong>${esc(t('helpElements'))}</div><div class="rule-item"><strong>${esc(t('final'))}</strong>${esc(t('helpBoss'))}</div></div><h3>${esc(t('helpControls').split('.')[0])}</h3><p>${esc(t('helpControls'))}</p>`;
+    } else if (modal.type === 'enemy') {
+      const enemy = E.enemyById(state, modal.id);
+      if (!enemy) { modalRoot.innerHTML = ''; return; }
+      const intent = state.combat.intents.find(item => item.enemyId === enemy.id);
+      title = enemyName(enemy.type);
+      const behaviorKey = { hound: 'behaviorHound', sentry: 'behaviorSentry', ram: 'behaviorRam', weaver: 'behaviorWeaver', boss: 'behaviorBoss' }[enemy.type];
+      body = `<p>${enemy.hp}/${enemy.maxHp} ${esc(t('hp'))} · ${coord(enemy)}</p><p>${esc(t(behaviorKey))}</p><div class="intent-detail"><strong>${esc(t('intents'))}</strong><br>${esc(describeIntent(intent))}</div><p>${esc(t('helpIntent'))}</p>`;
+    } else {
+      title = t('targetCrystal');
+      body = `<p>${esc(t('helpElements'))}</p><p>${esc(cardText('shatter')[1].replaceAll('{value}', E.cardInfo(state, 'shatter').value))}</p><p>${esc(cardText('resonance')[1].replaceAll('{value}', E.cardInfo(state, 'resonance').value))}</p>`;
+    }
+    modalRoot.innerHTML = `<div class="modal-backdrop" data-action="close-modal"><section class="modal" role="dialog" aria-modal="true" aria-label="${esc(title)}" data-modal-panel><div class="modal-header"><h2>${esc(title)}</h2><button class="icon-button" data-action="close-modal" aria-label="${esc(t('close'))}">×</button></div><div class="modal-body">${body}</div></section></div>`;
+  }
+  function render() {
+    document.documentElement.lang = lang;
+    document.title = t('title');
+    const content = view === 'home' ? renderHome() : state.screen === 'map' ? renderMap() : state.screen === 'combat' ? renderCombat() : state.screen === 'reward' ? renderReward() : state.screen === 'rest' ? renderRest() : state.screen === 'event' ? renderEvent() : renderEnding();
+    app.innerHTML = `<div class="app-shell">${renderTopbar()}${content}</div>${autoplay && view === 'game' ? `<button class="autoplay-banner" data-action="stop-autoplay">${esc(t('autoplay'))} · ${esc(t('stopAutoplay'))}</button>` : ''}`;
+    renderModal();
+    scheduleAutoplay();
+  }
+
+  function clearSelection() {
+    selectedHero = null;
+    selectedCard = null;
+    selectedTargets = [];
+    pending = null;
+  }
+  function afterAction(result) {
+    if (!result || !result.ok) {
+      toast(result && result.error ? result.error : t('noTargets'));
+      render();
+      return false;
+    }
+    clearSelection();
+    saveGame();
+    if (state.screen === 'ending') playSound(state.ending && state.ending.victory ? 'victory' : 'hit');
+    else if (result.cardId === 'safeguard' || result.cardId === 'fortify') playSound('guard');
+    else playSound('hit');
+    render();
+    return true;
+  }
+  function startNew(seed) {
+    clearSelection();
+    modal = null;
+    state = E.createExpedition(seed || requestedSeed || randomSeed());
+    savedState = E.clone(state);
+    view = 'game';
+    saveGame();
+    render();
+  }
+  function stopAutoplay() {
+    autoplay = false;
+    clearTimeout(autoTimer);
+    autoTimer = null;
+  }
+  function scheduleAutoplay() {
+    if (!autoplay || view !== 'game' || !state || state.screen === 'ending' || autoTimer || autoBusy) return;
+    autoTimer = setTimeout(() => {
+      autoTimer = null;
+      if (!autoplay || view !== 'game') return;
+      const action = E.autoAction(state);
+      if (!action) return;
+      const result = E.applyAction(state, action);
+      afterAction(result);
+    }, 620);
+  }
+  function sameTarget(a, b) {
+    return a.kind === b.kind && a.id === b.id && a.x === b.x && a.y === b.y;
+  }
+  function chooseCardTarget(target) {
+    const legal = E.getCardTargets(state, selectedCard, selectedTargets);
+    const match = legal.find(item => sameTarget(item, target));
+    if (!match) return false;
+    selectedTargets.push(match);
+    const instance = state.combat.hand.find(card => card.uid === selectedCard);
+    if (!instance) { clearSelection(); return false; }
+    const required = E.CARDS[instance.id].target === 'twoHeroes' ? 2 : 1;
+    if (selectedTargets.length < required) { render(); return true; }
+    const preview = E.previewCard(state, selectedCard, selectedTargets);
+    if (!preview.ok) { toast(preview.error); clearSelection(); render(); return false; }
+    pending = preview;
+    render();
+    return true;
+  }
+  function showHelp() { modal = { type: 'help' }; render(); }
+  document.addEventListener('click', event => {
+    const button = event.target.closest('[data-action]');
+    if (!button) return;
+    const action = button.dataset.action;
+    if (action === 'close-modal' && event.target.closest('[data-modal-panel]') && !event.target.closest('button[data-action="close-modal"]')) return;
+    if (['node', 'card', 'hero', 'cell', 'confirm', 'end-turn', 'reward', 'rest', 'event'].includes(action) && autoplay) stopAutoplay();
+    if (action === 'language') {
+      lang = button.dataset.lang;
+      savePreferences();
+      render();
+    } else if (action === 'sound') {
+      preferences.sound = !preferences.sound;
+      savePreferences();
+      if (preferences.sound) playSound('guard');
+      render();
+    } else if (action === 'help') showHelp();
+    else if (action === 'close-modal') { modal = null; render(); }
+    else if (action === 'home') {
+      if (state && view === 'game') saveGame();
+      stopAutoplay();
+      savedState = state ? E.clone(state) : readSave();
+      view = 'home';
+      clearSelection();
+      modal = null;
+      render();
+    } else if (action === 'new-game') { stopAutoplay(); startNew(); }
+    else if (action === 'continue' && savedState) {
+      stopAutoplay();
+      state = E.clone(savedState);
+      view = 'game';
+      clearSelection();
+      render();
+    } else if (action === 'watch') {
+      stopAutoplay();
+      autoplay = true;
+      startNew('first-light');
+    } else if (action === 'stop-autoplay') { stopAutoplay(); render(); }
+    else if (action === 'retry') { stopAutoplay(); startNew(state.seed); }
+    else if (action === 'node') {
+      clearSelection();
+      afterAction(E.startNode(state, button.dataset.id));
+    } else if (action === 'card') {
+      pending = null;
+      selectedTargets = [];
+      selectedHero = null;
+      selectedCard = selectedCard === button.dataset.uid ? null : button.dataset.uid;
+      if (selectedCard && !E.getCardTargets(state, selectedCard).length) toast(t('noTargets'));
+      render();
+    } else if (action === 'hero') {
+      if (selectedCard && chooseCardTarget({ kind: 'hero', id: button.dataset.id })) return;
+      clearSelection();
+      selectedHero = button.dataset.id;
+      if (!E.getMoveTargets(state, selectedHero).length) toast(t('noTargets'));
+      render();
+    } else if (action === 'cell') {
+      const x = Number(button.dataset.x);
+      const y = Number(button.dataset.y);
+      if (selectedCard) {
+        const target = currentLegalTargets().find(item => targetAtCell(item, x, y));
+        if (target) { chooseCardTarget(target); return; }
+      }
+      if (selectedHero) {
+        const target = currentLegalTargets().find(item => item.kind === 'cell' && item.x === x && item.y === y);
+        if (target) {
+          pending = E.previewMove(state, selectedHero, target);
+          render();
+          return;
+        }
+      }
+      const hero = state.heroes.find(item => item.hp > 0 && item.x === x && item.y === y);
+      const enemy = E.aliveEnemies(state).find(item => item.x === x && item.y === y);
+      const crystal = E.crystalAt(state, x, y);
+      clearSelection();
+      if (hero) selectedHero = hero.id;
+      else if (enemy) modal = { type: 'enemy', id: enemy.id };
+      else if (crystal) modal = { type: 'crystal' };
+      render();
+    } else if (action === 'enemy-info') {
+      clearSelection();
+      modal = { type: 'enemy', id: button.dataset.id };
+      render();
+    } else if (action === 'cancel') { clearSelection(); render(); }
+    else if (action === 'confirm' && pending) {
+      const result = pending.kind === 'move' ? E.moveHero(state, pending.heroId, pending.target) : E.playCard(state, pending.uid, pending.targets);
+      afterAction(result);
+    } else if (action === 'end-turn') { clearSelection(); afterAction(E.endTurn(state)); }
+    else if (action === 'reward') afterAction(E.chooseReward(state, button.dataset.id));
+    else if (action === 'rest') afterAction(E.chooseRest(state, button.dataset.id));
+    else if (action === 'event') afterAction(E.chooseEvent(state, button.dataset.id));
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      if (modal) modal = null;
+      else clearSelection();
+      render();
+      return;
+    }
+    if (event.key.toLowerCase() === 'm' && !event.ctrlKey && !event.metaKey) {
+      preferences.sound = !preferences.sound;
+      savePreferences();
+      render();
+      return;
+    }
+    const cell = event.target.closest && event.target.closest('.cell[role=button]');
+    if (cell && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      cell.click();
+      return;
+    }
+    if (event.code === 'Space' && view === 'game' && state && state.screen === 'combat' && !modal && !event.target.closest('button')) {
+      event.preventDefault();
+      stopAutoplay();
+      clearSelection();
+      afterAction(E.endTurn(state));
+    }
+  });
+
+  savedState = readSave();
+  if (autoplay) {
+    state = E.createExpedition(requestedSeed || 'first-light');
+    view = 'game';
+    saveGame();
+  }
+  render();
+})();
+</script>
+</body>
+</html>

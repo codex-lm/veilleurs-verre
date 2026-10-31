@@ -1,0 +1,6155 @@
+{
+  "seed": "first-light",
+  "outcome": "victory",
+  "stage": 5,
+  "score": 1420,
+  "hp": [
+    {
+      "id": "guardian",
+      "hp": 14,
+      "maxHp": 14
+    },
+    {
+      "id": "scout",
+      "hp": 8,
+      "maxHp": 10
+    },
+    {
+      "id": "artificer",
+      "hp": 0,
+      "maxHp": 11
+    }
+  ],
+  "route": [
+    {
+      "id": "0-0",
+      "type": "combat"
+    },
+    {
+      "id": "1-1",
+      "type": "combat"
+    },
+    {
+      "id": "2-0",
+      "type": "combat"
+    },
+    {
+      "id": "3-0",
+      "type": "combat"
+    },
+    {
+      "id": "4-1",
+      "type": "combat"
+    }
+  ],
+  "collection": [
+    "bash",
+    "bash",
+    "safeguard",
+    "safeguard",
+    "edge",
+    "edge",
+    "bolt",
+    "bolt",
+    "shatter",
+    "swap",
+    "resonance",
+    "vault"
+  ],
+  "upgrades": {
+    "resonance": 1,
+    "vault": 1,
+    "shatter": 1,
+    "edge": 1
+  },
+  "stats": {
+    "turns": 62,
+    "cardsPlayed": 97,
+    "kills": 21,
+    "crystals": 5,
+    "damageTaken": 19,
+    "combats": 6
+  },
+  "encounters": [
+    {
+      "node": "0-0",
+      "type": "combat",
+      "startHp": [
+        14,
+        10,
+        11
+      ]
+    },
+    {
+      "node": "1-1",
+      "type": "combat",
+      "startHp": [
+        14,
+        10,
+        11
+      ]
+    },
+    {
+      "node": "2-0",
+      "type": "combat",
+      "startHp": [
+        14,
+        10,
+        11
+      ]
+    },
+    {
+      "node": "3-0",
+      "type": "combat",
+      "startHp": [
+        12,
+        10,
+        7
+      ]
+    },
+    {
+      "node": "4-1",
+      "type": "combat",
+      "startHp": [
+        12,
+        10,
+        7
+      ]
+    },
+    {
+      "node": "final",
+      "type": "final",
+      "startHp": [
+        14,
+        10,
+        9
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "step": 0,
+      "before": {
+        "screen": "map",
+        "turn": null,
+        "stage": 0
+      },
+      "action": {
+        "type": "startNode",
+        "nodeId": "0-0"
+      },
+      "screen": "combat",
+      "rngState": 1175529644
+    },
+    {
+      "step": 1,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 1175529644
+    },
+    {
+      "step": 2,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 1175529644
+    },
+    {
+      "step": 3,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 1175529644
+    },
+    {
+      "step": 4,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1175529644
+    },
+    {
+      "step": 5,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 1175529644
+    },
+    {
+      "step": 6,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 1175529644
+    },
+    {
+      "step": 7,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 8,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c2",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 9,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c3",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 10,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 11,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c8",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 12,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 13,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 14,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 15,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 16,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c1",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 17,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2971010741
+    },
+    {
+      "step": 18,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 114909959
+    },
+    {
+      "step": 19,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c8",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 114909959
+    },
+    {
+      "step": 20,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 114909959
+    },
+    {
+      "step": 21,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 114909959
+    },
+    {
+      "step": 22,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c7",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 114909959
+    },
+    {
+      "step": 23,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 114909959
+    },
+    {
+      "step": 24,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3951119825
+    },
+    {
+      "step": 25,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c3",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "artificer"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3951119825
+    },
+    {
+      "step": 26,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3951119825
+    },
+    {
+      "step": 27,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3951119825
+    },
+    {
+      "step": 28,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c11",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3951119825
+    },
+    {
+      "step": 29,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c7",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3951119825
+    },
+    {
+      "step": 30,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 0
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3951119825
+    },
+    {
+      "step": 31,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 0
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2950292509
+    },
+    {
+      "step": 32,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c9",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2950292509
+    },
+    {
+      "step": 33,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 0
+      },
+      "action": {
+        "type": "card",
+        "uid": "c8",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "reward",
+      "rngState": 1657961670
+    },
+    {
+      "step": 34,
+      "before": {
+        "screen": "reward",
+        "turn": 9,
+        "stage": 0
+      },
+      "action": {
+        "type": "reward",
+        "optionId": "upgrade:resonance"
+      },
+      "screen": "map",
+      "rngState": 1657961670
+    },
+    {
+      "step": 35,
+      "before": {
+        "screen": "map",
+        "turn": null,
+        "stage": 1
+      },
+      "action": {
+        "type": "startNode",
+        "nodeId": "1-1"
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 36,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 37,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 38,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 39,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 1
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 40,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 1
+      },
+      "action": {
+        "type": "card",
+        "uid": "c23",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 41,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 42,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 1232926171
+    },
+    {
+      "step": 43,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 1
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 44,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 1
+      },
+      "action": {
+        "type": "card",
+        "uid": "c16",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "artificer"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 45,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 46,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 47,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 1
+      },
+      "action": {
+        "type": "card",
+        "uid": "c17",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 48,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 1
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 49,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 1
+      },
+      "action": {
+        "type": "card",
+        "uid": "c20",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 50,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 1
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 51,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 1
+      },
+      "action": {
+        "type": "card",
+        "uid": "c18",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3562677476
+    },
+    {
+      "step": 52,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 1
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2855542717
+    },
+    {
+      "step": 53,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 1
+      },
+      "action": {
+        "type": "card",
+        "uid": "c23",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "reward",
+      "rngState": 4228490570
+    },
+    {
+      "step": 54,
+      "before": {
+        "screen": "reward",
+        "turn": 5,
+        "stage": 1
+      },
+      "action": {
+        "type": "reward",
+        "optionId": "upgrade:vault"
+      },
+      "screen": "map",
+      "rngState": 4228490570
+    },
+    {
+      "step": 55,
+      "before": {
+        "screen": "map",
+        "turn": null,
+        "stage": 2
+      },
+      "action": {
+        "type": "startNode",
+        "nodeId": "2-0"
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 56,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c27",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 57,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 58,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 59,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 60,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 61,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 62,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c26",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 63,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 739957993
+    },
+    {
+      "step": 64,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 65,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c26",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 66,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c31",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 67,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c27",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 68,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 69,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 70,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 71,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 72,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c32",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 73,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c28",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 74,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 75,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 3856936693
+    },
+    {
+      "step": 76,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 77,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c25",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 78,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 79,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 80,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 81,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c35",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 82,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c28",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 83,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c27",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "scout"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 84,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 85,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 86,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3275644316
+    },
+    {
+      "step": 87,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 88,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c25",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 89,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c27",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 90,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c36",
+        "targets": [
+          {
+            "kind": "cell",
+            "x": 0,
+            "y": 0
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 91,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 92,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 93,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 94,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 95,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c35",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 96,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c28",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 97,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 98,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 743993576
+    },
+    {
+      "step": 99,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 100,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c32",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 101,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 102,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c26",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 103,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 104,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 105,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 106,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c31",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 107,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c28",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 108,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 109,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c25",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 110,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 111,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 3438125357
+    },
+    {
+      "step": 112,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 567816063
+    },
+    {
+      "step": 113,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 567816063
+    },
+    {
+      "step": 114,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c33",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 567816063
+    },
+    {
+      "step": 115,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 2
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 567816063
+    },
+    {
+      "step": 116,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c30",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 567816063
+    },
+    {
+      "step": 117,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 2
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 567816063
+    },
+    {
+      "step": 118,
+      "before": {
+        "screen": "combat",
+        "turn": 12,
+        "stage": 2
+      },
+      "action": {
+        "type": "card",
+        "uid": "c32",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "reward",
+      "rngState": 3001816092
+    },
+    {
+      "step": 119,
+      "before": {
+        "screen": "reward",
+        "turn": 12,
+        "stage": 2
+      },
+      "action": {
+        "type": "reward",
+        "optionId": "upgrade:shatter"
+      },
+      "screen": "map",
+      "rngState": 3001816092
+    },
+    {
+      "step": 120,
+      "before": {
+        "screen": "map",
+        "turn": null,
+        "stage": 3
+      },
+      "action": {
+        "type": "startNode",
+        "nodeId": "3-0"
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 121,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c39",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 122,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 123,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 124,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 3
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 125,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c47",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 126,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c45",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 127,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 128,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 4005384313
+    },
+    {
+      "step": 129,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 3
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 130,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c38",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 131,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c43",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 132,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 133,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c44",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 134,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 135,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 136,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 3
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 137,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 138,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2462710837
+    },
+    {
+      "step": 139,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 3
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 140,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c38",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 141,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c44",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 142,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c39",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 143,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 144,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 145,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 3
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 146,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c43",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 147,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c37",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 148,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c40",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 149,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 150,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 151,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 3
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3325129248
+    },
+    {
+      "step": 152,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 3
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3843059319
+    },
+    {
+      "step": 153,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 3
+      },
+      "action": {
+        "type": "card",
+        "uid": "c43",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "reward",
+      "rngState": 1081719337
+    },
+    {
+      "step": 154,
+      "before": {
+        "screen": "reward",
+        "turn": 7,
+        "stage": 3
+      },
+      "action": {
+        "type": "reward",
+        "optionId": "upgrade:edge"
+      },
+      "screen": "map",
+      "rngState": 1081719337
+    },
+    {
+      "step": 155,
+      "before": {
+        "screen": "map",
+        "turn": null,
+        "stage": 4
+      },
+      "action": {
+        "type": "startNode",
+        "nodeId": "4-1"
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 156,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c51",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "artificer"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 157,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 158,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 159,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 160,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 161,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c56",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e5"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 162,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 163,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 634743331
+    },
+    {
+      "step": 164,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 165,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c49",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 166,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c60",
+        "targets": [
+          {
+            "kind": "cell",
+            "x": 0,
+            "y": 0
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 167,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 168,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 169,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 170,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 171,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c57",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-0"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 172,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c56",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 173,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 174,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 1798024618
+    },
+    {
+      "step": 175,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 176,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c54",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 177,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c50",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e5"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 178,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c51",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "scout"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 179,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 180,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 181,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 182,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c53",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 183,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c55",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e5"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 184,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c56",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e5"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 185,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 186,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 187,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 1005599816
+    },
+    {
+      "step": 188,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 189,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c56",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 190,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c55",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 191,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 192,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c49",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e4"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 193,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 194,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 195,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 196,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c51",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 197,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c52",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "artificer"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 198,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 199,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 200,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 4113224411
+    },
+    {
+      "step": 201,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2132764128
+    },
+    {
+      "step": 202,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c50",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2132764128
+    },
+    {
+      "step": 203,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c49",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2132764128
+    },
+    {
+      "step": 204,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c60",
+        "targets": [
+          {
+            "kind": "cell",
+            "x": 3,
+            "y": 0
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2132764128
+    },
+    {
+      "step": 205,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 2132764128
+    },
+    {
+      "step": 206,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 4
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2132764128
+    },
+    {
+      "step": 207,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 4
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2132764128
+    },
+    {
+      "step": 208,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 4
+      },
+      "action": {
+        "type": "card",
+        "uid": "c56",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e3"
+          }
+        ]
+      },
+      "screen": "reward",
+      "rngState": 1645672755
+    },
+    {
+      "step": 209,
+      "before": {
+        "screen": "reward",
+        "turn": 10,
+        "stage": 4
+      },
+      "action": {
+        "type": "reward",
+        "optionId": "heal"
+      },
+      "screen": "map",
+      "rngState": 1645672755
+    },
+    {
+      "step": 210,
+      "before": {
+        "screen": "map",
+        "turn": null,
+        "stage": 5
+      },
+      "action": {
+        "type": "startNode",
+        "nodeId": "final"
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 211,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 0,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 212,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 213,
+      "before": {
+        "screen": "combat",
+        "turn": 1,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 214,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c63",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 215,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 216,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 217,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "scout",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 2053385304
+    },
+    {
+      "step": 218,
+      "before": {
+        "screen": "combat",
+        "turn": 2,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1691824459
+    },
+    {
+      "step": 219,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c64",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "artificer"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 1691824459
+    },
+    {
+      "step": 220,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 0
+        }
+      },
+      "screen": "combat",
+      "rngState": 1691824459
+    },
+    {
+      "step": 221,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 1691824459
+    },
+    {
+      "step": 222,
+      "before": {
+        "screen": "combat",
+        "turn": 3,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 1691824459
+    },
+    {
+      "step": 223,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 0,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 1691824459
+    },
+    {
+      "step": 224,
+      "before": {
+        "screen": "combat",
+        "turn": 4,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 225,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c63",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 226,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 0,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 227,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 228,
+      "before": {
+        "screen": "combat",
+        "turn": 5,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 229,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 230,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 231,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c61",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e2"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3527101901
+    },
+    {
+      "step": 232,
+      "before": {
+        "screen": "combat",
+        "turn": 6,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 915269441
+    },
+    {
+      "step": 233,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 915269441
+    },
+    {
+      "step": 234,
+      "before": {
+        "screen": "combat",
+        "turn": 7,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 915269441
+    },
+    {
+      "step": 235,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c63",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "artificer"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 915269441
+    },
+    {
+      "step": 236,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 915269441
+    },
+    {
+      "step": 237,
+      "before": {
+        "screen": "combat",
+        "turn": 8,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 238,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c63",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 239,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 240,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 1,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 241,
+      "before": {
+        "screen": "combat",
+        "turn": 9,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 242,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c64",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "artificer"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 243,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 4,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 244,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 2,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 661297062
+    },
+    {
+      "step": 245,
+      "before": {
+        "screen": "combat",
+        "turn": 10,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 246,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c69",
+        "targets": [
+          {
+            "kind": "crystal",
+            "id": "crystal-1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 247,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 1
+        }
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 248,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c61",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 249,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "artificer",
+        "target": {
+          "kind": "cell",
+          "x": 3,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 250,
+      "before": {
+        "screen": "combat",
+        "turn": 11,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 251,
+      "before": {
+        "screen": "combat",
+        "turn": 12,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c67",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 252,
+      "before": {
+        "screen": "combat",
+        "turn": 12,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c68",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 253,
+      "before": {
+        "screen": "combat",
+        "turn": 12,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 2
+        }
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 254,
+      "before": {
+        "screen": "combat",
+        "turn": 12,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c62",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3230055078
+    },
+    {
+      "step": 255,
+      "before": {
+        "screen": "combat",
+        "turn": 12,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3642470795
+    },
+    {
+      "step": 256,
+      "before": {
+        "screen": "combat",
+        "turn": 13,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c68",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3642470795
+    },
+    {
+      "step": 257,
+      "before": {
+        "screen": "combat",
+        "turn": 13,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3642470795
+    },
+    {
+      "step": 258,
+      "before": {
+        "screen": "combat",
+        "turn": 13,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3642470795
+    },
+    {
+      "step": 259,
+      "before": {
+        "screen": "combat",
+        "turn": 14,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c61",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3642470795
+    },
+    {
+      "step": 260,
+      "before": {
+        "screen": "combat",
+        "turn": 14,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c67",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3642470795
+    },
+    {
+      "step": 261,
+      "before": {
+        "screen": "combat",
+        "turn": 14,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 911737598
+    },
+    {
+      "step": 262,
+      "before": {
+        "screen": "combat",
+        "turn": 15,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c62",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 911737598
+    },
+    {
+      "step": 263,
+      "before": {
+        "screen": "combat",
+        "turn": 15,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 911737598
+    },
+    {
+      "step": 264,
+      "before": {
+        "screen": "combat",
+        "turn": 16,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c61",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 911737598
+    },
+    {
+      "step": 265,
+      "before": {
+        "screen": "combat",
+        "turn": 16,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c64",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 911737598
+    },
+    {
+      "step": 266,
+      "before": {
+        "screen": "combat",
+        "turn": 16,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 911737598
+    },
+    {
+      "step": 267,
+      "before": {
+        "screen": "combat",
+        "turn": 16,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3408666382
+    },
+    {
+      "step": 268,
+      "before": {
+        "screen": "combat",
+        "turn": 17,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 6,
+          "y": 3
+        }
+      },
+      "screen": "combat",
+      "rngState": 3408666382
+    },
+    {
+      "step": 269,
+      "before": {
+        "screen": "combat",
+        "turn": 17,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 3408666382
+    },
+    {
+      "step": 270,
+      "before": {
+        "screen": "combat",
+        "turn": 18,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c61",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3408666382
+    },
+    {
+      "step": 271,
+      "before": {
+        "screen": "combat",
+        "turn": 18,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c62",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3408666382
+    },
+    {
+      "step": 272,
+      "before": {
+        "screen": "combat",
+        "turn": 18,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c64",
+        "targets": [
+          {
+            "kind": "hero",
+            "id": "guardian"
+          }
+        ]
+      },
+      "screen": "combat",
+      "rngState": 3408666382
+    },
+    {
+      "step": 273,
+      "before": {
+        "screen": "combat",
+        "turn": 18,
+        "stage": 5
+      },
+      "action": {
+        "type": "move",
+        "heroId": "guardian",
+        "target": {
+          "kind": "cell",
+          "x": 5,
+          "y": 4
+        }
+      },
+      "screen": "combat",
+      "rngState": 3408666382
+    },
+    {
+      "step": 274,
+      "before": {
+        "screen": "combat",
+        "turn": 18,
+        "stage": 5
+      },
+      "action": {
+        "type": "endTurn"
+      },
+      "screen": "combat",
+      "rngState": 2466909726
+    },
+    {
+      "step": 275,
+      "before": {
+        "screen": "combat",
+        "turn": 19,
+        "stage": 5
+      },
+      "action": {
+        "type": "card",
+        "uid": "c62",
+        "targets": [
+          {
+            "kind": "enemy",
+            "id": "e1"
+          }
+        ]
+      },
+      "screen": "ending",
+      "rngState": 2466909726
+    }
+  ],
+  "finalState": {
+    "version": 1,
+    "seed": "first-light",
+    "rngState": 2466909726,
+    "screen": "ending",
+    "stage": 5,
+    "route": [
+      {
+        "id": "0-0",
+        "type": "combat"
+      },
+      {
+        "id": "1-1",
+        "type": "combat"
+      },
+      {
+        "id": "2-0",
+        "type": "combat"
+      },
+      {
+        "id": "3-0",
+        "type": "combat"
+      },
+      {
+        "id": "4-1",
+        "type": "combat"
+      }
+    ],
+    "currentNode": {
+      "id": "final",
+      "stage": 5,
+      "lane": 0,
+      "type": "final",
+      "layout": 2,
+      "difficulty": 5
+    },
+    "heroes": [
+      {
+        "id": "guardian",
+        "maxHp": 14,
+        "x": 5,
+        "y": 4,
+        "hp": 14,
+        "guard": 0,
+        "moved": false
+      },
+      {
+        "id": "scout",
+        "maxHp": 10,
+        "x": 2,
+        "y": 0,
+        "hp": 8,
+        "guard": 0,
+        "moved": false
+      },
+      {
+        "id": "artificer",
+        "maxHp": 11,
+        "x": 3,
+        "y": 4,
+        "hp": 0,
+        "guard": 0,
+        "moved": false
+      }
+    ],
+    "collection": [
+      "bash",
+      "bash",
+      "safeguard",
+      "safeguard",
+      "edge",
+      "edge",
+      "bolt",
+      "bolt",
+      "shatter",
+      "swap",
+      "resonance",
+      "vault"
+    ],
+    "upgrades": {
+      "resonance": 1,
+      "vault": 1,
+      "shatter": 1,
+      "edge": 1
+    },
+    "nextCardUid": 73,
+    "map": [
+      [
+        {
+          "id": "0-0",
+          "stage": 0,
+          "lane": 0,
+          "type": "combat",
+          "layout": 1,
+          "difficulty": 0
+        }
+      ],
+      [
+        {
+          "id": "1-0",
+          "stage": 1,
+          "lane": 0,
+          "type": "rest",
+          "layout": 0,
+          "difficulty": 1
+        },
+        {
+          "id": "1-1",
+          "stage": 1,
+          "lane": 1,
+          "type": "combat",
+          "layout": 0,
+          "difficulty": 1
+        }
+      ],
+      [
+        {
+          "id": "2-0",
+          "stage": 2,
+          "lane": 0,
+          "type": "combat",
+          "layout": 0,
+          "difficulty": 2
+        },
+        {
+          "id": "2-1",
+          "stage": 2,
+          "lane": 1,
+          "type": "event",
+          "layout": 1,
+          "difficulty": 2
+        }
+      ],
+      [
+        {
+          "id": "3-0",
+          "stage": 3,
+          "lane": 0,
+          "type": "combat",
+          "layout": 2,
+          "difficulty": 3
+        },
+        {
+          "id": "3-1",
+          "stage": 3,
+          "lane": 1,
+          "type": "rest",
+          "layout": 1,
+          "difficulty": 3
+        }
+      ],
+      [
+        {
+          "id": "4-0",
+          "stage": 4,
+          "lane": 0,
+          "type": "event",
+          "layout": 0,
+          "difficulty": 4
+        },
+        {
+          "id": "4-1",
+          "stage": 4,
+          "lane": 1,
+          "type": "combat",
+          "layout": 0,
+          "difficulty": 4
+        }
+      ]
+    ],
+    "combat": {
+      "nodeId": "final",
+      "final": true,
+      "layout": 2,
+      "turn": 19,
+      "energy": 2,
+      "deck": [
+        {
+          "uid": "c61",
+          "id": "bash"
+        },
+        {
+          "uid": "c68",
+          "id": "bolt"
+        },
+        {
+          "uid": "c66",
+          "id": "edge"
+        },
+        {
+          "uid": "c69",
+          "id": "shatter"
+        },
+        {
+          "uid": "c67",
+          "id": "bolt"
+        },
+        {
+          "uid": "c64",
+          "id": "safeguard"
+        },
+        {
+          "uid": "c72",
+          "id": "vault"
+        }
+      ],
+      "hand": [
+        {
+          "uid": "c63",
+          "id": "safeguard"
+        },
+        {
+          "uid": "c71",
+          "id": "resonance"
+        },
+        {
+          "uid": "c65",
+          "id": "edge"
+        },
+        {
+          "uid": "c70",
+          "id": "swap"
+        }
+      ],
+      "discard": [
+        {
+          "uid": "c62",
+          "id": "bash"
+        }
+      ],
+      "enemies": [
+        {
+          "id": "e1",
+          "type": "boss",
+          "x": 6,
+          "y": 4,
+          "hp": 0,
+          "maxHp": 24
+        },
+        {
+          "id": "e2",
+          "type": "hound",
+          "x": 3,
+          "y": 2,
+          "hp": 0,
+          "maxHp": 6
+        }
+      ],
+      "obstacles": [
+        {
+          "x": 2,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 2
+        },
+        {
+          "x": 4,
+          "y": 2
+        },
+        {
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "crystals": [
+        {
+          "id": "crystal-0",
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "hazards": [
+        {
+          "x": 3,
+          "y": 2
+        },
+        {
+          "x": 5,
+          "y": 1
+        },
+        {
+          "x": 5,
+          "y": 3
+        }
+      ],
+      "intents": [
+        {
+          "id": "e1-t19",
+          "enemyId": "e1",
+          "type": "bossCross",
+          "area": [
+            {
+              "x": 0,
+              "y": 4
+            },
+            {
+              "x": 1,
+              "y": 4
+            },
+            {
+              "x": 2,
+              "y": 4
+            },
+            {
+              "x": 3,
+              "y": 4
+            },
+            {
+              "x": 4,
+              "y": 4
+            },
+            {
+              "x": 5,
+              "y": 4
+            },
+            {
+              "x": 6,
+              "y": 4
+            },
+            {
+              "x": 5,
+              "y": 0
+            },
+            {
+              "x": 5,
+              "y": 1
+            },
+            {
+              "x": 5,
+              "y": 2
+            },
+            {
+              "x": 5,
+              "y": 3
+            }
+          ],
+          "damage": 3,
+          "center": {
+            "x": 5,
+            "y": 4
+          }
+        }
+      ],
+      "bossPhase": 2,
+      "log": [
+        {
+          "type": "bossStart"
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 0,
+            "y": 3
+          },
+          "to": {
+            "x": 0,
+            "y": 2
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "scout",
+          "from": {
+            "x": 0,
+            "y": 1
+          },
+          "to": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossRow"
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e2",
+          "amount": 2,
+          "source": "thorns"
+        },
+        {
+          "type": "thorns",
+          "unitId": "e2"
+        },
+        {
+          "type": "turn",
+          "turn": 2
+        },
+        {
+          "type": "guard",
+          "heroId": "guardian",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 0,
+            "y": 2
+          },
+          "to": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 1,
+            "y": 2
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "scout",
+          "from": {
+            "x": 1,
+            "y": 0
+          },
+          "to": {
+            "x": 2,
+            "y": 0
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "attack"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 3
+        },
+        {
+          "type": "guard",
+          "heroId": "artificer",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 1,
+            "y": 1
+          },
+          "to": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 2,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossRow"
+        },
+        {
+          "type": "turn",
+          "turn": 4
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 1,
+            "y": 0
+          },
+          "to": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        {
+          "type": "heroHit",
+          "heroId": "scout",
+          "amount": 2,
+          "absorbed": 0,
+          "source": "attack"
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "attack"
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e2",
+          "amount": 2,
+          "source": "thorns"
+        },
+        {
+          "type": "thorns",
+          "unitId": "e2"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 5
+        },
+        {
+          "type": "guard",
+          "heroId": "guardian",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 0,
+            "y": 1
+          },
+          "to": {
+            "x": 0,
+            "y": 2
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossRow"
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e2",
+          "intentType": "attack"
+        },
+        {
+          "type": "turn",
+          "turn": 6
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 0,
+            "y": 2
+          },
+          "to": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 2,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e2",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "enemyDown",
+          "enemyId": "e2"
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "attack"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 7
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 1,
+            "y": 1
+          },
+          "to": {
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossRow"
+        },
+        {
+          "type": "turn",
+          "turn": 8
+        },
+        {
+          "type": "guard",
+          "heroId": "artificer",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 1,
+            "y": 2
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "attack"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 9
+        },
+        {
+          "type": "guard",
+          "heroId": "guardian",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 3,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 1
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 2,
+            "y": 3
+          },
+          "to": {
+            "x": 1,
+            "y": 2
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossRow"
+        },
+        {
+          "type": "turn",
+          "turn": 10
+        },
+        {
+          "type": "guard",
+          "heroId": "artificer",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 3,
+            "y": 1
+          },
+          "to": {
+            "x": 4,
+            "y": 1
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 1,
+            "y": 2
+          },
+          "to": {
+            "x": 2,
+            "y": 3
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "attack"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 11
+        },
+        {
+          "type": "shatter",
+          "center": {
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 4,
+            "y": 1
+          },
+          "to": {
+            "x": 6,
+            "y": 1
+          }
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "push",
+          "enemyId": "e1",
+          "to": {
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "type": "move",
+          "heroId": "artificer",
+          "from": {
+            "x": 2,
+            "y": 3
+          },
+          "to": {
+            "x": 3,
+            "y": 4
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossRow"
+        },
+        {
+          "type": "turn",
+          "turn": 12
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bolt"
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bolt"
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 6,
+            "y": 1
+          },
+          "to": {
+            "x": 6,
+            "y": 2
+          }
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "push",
+          "enemyId": "e1",
+          "to": {
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "type": "heroHit",
+          "heroId": "artificer",
+          "amount": 2,
+          "absorbed": 0,
+          "source": "attack"
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "attack"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 13
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bolt"
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 6,
+            "y": 2
+          },
+          "to": {
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "type": "heroHit",
+          "heroId": "artificer",
+          "amount": 2,
+          "absorbed": 0,
+          "source": "bossRow"
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossRow"
+        },
+        {
+          "type": "turn",
+          "turn": 14
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "bossPhase",
+          "phase": 2
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bolt"
+        },
+        {
+          "type": "heroHit",
+          "heroId": "artificer",
+          "amount": 2,
+          "absorbed": 0,
+          "source": "attack"
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "attack"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 15
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "heroHit",
+          "heroId": "artificer",
+          "amount": 3,
+          "absorbed": 0,
+          "source": "bossCross"
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossCross"
+        },
+        {
+          "type": "turn",
+          "turn": 16
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "guard",
+          "heroId": "guardian",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 6,
+            "y": 3
+          },
+          "to": {
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossCross"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 17
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 5,
+            "y": 4
+          },
+          "to": {
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossCross"
+        },
+        {
+          "type": "turn",
+          "turn": 18
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "guard",
+          "heroId": "guardian",
+          "amount": 3
+        },
+        {
+          "type": "move",
+          "heroId": "guardian",
+          "from": {
+            "x": 6,
+            "y": 3
+          },
+          "to": {
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "type": "enemyAction",
+          "enemyId": "e1",
+          "intentType": "bossCross"
+        },
+        {
+          "type": "reshuffle"
+        },
+        {
+          "type": "turn",
+          "turn": 19
+        },
+        {
+          "type": "enemyHit",
+          "enemyId": "e1",
+          "amount": 2,
+          "source": "bash"
+        },
+        {
+          "type": "enemyDown",
+          "enemyId": "e1"
+        }
+      ]
+    },
+    "reward": null,
+    "rest": null,
+    "event": null,
+    "ending": {
+      "victory": true,
+      "reason": "lighthouse"
+    },
+    "score": 1420,
+    "stats": {
+      "turns": 62,
+      "cardsPlayed": 97,
+      "kills": 21,
+      "crystals": 5,
+      "damageTaken": 19,
+      "combats": 6
+    }
+  }
+}

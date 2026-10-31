@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "mission": "Les Veilleurs de Verre — création ponctuelle",
+  "slug": "veilleurs-verre",
+  "authorization": "Demande directe de Cédric dans cette conversation",
+  "startedAt": "2026-10-31T23:27:28+01:00",
+  "status": "ready-for-github",
+  "scope": "C:/dev/kimi-games/games/veilleurs-verre uniquement",
+  "identity": {
+    "lob7": "Kimi Games / usr_zxb87j1k",
+    "github": "codex-lm"
+  },
+  "idempotencyKey": "kimi-games-veilleurs-verre-v1",
+  "existingDraft": null,
+  "dailyCreationLock": "Conservé à l’autre conversation ; aucune acquisition ni modification.",
+  "scheduledTasks": "Aucune modification.",
+  "concept": {
+    "player": "Placer trois gardiens de verre, lire les intentions figées et combiner dix cartes pour rallumer le phare.",
+    "decisions": "Menaces de cases, protections, poussées, cristaux, échanges et arbitrages entre soins et renforcement.",
+    "ending": "Cinq étapes à embranchements, puis un boss en deux phases ; victoire, défaite et rejeu avec graine.",
+    "art": "Figurines de verre turquoise, ambre et prune sur céramique, ruines de jardins et reflets lumineux.",
+    "scope": "HTML/CSS/JS statique sans dépendance, EN/FR/ES, tactile, sauvegarde locale exacte."
+  },
+  "progress": [
+    "Combat complet, expédition, récompenses, sauvegarde exacte et trois langues réalisés.",
+    "Navigation ennemie et lignes de tir corrigées après des simulations qui s’éternisaient ; aucune augmentation des PV.",
+    "Victoire réellement jouée dans le navigateur intégré puis reproduite dans Chromium avec seulement les minuteurs accélérés.",
+    "Collision de la légende de cristal et espacement des panneaux corrigés après inspection visuelle."
+  ],
+  "localTests": {
+    "status": "passed",
+    "unitAndIntegration": "18/18 — node --test tests/*.test.js",
+    "browserCheck": "Desktop et tactile : coûts, aperçu, annulation, tour ennemi, EN/FR/ES, intention tactile, absence de débordement et zéro erreur JS.",
+    "exactReloadSha256": "eb365fa141a5280127cec5a0cf49148b09c338215513cb4b83a3543f2a9b4b77"
+  },
+  "playthrough": {
+    "status": "passed",
+    "seed": "first-light",
+    "outcome": "victory",
+    "routeLength": 5,
+    "combats": 6,
+    "turns": 62,
+    "cardsPlayed": 97,
+    "crystals": 5,
+    "score": 1420,
+    "method": "Actions publiques du moteur ; partie complète dans le navigateur intégré et dans Chromium, sans modification des règles."
+  },
+  "preflight": {
+    "status": "passed",
+    "recipe": "static-web-v1",
+    "errors": []
+  },
+  "publication": {"status": "not-started"},
+  "publicBrowser": {"status": "not-run"},
+  "evidence": [
+    "evidence/local-browser-check.json",
+    "evidence/local-desktop-combat.png",
+    "evidence/local-mobile-combat.png",
+    "evidence/local-browser-playthrough.json",
+    "evidence/local-victory.png",
+    "evidence/local-playthrough-summary.json",
+    "evidence/playthrough-first-light.json",
+    "evidence/preflight.json"
+  ]
+}

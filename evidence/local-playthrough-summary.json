@@ -1,0 +1,130 @@
+{
+  "seed": "first-light",
+  "outcome": "victory",
+  "stage": 5,
+  "score": 1420,
+  "hp": [
+    {
+      "id": "guardian",
+      "hp": 14,
+      "maxHp": 14
+    },
+    {
+      "id": "scout",
+      "hp": 8,
+      "maxHp": 10
+    },
+    {
+      "id": "artificer",
+      "hp": 0,
+      "maxHp": 11
+    }
+  ],
+  "route": [
+    {
+      "id": "0-0",
+      "type": "combat"
+    },
+    {
+      "id": "1-1",
+      "type": "combat"
+    },
+    {
+      "id": "2-0",
+      "type": "combat"
+    },
+    {
+      "id": "3-0",
+      "type": "combat"
+    },
+    {
+      "id": "4-1",
+      "type": "combat"
+    }
+  ],
+  "collection": [
+    "bash",
+    "bash",
+    "safeguard",
+    "safeguard",
+    "edge",
+    "edge",
+    "bolt",
+    "bolt",
+    "shatter",
+    "swap",
+    "resonance",
+    "vault"
+  ],
+  "upgrades": {
+    "resonance": 1,
+    "vault": 1,
+    "shatter": 1,
+    "edge": 1
+  },
+  "stats": {
+    "turns": 62,
+    "cardsPlayed": 97,
+    "kills": 21,
+    "crystals": 5,
+    "damageTaken": 19,
+    "combats": 6
+  },
+  "encounters": [
+    {
+      "node": "0-0",
+      "type": "combat",
+      "startHp": [
+        14,
+        10,
+        11
+      ]
+    },
+    {
+      "node": "1-1",
+      "type": "combat",
+      "startHp": [
+        14,
+        10,
+        11
+      ]
+    },
+    {
+      "node": "2-0",
+      "type": "combat",
+      "startHp": [
+        14,
+        10,
+        11
+      ]
+    },
+    {
+      "node": "3-0",
+      "type": "combat",
+      "startHp": [
+        12,
+        10,
+        7
+      ]
+    },
+    {
+      "node": "4-1",
+      "type": "combat",
+      "startHp": [
+        12,
+        10,
+        7
+      ]
+    },
+    {
+      "node": "final",
+      "type": "final",
+      "startHp": [
+        14,
+        10,
+        9
+      ]
+    }
+  ],
+  "evidence": "C:\\dev\\kimi-games\\games\\veilleurs-verre\\evidence\\playthrough-first-light.json"
+}

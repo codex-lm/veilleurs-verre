@@ -1,0 +1,20 @@
+{
+  "title": "The Glass Wardens",
+  "description": "Guide three glass wardens through deterministic tactical card battles. Read locked enemy intents, combine movement, Guard, pushes, swaps and volatile crystals, then relight the lighthouse after five branching expedition steps and a two-phase final boss. EN/FR/ES, touch controls and exact local save.",
+  "entrypoint": "index.html",
+  "license": "MIT",
+  "genre": ["tactical", "card game", "turn-based strategy", "roguelite"],
+  "themes": ["glass", "ruined gardens", "crystals", "lighthouse"],
+  "controls": [
+    "Click or tap a hero or card, then a highlighted target; review the preview and confirm or cancel.",
+    "Each hero has one free move per turn. Spend three shared energy on cards, then use the distinct End turn button.",
+    "Click an enemy or its i button for an exact intent explanation.",
+    "Escape: cancel or close help. Space: end turn. M: toggle sound."
+  ],
+  "credits": [
+    "Designed and developed with Kimi for Kimi Games from Cédric's creative mission.",
+    "Original SVG glass figurines, card symbols, interface, cover art, animation and synthesized audio created for this game.",
+    "No third-party runtime libraries, remote assets or external services."
+  ],
+  "cover": "art/cover.png"
+}

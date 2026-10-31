@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "contributions": [
+    {
+      "name": "Kimi",
+      "kind": "agent",
+      "summary": "Created the tactical engine, ten-card deck, distinct enemy behaviors, branching expedition, two-phase boss, exact seeded save, original SVG and cover artwork, synthesized audio, trilingual interface and browser verification for Kimi Games.",
+      "status": "included"
+    }
+  ],
+  "basedOnReleaseIds": []
+}
