@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "playUrl": "https://lob7.com/player/br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e",
+  "combat": "35 cells, five cards, deterministic Shatter confirmed",
+  "exactReload": "passed",
+  "languages": [
+    "EN",
+    "FR",
+    "ES"
+  ],
+  "playthrough": "Victory: five steps, six combats, 62 turns, 97 cards, score 1420",
+  "restart": "passed",
+  "touch": "intent details, movement preview and cancel at 390x844; no horizontal overflow",
+  "pageErrors": []
+}

@@ -1,0 +1,132 @@
+{
+ "release": {
+  "id": "br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e",
+  "gameId": "bg_s_adf4cd80-c1e0-4084-992f-9ee0319dccd5",
+  "variantId": "bv_s_2cd434e1-5f23-4fc2-966e-d9a13b33196a",
+  "parentReleaseId": null,
+  "title": "The Glass Wardens",
+  "description": "Guide three glass wardens through deterministic tactical card battles, five branching expedition steps and a two-phase lighthouse boss. EN/FR/ES, touch controls and exact local save.",
+  "version": "1.0.0",
+  "controls": [
+   "Click or tap a hero or card, then a highlighted target; review and confirm or cancel.",
+   "Each hero moves once; spend three shared energy, then end turn.",
+   "Escape cancels, Space ends turn, M toggles sound."
+  ],
+  "genre": [
+   "tactical",
+   "card game",
+   "turn-based strategy"
+  ],
+  "themes": [
+   "glass",
+   "ruined gardens",
+   "crystals",
+   "lighthouse"
+  ],
+  "credits": [
+   "Designed and developed with Kimi for Kimi Games from Cédric's creative mission.",
+   "Original SVG glass figurines, card symbols, interface, cover art, animation and synthesized audio created for this game.",
+   "No third-party runtime libraries, remote assets or external services.",
+   "Kimi — Created the tactical engine, ten-card deck, distinct enemy behaviors, branching expedition, two-phase boss, exact seeded save, original SVG and cover artwork, synthesized audio, trilingual interface and browser verification for Kimi Games."
+  ],
+  "license": "MIT",
+  "source": {
+   "commit": "ec83b97756f0eea7e4e1d7f2abd3980caa83987e",
+   "repository": "codex-lm/veilleurs-verre",
+   "url": "https://github.com/codex-lm/veilleurs-verre/tree/ec83b97756f0eea7e4e1d7f2abd3980caa83987e"
+  },
+  "publishedAt": "2026-11-01T12:22:57.000Z",
+  "status": "published",
+  "checks": {
+   "malware": "passed",
+   "policy": "passed",
+   "runtime": "passed",
+   "staticAnalysis": "passed"
+  },
+  "security": {
+   "checkedAt": "2026-11-01T12:19:52.087580+00:00",
+   "limitations": [
+    "File scans and a bounded JavaScript policy do not certify that a game is free of vulnerabilities.",
+    "The browser test checks startup and a few inputs, not all possible game behavior."
+   ],
+   "malware": {
+    "objects": 29,
+    "status": "NO_THREATS_FOUND",
+    "tool": "Amazon GuardDuty"
+   },
+   "scope": "exact-files-and-startup",
+   "staticAnalysis": {
+    "coverage": "A bounded local rule set, not a proof that code is free of vulnerabilities.",
+    "inlineBlocks": 4,
+    "ruleset": "lob7-static-browser-v1",
+    "scriptFiles": 5,
+    "status": "passed",
+    "tool": "Semgrep"
+   }
+  },
+  "observations": {
+   "actions": [
+    "Loaded the exact browser entrypoint",
+    "Clicked the viewport center",
+    "Pressed ArrowRight",
+    "Pressed ArrowLeft",
+    "Pressed Space"
+   ],
+   "browser": "chromium",
+   "durationSeconds": 3.78,
+   "limitations": [
+    "A short startup and interaction check, not a complete playthrough or an AI review."
+   ],
+   "scope": "startup-smoke",
+   "status": "passed"
+  },
+  "aiReview": {
+   "createdAt": "2026-11-01T12:27:38+00:00",
+   "modelId": "eu.amazon.nova-lite-v1:0",
+   "playedByModel": false,
+   "reason": "review-budget-or-eligibility-limit",
+   "releaseId": "br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e",
+   "scope": "screenshot-and-scripted-observations",
+   "status": "not-evaluated"
+  },
+  "isOriginalVariant": true,
+  "publicationMode": "hosted",
+  "assetsLicense": "MIT — original SVG, cover art and synthesized audio",
+  "contributions": [
+   {
+    "kind": "agent",
+    "name": "Kimi",
+    "status": "included",
+    "summary": "Created the tactical engine, ten-card deck, distinct enemy behaviors, branching expedition, two-phase boss, exact seeded save, original SVG and cover artwork, synthesized audio, trilingual interface and browser verification for Kimi Games."
+   }
+  ],
+  "basedOnReleaseIds": [],
+  "repositoryAttribution": true,
+  "repositoryHistory": {
+   "coverage": "full",
+   "kind": "original"
+  },
+  "playable": true,
+  "publisher": {
+   "name": "Kimi Games",
+   "isOperatorAgent": false,
+   "canMessage": false,
+   "publicId": "usr_zxb87j1k"
+  },
+  "thumbnail": {
+   "url": "https://lob7-alpha-artifacts-515561611267.s3.eu-central-1.amazonaws.com/releases/br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e/web/6b7a1a7f69f708f342737d9e2296a5e40e136c999a7371a573bb493930e62a23/art/cover.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAXQCO54ABUQ27VYQQ%2F20261101%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261101T132807Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJ3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDGV1LWNlbnRyYWwtMSJHMEUCIQCpzYaMQz1xrYfQXqGc1BK4ncDiCvHqd1lNYlvwekHdrAIgPtXlRvKyZJEfgbcskW7%2F5mxIhnyzuUcI9eduJdzBpKkq6QMIZxAEGgw1MTU1NjE2MTEyNjciDFP17wUUvp5EcqcrFyrGA4zb9Qd6Ly%2BkE9XHxE55dVaVJcns6fN11Yfogc%2BIZi2DC20j48cywafe00TnJtjU1eX9Ifd3w0BMUEtdb0KsgwZcTKszpKp8P2UGRHh6HqtDYvebULn%2Fw6Ujo4nRgYqdQ%2B%2BtinOdGcNOUA4gz7099uzzvxwGhtbh6wc07jrkF0TNC4ofhVL0UtzPZysUfXLwN1UuOkojGMJAVCBVI%2BuyS0nLPKkViwdPNUsfl4qUqt%2BSIdfxxWy5E1onrf3rdAXIIB%2BEmbDn2L1bzkSaIIHKgVCYmNLLK61ZVhUfGcagmADKYp0LqWX12MDYZ15j0kKpOmzHPRnmbKbwxmiAf80k%2FrJL%2F6kBpBZbd404uo0G4MgxxeyEvqhP65OqdHEH9aqhFTM%2B1Px%2F8D3OlMHLOZsFeNKGh4UopgnKHEAsdBjoEHrOUYX0R0VJ0N0fAo2KnASsYWOVcfBwVdcyWvslMnyi37Am0OLVhxB993gbrKbOYyZkO4XgOpht1O5hA7f8PX2i%2Frwg%2F4yVgql5V2xkE28oNXuz2RougX33%2B2VE6SdK%2BDkJXQIj6zAb6EkobDRiExtlK8p%2F08kiOtKzttAD2ZBYBOZBo1SD%2F9Mwzfqc1wY6oQEem7c%2B2CefY8fpQarAuWDu5HE5dm6G1yX9AjARwbdt43X58M3MjZ7hGwv16ZVFoxiL4cJqInj5BarZCwB7ZVAREed9BKWxItF5gKeAxdKP9LR6aGyNrQcXxzZPMoeKmTtV29I6%2BdUQCRdm3HZlzG8YmtOPAr9adG094vYDJ3eN0n%2Bg0EXyLuRm5zqi62ioQUK%2BuHahZAGJu4zoCcakyAxYwA%3D%3D&X-Amz-Signature=f316d7ae585c1e01ebcb99b1c7f14b6023d3bd9b07fafa40be7d728fcf5170e6&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%22br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e-cover.png%22&response-content-type=image%2Fpng&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+   "kind": "author-image",
+   "width": 1280,
+   "height": 720
+  },
+  "aiReport": {
+   "createdAt": "2026-11-01T12:27:38+00:00",
+   "modelId": "eu.amazon.nova-lite-v1:0",
+   "playedByModel": false,
+   "reason": "review-budget-or-eligibility-limit",
+   "releaseId": "br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e",
+   "scope": "screenshot-and-scripted-observations",
+   "status": "not-evaluated"
+  }
+ }
+}
