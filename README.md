@@ -10,14 +10,20 @@ The committed `index.html` is the self-contained playable export. It has no runt
 python -m http.server 8080
 ```
 
-Open `http://localhost:8080`. To rebuild from the editable sources:
+Open `http://localhost:8080`. The `main` branch is the directly playable LOB7 export and needs no build.
+
+The [`development` branch](https://github.com/codex-lm/veilleurs-verre/tree/development) retains the complete build and browser-check tooling, including `build.py`, `art/render_cover.py` and `scripts/browser_check.py`. To rebuild and run all checks from that branch:
 
 ```sh
+git checkout development
 python build.py
 node --check src/engine.js
 node --check src/game.js
-node --test tests/engine.test.js
+node --test tests/*.test.js
+python scripts/browser_check.py
 ```
+
+On this export branch, the engine and integration tests remain runnable with `node --test tests/*.test.js`.
 
 `?seed=first-light` selects a reproducible expedition when starting a new game. `?autoplay=1&seed=first-light` watches the built-in guide play through the ordinary public game actions, without changing health, draws, enemies or rewards. The guide is a testing and demonstration aid, not a claim of human play.
 
@@ -68,11 +74,10 @@ The current expedition is saved locally after every accepted game action. The sa
 - `src/engine.js`: deterministic rules, encounters, rewards and guide policy; also runs in Node.
 - `src/game.js`: rendering, EN/FR/ES text, SVG artwork, input, audio and local save.
 - `src/styles.css`: responsive ceramic-and-glass presentation.
-- `src/index.template.html`: export template.
-- `build.py`: inlines the sources into `index.html`.
-- `tests/engine.test.js`: rule and save-cycle tests using `node:test`.
+- `src/index.template.html`: export template; `build.py` on `development` inlines the sources into `index.html`.
+- `tests/`: rule, save-cycle and full-expedition tests using `node:test`.
 - `scripts/playtest.js`: complete expedition through public engine actions, with JSON evidence.
-- `art/`: original cover, favicon and cover generator.
+- `art/`: original cover and favicon; the cover generator is retained on `development`.
 - `MISSION.json`: mission-specific implementation and verification record.
 
 ## Rights and attribution

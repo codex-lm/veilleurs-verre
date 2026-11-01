@@ -1,0 +1,188 @@
+{
+ "checkLocal": {
+  "recipe": "static-web-v1",
+  "status": "local static checks passed; remote validation still required",
+  "result": "PASSED",
+  "archive": {
+   "sha256": "41dba86c8256ced6119222ac8197bd79e450f03b64a69acf6f27d88a20b588c4",
+   "bytes": 1398585,
+   "entries": 33
+  },
+  "errors": [],
+  "warnings": [],
+  "metadata": {},
+  "limitations": [
+   "preflight statique local : ne reconstruit pas index.html et ne prouve pas que le code compile est a jour avec les sources",
+   "scripts test/build declares dans package.json : NON EXECUTES (donnee declaree, a revoir avant tout npm test / npm run build)",
+   "notices de licence canoniques exactes, tests complets, execution isolee et moderation : verifies cote serveur uniquement",
+   "ces controles ne sont ni un sandbox JavaScript ni une verification de securite ; la CSP navigateur et l'execution AWS isolee restent requises"
+  ]
+ },
+ "manifest": [
+  {
+   "path": ".gitignore",
+   "bytes": 88,
+   "sha256": "d313910b3962e168e6169f49e946c50e5611ecf55bceb28e3e69e61b27e1ace0"
+  },
+  {
+   "path": "CREDITS.md",
+   "bytes": 1357,
+   "sha256": "26811fe572dd6a05b822c92fa48e4f48bfd711904b1f091ecfc1477cf29c2fee"
+  },
+  {
+   "path": "LICENSE",
+   "bytes": 1067,
+   "sha256": "f905ca1ce7358a1e8fa08ca79b5ad19d922874a27a155a58640995adc553e076"
+  },
+  {
+   "path": "LOB7-ATTRIBUTION.json",
+   "bytes": 422,
+   "sha256": "7590cdea7f5b1fdad899c4c665c79850e33efa795e736e2e1f1c870fd81a2f18"
+  },
+  {
+   "path": "LOB7-GAME.json",
+   "bytes": 1274,
+   "sha256": "1b00cdd2da863c6b39c41410ef33f1e0e9c6a1659f1ce223d3f2455143e616be"
+  },
+  {
+   "path": "MISSION.json",
+   "bytes": 4903,
+   "sha256": "f2480a3423d664afab9cb2d742d5a6a62822dae1c072f0961a41726bc3a57375"
+  },
+  {
+   "path": "README.md",
+   "bytes": 5853,
+   "sha256": "82682872d7da8908c4d87488175fe6a7e50cb9c1e1c3ce5af225e1a3f6c4e6e7"
+  },
+  {
+   "path": "index.html",
+   "bytes": 155208,
+   "sha256": "4c3bea8ad20374da71b7dadce56df79db2a9bdf05774c7177c99611a5e7cf1a9"
+  },
+  {
+   "path": ".lob7/ownership/bd_s_58258000-588a-4d54-9713-355649c795af.txt",
+   "bytes": 64,
+   "sha256": "f105622b4687034ce1b267800b8bb4987503f5f7942d5eadc4514e474d09ae5f"
+  },
+  {
+   "path": "art/cover.png",
+   "bytes": 173461,
+   "sha256": "649dfbc94e7c75efd34ec069eea9938a68f290b0efe00061b341d3dad12ecef2"
+  },
+  {
+   "path": "art/favicon.svg",
+   "bytes": 348,
+   "sha256": "349e425cc924785f0f43281350aec3326ea07ad20b54d1eb3ef8e339500bbceb"
+  },
+  {
+   "path": "evidence/lob7-draft-create.json",
+   "bytes": 1578,
+   "sha256": "a50b2937b62a20d537c55ddeeafa67abae0fa02e24989fdc615585b85909f305"
+  },
+  {
+   "path": "evidence/lob7-draft-status.json",
+   "bytes": 2418,
+   "sha256": "e26dbbc042b74e3578b9fb0de0f46804bee0bcb90698f293720e9bd739c91967"
+  },
+  {
+   "path": "evidence/lob7-draft-update.json",
+   "bytes": 1649,
+   "sha256": "317c88af64ed9790db7b9bd45b4a211fb28e8e19e15c76e8f603e39c09b1cbb1"
+  },
+  {
+   "path": "evidence/lob7-prepare.json",
+   "bytes": 2166,
+   "sha256": "8730b8c2cc6666b673c3d93ef189b56e34e22d31a68acc8de6b4167e0fe85c92"
+  },
+  {
+   "path": "evidence/local-browser-check.json",
+   "bytes": 587,
+   "sha256": "4db50a8f0b5c14766d14def8aeae3c79b73e7cde4756f6f50886cef65c16130f"
+  },
+  {
+   "path": "evidence/local-browser-playthrough.json",
+   "bytes": 558,
+   "sha256": "f8f52487a536b6aa80ec9d1c75c3df0c701e0412719ca030581f5ff0d28e3094"
+  },
+  {
+   "path": "evidence/local-defeat-restart.json",
+   "bytes": 131,
+   "sha256": "193a9d4d30ea666f49aed802fb35f4045c6bf0e49fde7e3b33bdd69c2e3b53ab"
+  },
+  {
+   "path": "evidence/local-defeat.png",
+   "bytes": 148821,
+   "sha256": "1f237efa5ee9cb6bdf4c2e37d90743a31d4395638c61be7af80a05af142613b9"
+  },
+  {
+   "path": "evidence/local-desktop-combat.png",
+   "bytes": 332386,
+   "sha256": "83b97ab6be8f9b22026188dac9c2260ddd5437b4b1c5b1bb327e2cfb78279e7f"
+  },
+  {
+   "path": "evidence/local-mobile-combat.png",
+   "bytes": 503961,
+   "sha256": "08b9fbcee2b10e15898100fbe057c8302cc2b08944da34deb4d6a9650547c5d9"
+  },
+  {
+   "path": "evidence/local-playthrough-summary.json",
+   "bytes": 1847,
+   "sha256": "7d2c53c3467cf23ea647793f70f54163576f507349d97a9bf390c68a42fd8489"
+  },
+  {
+   "path": "evidence/local-victory.png",
+   "bytes": 145958,
+   "sha256": "4fc10374fd894431da8b10bcbd0569cd0b43225e0f1e1d86c29843dfb5c4d285"
+  },
+  {
+   "path": "evidence/playthrough-first-light.json",
+   "bytes": 112213,
+   "sha256": "8527d048cb20d94a11e16433ded0f30dad1cc5bbd4fd8c396ac5ac29bff96442"
+  },
+  {
+   "path": "evidence/preflight-export.json",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/preflight.json",
+   "bytes": 4901,
+   "sha256": "bc6bbb764955c0ce4a093f38a2bba15c1e8b11af39ad44d9ffa4c81d57b96827"
+  },
+  {
+   "path": "scripts/playtest.js",
+   "bytes": 2010,
+   "sha256": "04bae1dc10a284ded0e907a67d00a9ed398f42806444f1f60980da599a86082f"
+  },
+  {
+   "path": "src/engine.js",
+   "bytes": 41838,
+   "sha256": "7a7ff32bd283aebf61e8b988b623f98d6b64aa508bc861b635651f71f59f622b"
+  },
+  {
+   "path": "src/game.js",
+   "bytes": 77937,
+   "sha256": "077a53296ddc7bd78accff9eda1e521a4149285aaaabd22c3038c16b1ca7e2f2"
+  },
+  {
+   "path": "src/index.template.html",
+   "bytes": 699,
+   "sha256": "06fbf961abbe66364f9cb7420c8b4e7a23b58fec993bac79ef3b3e3e541579d7"
+  },
+  {
+   "path": "src/styles.css",
+   "bytes": 34774,
+   "sha256": "35f945bb5315bc01a6b859aff73fbd26ede6f848d86cda64345c3ca386f92923"
+  },
+  {
+   "path": "tests/engine.test.js",
+   "bytes": 11531,
+   "sha256": "7289694a61f6a3a40314ee3f600253ae0bf7da909a20e320770193d30c6ad35b"
+  },
+  {
+   "path": "tests/expedition.test.js",
+   "bytes": 1472,
+   "sha256": "b2c867d6d68c45d4b2cf19e39be9ce81cde034d78f77e5e4862d44ce5581a2f1"
+  }
+ ]
+}

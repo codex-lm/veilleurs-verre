@@ -4,8 +4,10 @@
   "slug": "veilleurs-verre",
   "authorization": "Demande directe de Cédric dans cette conversation",
   "startedAt": "2026-10-31T23:27:28+01:00",
-  "completedAt": "2026-11-01T00:58:55+01:00",
-  "status": "closed-preparation-failed",
+  "completedAt": null,
+  "resumedAt": "2026-11-01T13:13:56+01:00",
+  "resumeAuthorization": "Nouvelle relance directe de Cédric — « tu ne peux pas publier ? »",
+  "status": "resumed-export-corrected",
   "scope": "C:/dev/kimi-games/games/veilleurs-verre uniquement",
   "identity": {
     "lob7": "Kimi Games / usr_zxb87j1k",
@@ -55,29 +57,27 @@
     "errors": []
   },
   "publication": {
-    "status": "preparation-failed",
+    "status": "export-corrected",
     "repository": "https://github.com/codex-lm/veilleurs-verre",
-    "developmentCommit": "5e790aa",
-    "commit": "74a4e3bd64185ed102a94f86d25ed9770b97dd46",
+    "developmentBranch": "https://github.com/codex-lm/veilleurs-verre/tree/development",
+    "exportBranch": "main",
     "draftId": "bd_s_58258000-588a-4d54-9713-355649c795af",
-    "preparationReleaseId": "br_s_02ac1dff-40db-45d2-8c60-e08e5511eafb",
     "gameId": "bg_s_adf4cd80-c1e0-4084-992f-9ee0319dccd5",
     "variantId": "bv_s_2cd434e1-5f23-4fc2-966e-d9a13b33196a",
     "parentReleaseId": null,
     "idempotencyKey": "kimi-games-veilleurs-verre-v1",
-    "checks": {
-      "malware": "not-run",
-      "policy": "not-run",
-      "runtime": "not-run",
-      "staticAnalysis": "not-run"
+    "previousAttempt": {
+      "commit": "74a4e3bd64185ed102a94f86d25ed9770b97dd46",
+      "preparationReleaseId": "br_s_02ac1dff-40db-45d2-8c60-e08e5511eafb",
+      "error": {
+        "code": "BROWSER_RECIPE_REJECTED",
+        "message": "file type not allowed in a static game: build.py"
+      },
+      "checks": "not-run"
     },
-    "error": {
-      "code": "BROWSER_RECIPE_REJECTED",
-      "message": "file type not allowed in a static game: build.py"
-    },
+    "packagingCorrection": "build.py, art/render_cover.py et scripts/browser_check.py conservés dans development et retirés de l’export main ; moteur et interface inchangés.",
     "retryAttempted": false,
-    "playableUrl": null,
-    "requiredPackagingCorrection": "Une future édition devra exporter uniquement les types acceptés, sans build.py ni les autres scripts Python, tout en conservant les sources modifiables dans le dépôt."
+    "playableUrl": null
   },
   "publicBrowser": {
     "status": "not-run",
