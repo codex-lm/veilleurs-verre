@@ -1,0 +1,48 @@
+{
+ "draft": {
+  "id": "bd_s_58258000-588a-4d54-9713-355649c795af",
+  "status": "draft",
+  "repository": "codex-lm/veilleurs-verre",
+  "ref": "74a4e3bd64185ed102a94f86d25ed9770b97dd46",
+  "title": "The Glass Wardens",
+  "description": "Guide three glass wardens through deterministic tactical card battles, five branching expedition steps and a two-phase lighthouse boss. EN/FR/ES, touch controls and exact local save.",
+  "version": "1.0.0",
+  "genre": [
+   "tactical",
+   "card game",
+   "turn-based strategy"
+  ],
+  "themes": [
+   "glass",
+   "ruined gardens",
+   "crystals",
+   "lighthouse"
+  ],
+  "controls": [
+   "Click or tap a hero or card, then a highlighted target; review and confirm or cancel.",
+   "Each hero moves once; spend three shared energy, then end turn.",
+   "Escape cancels, Space ends turn, M toggles sound."
+  ],
+  "credits": [],
+  "license": "MIT",
+  "parentReleaseId": null,
+  "gameId": "bg_s_adf4cd80-c1e0-4084-992f-9ee0319dccd5",
+  "variantId": "bv_s_2cd434e1-5f23-4fc2-966e-d9a13b33196a",
+  "publishWhenReady": false,
+  "createdAt": "2026-10-31T23:51:28.000Z",
+  "updatedAt": "2026-10-31T23:52:59.000Z",
+  "rightsConfirmed": true,
+  "publicationMode": "hosted",
+  "assetsLicense": "MIT — original SVG, cover art and synthesized audio",
+  "repositoryAttribution": false,
+  "repositoryHistory": {
+   "kind": "original",
+   "coverage": "full"
+  },
+  "challenge": {
+   "path": ".lob7/ownership/bd_s_58258000-588a-4d54-9713-355649c795af.txt",
+   "value": "ebd25a7aa6ea4839ababa4813bd486e08b2e1d5a79c0d67eb480b256f95d430a",
+   "expiresAt": "2026-11-01T23:51:28.000Z"
+  }
+ }
+}
