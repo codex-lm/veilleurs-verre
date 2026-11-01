@@ -4,10 +4,10 @@
   "slug": "veilleurs-verre",
   "authorization": "Demande directe de Cédric dans cette conversation",
   "startedAt": "2026-10-31T23:27:28+01:00",
-  "completedAt": null,
+  "completedAt": "2026-11-01T14:28:07+01:00",
   "resumedAt": "2026-11-01T13:13:56+01:00",
   "resumeAuthorization": "Nouvelle relance directe de Cédric — « tu ne peux pas publier ? »",
-  "status": "resumed-export-corrected",
+  "status": "published",
   "scope": "C:/dev/kimi-games/games/veilleurs-verre uniquement",
   "identity": {
     "lob7": "Kimi Games / usr_zxb87j1k",
@@ -57,15 +57,24 @@
     "errors": []
   },
   "publication": {
-    "status": "export-corrected",
+    "status": "published",
     "repository": "https://github.com/codex-lm/veilleurs-verre",
     "developmentBranch": "https://github.com/codex-lm/veilleurs-verre/tree/development",
     "exportBranch": "main",
+    "commit": "ec83b97756f0eea7e4e1d7f2abd3980caa83987e",
     "draftId": "bd_s_58258000-588a-4d54-9713-355649c795af",
+    "releaseId": "br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e",
+    "preparationReleaseId": "br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e",
     "gameId": "bg_s_adf4cd80-c1e0-4084-992f-9ee0319dccd5",
     "variantId": "bv_s_2cd434e1-5f23-4fc2-966e-d9a13b33196a",
     "parentReleaseId": null,
     "idempotencyKey": "kimi-games-veilleurs-verre-v1",
+    "checks": {
+      "malware": "passed",
+      "policy": "passed",
+      "runtime": "passed",
+      "staticAnalysis": "passed"
+    },
     "previousAttempt": {
       "commit": "74a4e3bd64185ed102a94f86d25ed9770b97dd46",
       "preparationReleaseId": "br_s_02ac1dff-40db-45d2-8c60-e08e5511eafb",
@@ -76,12 +85,25 @@
       "checks": "not-run"
     },
     "packagingCorrection": "build.py, art/render_cover.py et scripts/browser_check.py conservés dans development et retirés de l’export main ; moteur et interface inchangés.",
-    "retryAttempted": false,
-    "playableUrl": null
+    "retryAttempted": true,
+    "privatePreview": {
+      "status": "passed",
+      "combat": "Aperçu et confirmation de Shatter",
+      "playthrough": "Victoire en 62 tours, score 1420",
+      "restart": "passed",
+      "pageErrors": []
+    },
+    "playableUrl": "https://lob7.com/player/br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e"
   },
   "publicBrowser": {
-    "status": "not-run",
-    "reason": "Aucun aperçu privé ni lecteur public disponible après le refus de préparation."
+    "status": "passed",
+    "combat": "35 cases, cinq cartes, Shatter confirmé",
+    "exactReload": "passed",
+    "languages": ["EN", "FR", "ES"],
+    "playthrough": "Victoire publique : cinq étapes, six combats, 62 tours, 97 cartes, score 1420",
+    "restart": "passed",
+    "touch": "Intentions, aperçu de déplacement et annulation à 390x844 ; aucun débordement horizontal",
+    "pageErrors": []
   },
   "evidence": [
     "evidence/local-browser-check.json",
@@ -94,9 +116,20 @@
     "evidence/local-playthrough-summary.json",
     "evidence/playthrough-first-light.json",
     "evidence/preflight.json",
+    "evidence/preflight-export.json",
     "evidence/lob7-draft-create.json",
     "evidence/lob7-draft-update.json",
     "evidence/lob7-prepare.json",
-    "evidence/lob7-draft-status.json"
+    "evidence/lob7-draft-status.json",
+    "evidence/lob7-resume-status.json",
+    "evidence/lob7-publish.json",
+    "evidence/lob7-release.json",
+    "evidence/private-preview-result.json",
+    "evidence/private-preview-home.png",
+    "evidence/private-preview-victory.png",
+    "evidence/public-browser-result.json",
+    "evidence/public-combat.png",
+    "evidence/public-mobile.png",
+    "evidence/public-victory.png"
   ]
 }

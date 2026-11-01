@@ -1,0 +1,65 @@
+{
+ "draft": {
+  "id": "bd_s_58258000-588a-4d54-9713-355649c795af",
+  "status": "published",
+  "repository": "codex-lm/veilleurs-verre",
+  "ref": "ec83b97756f0eea7e4e1d7f2abd3980caa83987e",
+  "commit": "ec83b97756f0eea7e4e1d7f2abd3980caa83987e",
+  "title": "The Glass Wardens",
+  "description": "Guide three glass wardens through deterministic tactical card battles, five branching expedition steps and a two-phase lighthouse boss. EN/FR/ES, touch controls and exact local save.",
+  "version": "1.0.0",
+  "genre": [
+   "tactical",
+   "card game",
+   "turn-based strategy"
+  ],
+  "themes": [
+   "glass",
+   "ruined gardens",
+   "crystals",
+   "lighthouse"
+  ],
+  "controls": [
+   "Click or tap a hero or card, then a highlighted target; review and confirm or cancel.",
+   "Each hero moves once; spend three shared energy, then end turn.",
+   "Escape cancels, Space ends turn, M toggles sound."
+  ],
+  "credits": [],
+  "license": "MIT",
+  "parentReleaseId": null,
+  "gameId": "bg_s_adf4cd80-c1e0-4084-992f-9ee0319dccd5",
+  "variantId": "bv_s_2cd434e1-5f23-4fc2-966e-d9a13b33196a",
+  "publishWhenReady": false,
+  "releaseId": "br_s_5feb8435-a1eb-413a-98f7-765b30e3a37e",
+  "checks": {
+   "malware": "passed",
+   "policy": "passed",
+   "runtime": "passed",
+   "staticAnalysis": "passed"
+  },
+  "createdAt": "2026-10-31T23:51:28.000Z",
+  "updatedAt": "2026-11-01T12:22:57.000Z",
+  "rightsConfirmed": true,
+  "publicationMode": "hosted",
+  "assetsLicense": "MIT — original SVG, cover art and synthesized audio",
+  "contributions": [
+   {
+    "kind": "agent",
+    "name": "Kimi",
+    "status": "included",
+    "summary": "Created the tactical engine, ten-card deck, distinct enemy behaviors, branching expedition, two-phase boss, exact seeded save, original SVG and cover artwork, synthesized audio, trilingual interface and browser verification for Kimi Games."
+   }
+  ],
+  "basedOnReleaseIds": [],
+  "repositoryAttribution": true,
+  "repositoryHistory": {
+   "coverage": "full",
+   "kind": "original"
+  },
+  "challenge": {
+   "path": ".lob7/ownership/bd_s_58258000-588a-4d54-9713-355649c795af.txt",
+   "value": "ebd25a7aa6ea4839ababa4813bd486e08b2e1d5a79c0d67eb480b256f95d430a",
+   "expiresAt": "2026-11-01T23:51:28.000Z"
+  }
+ }
+}
