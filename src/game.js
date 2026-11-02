@@ -11,6 +11,7 @@
   const toastNode = document.getElementById('toast');
   const TEXT = {
     en: {
+      selectedTarget: 'Selected target',
       title: 'The Glass Wardens', titleEm: 'of the last light', studio: 'Kimi Games · A LOB7 original',
       newExpedition: 'Begin an expedition', continue: 'Continue expedition', watch: 'Watch a guided expedition', how: 'How to play',
       homeEyebrow: 'A tactical card expedition', homeLead: 'Three small glass creatures. One darkened lighthouse. Read every enemy intent, shape the battlefield, and carry what remains of your team through five fateful steps.',
@@ -33,6 +34,7 @@
       hp: 'HP', energyPreview: 'Energy {before} → {after}', noChange: 'The action resolves as shown.', incoming: 'Incoming damage here: {amount}', incomingChange: 'Incoming damage {before} → {after}', crystalRemoved: 'The crystal is destroyed.', isolated: 'Target isolated: +2 damage.', upgraded: 'Upgraded', copies: 'copies', level: 'Level', sound: 'Sound', soundOn: 'Sound on', soundOff: 'Sound off', autoplay: 'Guided expedition · ordinary rules · no cheats', stopAutoplay: 'Stop demo', savedLocally: 'Progress saved locally.', invalidSave: 'The saved expedition could not be read. Start a new one.', close: 'Close', details: 'Details', emptyLog: 'The ceramic is quiet. For now.'
     },
     fr: {
+      selectedTarget: 'Case sélectionnée',
       title: 'Les Veilleurs de Verre', titleEm: 'de la dernière lumière', studio: 'Kimi Games · Une création LOB7',
       newExpedition: 'Commencer une expédition', continue: 'Continuer l’expédition', watch: 'Voir une expédition guidée', how: 'Comment jouer',
       homeEyebrow: 'Une expédition tactique en cartes', homeLead: 'Trois petites créatures de verre. Un phare éteint. Lisez chaque intention ennemie, transformez le champ de bataille et guidez votre équipe blessée à travers cinq étapes décisives.',
@@ -55,6 +57,7 @@
       hp: 'PV', energyPreview: 'Énergie {before} → {after}', noChange: 'L’action se résout comme indiqué.', incoming: 'Dégâts entrants ici : {amount}', incomingChange: 'Dégâts entrants {before} → {after}', crystalRemoved: 'Le cristal est détruit.', isolated: 'Cible isolée : +2 dégâts.', upgraded: 'Améliorée', copies: 'exemplaires', level: 'Niveau', sound: 'Son', soundOn: 'Son activé', soundOff: 'Son coupé', autoplay: 'Expédition guidée · règles ordinaires · sans triche', stopAutoplay: 'Arrêter la démo', savedLocally: 'Progression sauvegardée localement.', invalidSave: 'L’expédition sauvegardée est illisible. Commencez-en une nouvelle.', close: 'Fermer', details: 'Détails', emptyLog: 'La céramique est silencieuse. Pour l’instant.'
     },
     es: {
+      selectedTarget: 'Casilla seleccionada',
       title: 'Los Vigías de Cristal', titleEm: 'de la última luz', studio: 'Kimi Games · Una creación de LOB7',
       newExpedition: 'Iniciar una expedición', continue: 'Continuar la expedición', watch: 'Ver una expedición guiada', how: 'Cómo jugar',
       homeEyebrow: 'Una expedición táctica de cartas', homeLead: 'Tres pequeñas criaturas de cristal. Un faro apagado. Lee cada intención enemiga, transforma el campo de batalla y guía a tu equipo herido por cinco etapas decisivas.',
@@ -351,6 +354,7 @@
   function renderBoard() {
     const combat = state.combat;
     const legal = currentLegalTargets();
+    const chosenTargets = pending ? (pending.kind === 'move' ? [pending.target] : pending.targets) : selectedTargets;
     const cells = [];
     for (let y = 0; y < E.HEIGHT; y += 1) {
       for (let x = 0; x < E.WIDTH; x += 1) {
@@ -362,13 +366,14 @@
         const intent = enemy ? combat.intents.find(item => item.enemyId === enemy.id) : null;
         const incoming = E.incomingAt(state, x, y);
         const isLegal = legal.some(target => targetAtCell(target, x, y));
-        const chosen = pending && (pending.targets || []).some(target => targetAtCell(target, x, y));
+        const chosen = chosenTargets.some(target => targetAtCell(target, x, y));
         const names = [coord({ x, y })];
+        if (chosen) names.push(t('selectedTarget'));
         if (hero) names.push(heroName(hero.id), `${hero.hp} ${t('hp')}`);
         if (enemy) names.push(enemyName(enemy.type), `${enemy.hp} ${t('hp')}`, intent ? describeIntent(intent) : '');
         if (crystal) names.push(t('targetCrystal'));
         if (incoming) names.push(t('incoming', { amount: incoming }));
-        cells.push(`<div class="cell ${obstacle ? 'obstacle' : ''} ${incoming ? 'threatened' : ''} ${isLegal ? 'legal' : ''} ${chosen ? 'chosen' : ''}" data-action="cell" data-x="${x}" data-y="${y}" role="button" tabindex="0" aria-label="${esc(names.filter(Boolean).join(' · '))}"><span class="cell-coordinate">${coord({ x, y })}</span>${obstacle ? '<span class="obstacle-shape"></span>' : ''}${hazard ? '<span class="hazard-shape"></span>' : ''}${crystal ? `<span class="crystal">${crystalSvg()}</span>` : ''}${incoming ? `<span class="threat-marker">×${incoming}</span>` : ''}${hero ? `<span class="unit hero ${hero.hp <= 0 ? 'downed' : ''}"><span class="unit-svg">${heroSvg(hero.id, hero.hp <= hero.maxHp / 2)}</span><span class="unit-hp"><span style="width:${Math.max(0, hero.hp / hero.maxHp * 100)}%"></span></span>${hero.guard ? '<span class="unit-guard"></span>' : ''}</span>` : ''}${enemy ? `<span class="unit enemy"><span class="unit-svg">${enemySvg(enemy.type, enemy.hp <= enemy.maxHp / 2)}</span><span class="unit-hp"><span style="width:${enemy.hp / enemy.maxHp * 100}%"></span></span></span>${intentBadge(intent)}<button class="intent-info" data-action="enemy-info" data-id="${enemy.id}" aria-label="${esc(t('details'))}: ${esc(enemyName(enemy.type))}">i</button>` : ''}</div>`);
+        cells.push(`<div class="cell ${obstacle ? 'obstacle' : ''} ${incoming ? 'threatened' : ''} ${isLegal ? 'legal' : ''} ${chosen ? 'chosen' : ''}" data-action="cell" data-x="${x}" data-y="${y}" role="button" tabindex="0" aria-pressed="${chosen}" aria-label="${esc(names.filter(Boolean).join(' · '))}"><span class="cell-coordinate">${coord({ x, y })}</span>${chosen ? '<span class="selection-marker" aria-hidden="true">✓</span>' : ''}${obstacle ? '<span class="obstacle-shape"></span>' : ''}${hazard ? '<span class="hazard-shape"></span>' : ''}${crystal ? `<span class="crystal">${crystalSvg()}</span>` : ''}${incoming ? `<span class="threat-marker">×${incoming}</span>` : ''}${hero ? `<span class="unit hero ${hero.hp <= 0 ? 'downed' : ''}"><span class="unit-svg">${heroSvg(hero.id, hero.hp <= hero.maxHp / 2)}</span><span class="unit-hp"><span style="width:${Math.max(0, hero.hp / hero.maxHp * 100)}%"></span></span>${hero.guard ? '<span class="unit-guard"></span>' : ''}</span>` : ''}${enemy ? `<span class="unit enemy"><span class="unit-svg">${enemySvg(enemy.type, enemy.hp <= enemy.maxHp / 2)}</span><span class="unit-hp"><span style="width:${enemy.hp / enemy.maxHp * 100}%"></span></span></span>${intentBadge(intent)}<button class="intent-info" data-action="enemy-info" data-id="${enemy.id}" aria-label="${esc(t('details'))}: ${esc(enemyName(enemy.type))}">i</button>` : ''}</div>`);
       }
     }
     return `<div class="board-frame"><div class="board" role="grid" aria-label="7 × 5">${cells.join('')}</div></div><div class="board-legend"><span class="legend-item"><span class="legend-symbol threat">×</span>${esc(t('intents'))}</span><span class="legend-item"><span class="legend-symbol move">◆</span>${esc(t('selectAction'))}</span><span class="legend-item"><span class="legend-symbol crystal-legend"></span>${esc(t('targetCrystal'))}</span></div>`;
@@ -438,12 +443,15 @@
   }
   function renderPreview() {
     if (!pending) return '';
-    return `<div class="preview-panel" role="region" aria-label="${esc(t('previewCard'))}"><div><h3 class="preview-title">${esc(t(pending.kind === 'move' ? 'previewMove' : 'previewCard'))}</h3><div class="preview-text">${esc(describePending())}</div></div><div class="preview-actions"><button class="secondary-button" data-action="cancel">${esc(t('cancel'))}</button><button class="primary-button" data-action="confirm">${esc(t('confirm'))}</button></div></div>`;
+    return `<div class="preview-panel" role="status" aria-live="polite" aria-atomic="true"><h3 class="preview-title">${esc(t(pending.kind === 'move' ? 'previewMove' : 'previewCard'))}</h3><div class="preview-text">${esc(describePending())}</div></div>`;
+  }
+  function renderCombatControls() {
+    return `<div class="combat-controls ${pending ? 'has-preview' : ''}">${renderPreview()}<div class="combat-actions">${pending ? `<button class="secondary-button cancel-button" data-action="cancel">${esc(t('cancel'))}</button><button class="primary-button confirm-button" data-action="confirm">${esc(t('confirm'))}</button>` : ''}<button class="end-turn" data-action="end-turn">${esc(t('endTurn'))}<small>${esc(t('endHint'))}</small></button></div></div>`;
   }
   function renderCombat() {
     const combat = state.combat;
     const layoutName = NODE_TEXT.layouts[lang][combat.layout] || NODE_TEXT.layouts.en[combat.layout];
-    return `<main class="screen game-layout"><section class="battle-main"><div class="battle-heading"><div><h1>${esc(nodeName(state.currentNode))}</h1><p>${esc(layoutName)} · ${combat.final ? esc(t('final')) : esc(t('combat'))}</p></div><span class="turn-chip">${esc(t('turn'))} ${combat.turn}</span>${combat.final ? `<div class="boss-phase">${esc(t(combat.bossPhase === 2 ? 'bossPhaseLog' : 'helpBoss'))}</div>` : ''}</div><div class="battle-status"><div class="energy-meter"><span class="energy-label">${esc(t('energy'))}</span>${[0, 1, 2].map(index => `<span class="energy-orb ${index < combat.energy ? '' : 'empty'}">${index < combat.energy ? '◆' : ''}</span>`).join('')}</div><span class="pile-count">${esc(t('draw'))} <strong>${combat.deck.length}</strong></span><span class="pile-count">${esc(t('discard'))} <strong>${combat.discard.length}</strong></span><span class="team-mini">${state.heroes.map(hero => `<span class="team-mini-dot ${hero.hp <= 0 ? 'downed' : ''}"></span>`).join('')}</span></div>${renderBoard()}<section class="hand-zone"><div class="hand-heading"><h2>${esc(t('hand'))}</h2><span>${esc(t('handHelp'))}</span><button class="end-turn" data-action="end-turn">${esc(t('endTurn'))}<small>${esc(t('endHint'))}</small></button></div><div class="hand">${combat.hand.length ? combat.hand.map(renderCard).join('') : `<div class="empty-hand">${esc(t('emptyHand'))}</div>`}</div>${renderPreview()}</section></section>${renderSidebar()}</main>`;
+    return `<main class="screen game-layout"><section class="battle-main"><div class="battle-heading"><div><h1>${esc(nodeName(state.currentNode))}</h1><p>${esc(layoutName)} · ${combat.final ? esc(t('final')) : esc(t('combat'))}</p></div><span class="turn-chip">${esc(t('turn'))} ${combat.turn}</span>${combat.final ? `<div class="boss-phase">${esc(t(combat.bossPhase === 2 ? 'bossPhaseLog' : 'helpBoss'))}</div>` : ''}</div><div class="battle-status"><div class="energy-meter"><span class="energy-label">${esc(t('energy'))}</span>${[0, 1, 2].map(index => `<span class="energy-orb ${index < combat.energy ? '' : 'empty'}">${index < combat.energy ? '◆' : ''}</span>`).join('')}</div><span class="pile-count">${esc(t('draw'))} <strong>${combat.deck.length}</strong></span><span class="pile-count">${esc(t('discard'))} <strong>${combat.discard.length}</strong></span><span class="team-mini">${state.heroes.map(hero => `<span class="team-mini-dot ${hero.hp <= 0 ? 'downed' : ''}"></span>`).join('')}</span></div>${renderBoard()}${renderCombatControls()}<section class="hand-zone"><div class="hand-heading"><h2>${esc(t('hand'))}</h2><span>${esc(t('handHelp'))}</span></div><div class="hand">${combat.hand.length ? combat.hand.map(renderCard).join('') : `<div class="empty-hand">${esc(t('emptyHand'))}</div>`}</div></section></section>${renderSidebar()}</main>`;
   }
   function renderModal() {
     if (!modal) { modalRoot.innerHTML = ''; return; }
