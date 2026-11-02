@@ -63,7 +63,7 @@ The current expedition is saved locally after every accepted game action. The sa
 
 ## Controls
 
-- Click or tap a hero/card, then a highlighted target; confirm or cancel.
+- Click or tap a hero/card, then a turquoise target. The selected destination stays gold until you confirm or cancel using the controls beside **End turn**, above the cards.
 - Click an enemy or its **i** button for its behavior and exact intent.
 - **Escape**: cancel selection or close help.
 - **Space**: end turn when the board, not another control, has focus.

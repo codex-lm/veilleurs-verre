@@ -97,7 +97,9 @@ button:disabled { cursor: not-allowed; }
 .cell.legal { border: 2px solid var(--turquoise); box-shadow: inset 0 0 0 2px rgba(246,255,251,.7), 0 0 12px rgba(67,203,185,.36); }
 .cell.legal::before { content: ''; position: absolute; z-index: 5; left: 50%; top: 50%; width: 12px; height: 12px; transform: translate(-50%,-50%) rotate(45deg); border: 2px solid var(--ink); background: var(--turquoise-light); opacity: .85; }
 .cell.legal:has(.unit)::before, .cell.legal:has(.crystal)::before { width: auto; height: auto; content: '◆'; display: grid; place-items: center; padding: 3px; color: var(--ink); background: var(--turquoise-light); font-size: 10px; }
-.cell.chosen { border: 3px solid var(--amber); box-shadow: 0 0 16px rgba(232,168,76,.6); }
+.cell.chosen { border: 3px solid var(--amber); background: linear-gradient(145deg, #fff1bd, #efc878); box-shadow: inset 0 0 0 2px var(--amber-light), 0 0 16px rgba(232,168,76,.6); }
+.selection-marker { position: absolute; z-index: 6; left: 4px; top: 4px; display: grid; place-items: center; width: 21px; height: 21px; border: 1px solid var(--amber-light); border-radius: 50%; color: var(--amber-light); background: var(--ink); font-size: 14px; font-weight: 900; pointer-events: none; }
+.cell.chosen:has(.unit) .selection-marker { top: auto; bottom: 10px; }
 .cell.obstacle { cursor: default; background: linear-gradient(145deg, #8d9187, #646e68); }
 .obstacle-shape { position: absolute; inset: 13% 10% 18%; border: 1px solid rgba(255,255,255,.25); border-radius: 5px 8px 4px 7px; background: linear-gradient(135deg, #a9aca0, #6d7770); box-shadow: 5px 7px 0 #515d58, inset 2px 2px rgba(255,255,255,.22); }
 .obstacle-shape::after { content: ''; position: absolute; inset: 20% 25%; border-left: 2px solid rgba(16,46,51,.25); transform: rotate(28deg); }
@@ -170,12 +172,17 @@ button:disabled { cursor: not-allowed; }
 .card-description { display: block; margin-top: 7px; color: var(--ink-soft); font-size: 10px; line-height: 1.35; }
 .card-level { position: absolute; right: 8px; bottom: 6px; display: flex; gap: 3px; }
 .card-level i { width: 6px; height: 6px; transform: rotate(45deg); background: var(--amber); }
-.preview-panel { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; margin-top: 12px; padding: 13px 14px; color: var(--white); border-radius: 12px; background: var(--ink); box-shadow: var(--shadow); }
+.combat-controls { position: sticky; z-index: 20; bottom: 8px; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 12px; padding: 10px; border: 1px solid rgba(16,46,51,.2); border-radius: 12px; background: var(--paper-2); box-shadow: 0 6px 18px rgba(16,46,51,.16); }
+.combat-controls.has-preview { color: var(--white); border-color: var(--turquoise); background: var(--ink); }
+.preview-panel { flex: 1 1 230px; min-width: 0; }
+.combat-actions { display: flex; align-items: stretch; justify-content: flex-end; gap: 8px; }
+.combat-actions .end-turn { margin-left: 0; }
+.combat-actions .confirm-button { color: var(--ink); background: var(--amber-light); }
+.combat-actions .confirm-button:hover { background: #ffedc5; }
+.combat-actions .cancel-button { color: var(--white); border-color: rgba(255,255,255,.45); background: transparent; }
+.combat-actions .cancel-button:hover { background: rgba(255,255,255,.12); }
 .preview-title { margin: 0 0 5px; color: var(--turquoise-light); font: 500 16px/1.2 var(--display); }
 .preview-text { color: #d4e8e4; font-size: 11px; line-height: 1.55; }
-.preview-actions { display: flex; gap: 7px; }
-.preview-actions .primary-button { color: var(--ink); background: var(--amber-light); }
-.preview-actions .secondary-button { color: var(--white); border-color: rgba(255,255,255,.3); background: transparent; }
 .empty-hand { grid-column: 1/-1; padding: 28px; color: var(--ink-soft); text-align: center; border: 1px dashed rgba(16,46,51,.25); border-radius: 12px; font-size: 12px; }
 .map-screen, .choice-screen, .ending-screen { padding: clamp(24px,4vw,54px); background: radial-gradient(circle at 90% 10%, rgba(67,203,185,.14), transparent 26rem), var(--paper); }
 .map-title, .choice-heading { text-align: center; }
@@ -341,11 +348,15 @@ button.route-node:hover { transform: translateY(-3px); border-color: var(--turqu
   .card-art svg { width: 48px; height: 48px; }
   .card-name { font-size: 14px; }
   .card-description { font-size: 9px; }
-  .preview-panel { position: sticky; z-index: 30; bottom: 6px; grid-template-columns: 1fr; gap: 8px; margin: 8px 3px; padding: 11px; }
+  .combat-controls { bottom: 6px; gap: 8px; padding: 8px; }
+  .preview-panel { flex-basis: 100%; }
   .preview-title { font-size: 14px; }
   .preview-text { font-size: 10px; }
-  .preview-actions { justify-content: flex-end; }
-  .preview-actions button { min-height: 40px; padding: 8px 14px; }
+  .combat-actions { width: 100%; gap: 5px; }
+  .combat-actions button { flex: 1; min-width: 0; min-height: 44px; padding: 8px; font-size: 12px; }
+  .combat-actions .confirm-button { flex-grow: 1.3; }
+  .combat-controls.has-preview .end-turn small { display: none; }
+  .selection-marker { left: 2px; top: 2px; width: 17px; height: 17px; font-size: 11px; }
   .map-screen, .choice-screen, .ending-screen { padding: 24px 12px; }
   .map-summary { gap: 5px; margin: 15px auto; }
   .summary-hero { min-width: 0; flex: 1; padding: 7px; gap: 4px; }
